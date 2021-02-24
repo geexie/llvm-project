@@ -137,6 +137,7 @@
 #include "llvm/Transforms/Instrumentation/ThreadSanitizer.h"
 #include "llvm/Transforms/GeexieAS/GeexieAS.h"
 #include "llvm/Transforms/GeexieCount/GeexieCount.h"
+#include "llvm/Transforms/GeexieSR/GeexieSR.h"
 #include "llvm/Transforms/ObjCARC.h"
 #include "llvm/Transforms/Scalar/ADCE.h"
 #include "llvm/Transforms/Scalar/AlignmentFromAssumptions.h"

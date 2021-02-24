@@ -19,6 +19,7 @@ add_llvm_component_library(LLVMPasses
   InstCombine
   GeexieCount
   GeexieAS
+  GeexieSR
   ObjCARC
   Scalar
   Support
