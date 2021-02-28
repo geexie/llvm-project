@@ -19,6 +19,15 @@
 using namespace llvm;
 
 // Example pass which makes algebraic simplification y = x + 0.f -> x
+// Ex:
+// ```
+// ; Function Attrs: noinline nounwind ssp uwtable
+// define dso_local float @foo(float %x) #0 {
+// entry:
+//   %add = fadd float %x, 0.000000e+00
+//   ret float %add
+// }
+// ```
 PreservedAnalyses GeexieASPass::run(Function &F,
                                       FunctionAnalysisManager &AM) {
   auto pa = PreservedAnalyses::all();
@@ -37,10 +46,23 @@ PreservedAnalyses GeexieASPass::run(Function &F,
   }
 
   // remove redundant operations
+  // original IR
+  // entry:
+  //   t0 = x + 0.f
+  //   ret t0
   while (!wark_set.empty()) {
-    auto BO = wark_set.pop_back_val();
-    BO->replaceAllUsesWith(BO->getOperand(0));
+    // replace uses of instruction intended to be removed
+    auto BO = wark_set.pop_back_val(); // pops `t0 = x + 0.f` instruction
+    BO->replaceAllUsesWith(BO->getOperand(0)); // replace all references to `t0 = x + 0.f` with `x`
+    // modified IR
+    // entry:
+    //   t0 = x + 0.f
+    //   ret x
+    // erase `t0 = x + 0.f` as its result is not used anymore
     BO->eraseFromParent();
+    // modified IR
+    // entry:
+    //   ret x
   }
 
   // preserve analysis iff none of instruction is removed

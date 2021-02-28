@@ -13,8 +13,6 @@
 
 namespace llvm {
 
-class LPMUpdater;
-
 class GeexieCountPass : public PassInfoMixin<GeexieCountPass> {
 public:
   PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
