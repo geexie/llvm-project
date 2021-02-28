@@ -21,6 +21,7 @@ add_llvm_component_library(LLVMPasses
   GeexieAS
   GeexiePhi
   GeexieSR
+  GeexieVec
   ObjCARC
   Scalar
   Support

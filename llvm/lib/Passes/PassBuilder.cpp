@@ -139,6 +139,7 @@
 #include "llvm/Transforms/GeexieCount/GeexieCount.h"
 #include "llvm/Transforms/GeexiePhi/GeexiePhi.h"
 #include "llvm/Transforms/GeexieSR/GeexieSR.h"
+#include "llvm/Transforms/GeexieVec/GeexieVec.h"
 #include "llvm/Transforms/ObjCARC.h"
 #include "llvm/Transforms/Scalar/ADCE.h"
 #include "llvm/Transforms/Scalar/AlignmentFromAssumptions.h"
