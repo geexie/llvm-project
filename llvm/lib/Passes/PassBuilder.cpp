@@ -237,6 +237,7 @@
 #include "llvm/Transforms/Vectorize/LoopVectorize.h"
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
+#include "llvm/Transforms/ErmolaevPass/ErmolaevPass.h"
 
 using namespace llvm;
 
@@ -1539,17 +1540,8 @@ ModulePassManager PassBuilder::buildThinLTODefaultPipeline(
     MPM.addPass(LowerTypeTestsPass(nullptr, ImportSummary));
   }
 
-  if (Level == OptimizationLevel::O0) {
-    // Run a second time to clean up any type tests left behind by WPD for use
-    // in ICP.
-    MPM.addPass(LowerTypeTestsPass(nullptr, nullptr, true));
-    // Drop available_externally and unreferenced globals. This is necessary
-    // with ThinLTO in order to avoid leaving undefined references to dead
-    // globals in the object file.
-    MPM.addPass(EliminateAvailableExternallyPass());
-    MPM.addPass(GlobalDCEPass());
+  if (Level == OptimizationLevel::O0)
     return MPM;
-  }
 
   // Force any function attributes we want the rest of the pipeline to observe.
   MPM.addPass(ForceFunctionAttrsPass());
