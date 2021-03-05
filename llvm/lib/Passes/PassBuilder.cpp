@@ -238,6 +238,8 @@
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
 
+#include "llvm/Transforms/KMLab1Pass/KMLab1Pass.h"
+
 using namespace llvm;
 
 extern cl::opt<unsigned> MaxDevirtIterations;
