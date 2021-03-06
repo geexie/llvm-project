@@ -18,6 +18,7 @@ add_llvm_component_library(LLVMPasses
   IPO
   InstCombine
   ObjCARC
+  TsyplakovCounter
   Scalar
   Support
   Target
