@@ -18,7 +18,7 @@ STATISTIC(addOperationCount, "Number of add operations");
 
 namespace llvm {
 
-  class PTsyplakovCount : public PassInfoMixin<PTsyplakovCount> {
+  class TsyplakovCounter : public PassInfoMixin<TsyplakovCounter> {
   public:
     PreservedAnalyses run(Function& F, FunctionAnalysisManager& AM);
     static bool isRequired() { return true; }
