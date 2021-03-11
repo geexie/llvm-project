@@ -8,12 +8,20 @@
 
 using namespace llvm;
 
-namespace {
-    struct akUdachinaPass : public PassInfoMixin<akUdachinaPass> {
-    public:
-        PreservedAnalyses run(Function& F, FunctionAnalysisManager& AM);
-        static bool isRequired() {
-            return true;
-        }
-    }
+STATISTIC(totalDef, "Number of Function definitions");
+STATISTIC(totalLoops, "Number of Loops");
+STATISTIC(totalBlocks, "Number of Basic blocks");
+STATISTIC(totalAdd, "Number of Add instructions");
+STATISTIC(totalMul, "Number of Mul instructions");
+
+
+namespace llvm {
+
+class akUdachinaPass : public PassInfoMixin<akUdachinaPass> {
+public:
+  PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
+
+  static bool isRequired() { return true; }
+
+};
 }
