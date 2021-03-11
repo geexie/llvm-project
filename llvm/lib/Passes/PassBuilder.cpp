@@ -238,6 +238,7 @@
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
 #include "llvm/Transforms/Strakhovcounter/Strakhovcounter.h"
+#include "llvm/Transforms/Strakhov2/Strakhov2.h"
 
 using namespace llvm;
 
