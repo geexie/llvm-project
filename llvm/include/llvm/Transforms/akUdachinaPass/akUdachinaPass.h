@@ -8,6 +8,7 @@
 
 using namespace llvm;
 
+<<<<<<< HEAD
 STATISTIC(totalDef, "Number of Function definitions");
 STATISTIC(totalLoops, "Number of Loops");
 STATISTIC(totalBlocks, "Number of Basic blocks");
@@ -24,4 +25,14 @@ public:
   static bool isRequired() { return true; }
 
 };
+=======
+namespace {
+    struct akUdachinaPass : public PassInfoMixin<akUdachinaPass> {
+    public:
+        PreservedAnalyses run(Function& F, FunctionAnalysisManager& AM);
+        static bool isRequired() {
+            return true;
+        }
+    }
+>>>>>>> 55bcae4089c83552e7635dd3ae3e7b0328a63468
 }
