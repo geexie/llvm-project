@@ -5,6 +5,12 @@
 #include "llvm/Analysis/LoopInfo.h"
 #include "llvm/IR/Instruction.h"
 
+#include "llvm/ADT/SmallVector.h"
+#include "llvm/IR/InstIterator.h"
+#include "llvm/IR/IntrinsicInst.h"
+#include "llvm/IR/Intrinsics.h"
+#include "llvm/IR/IRBuilder.h"
+
 namespace llvm {
 
 class pvi : public PassInfoMixin<pvi> {
