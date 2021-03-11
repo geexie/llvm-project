@@ -70,6 +70,7 @@
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/Transforms/akUdachinaPass/akUdachinaPass.h"
+#include "llvm/Transforms/akUdachinaPass2/akUdachinaPass2.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
 #include "llvm/IR/PrintPasses.h"
