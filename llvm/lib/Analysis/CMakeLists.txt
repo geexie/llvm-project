@@ -1,7 +1,7 @@
 if (DEFINED LLVM_HAVE_TF_AOT OR DEFINED LLVM_HAVE_TF_API)
   if (DEFINED LLVM_HAVE_TF_AOT)
-    set(LLVM_INLINER_MODEL_PATH "models/inliner" 
-      CACHE STRING 
+    set(LLVM_INLINER_MODEL_PATH "models/inliner"
+      CACHE STRING
       "ML-driven inliner policy location (path to saved model)")
     include(TensorFlowCompile)
     tfcompile(${LLVM_INLINER_MODEL_PATH} serve action InlinerSizeModel llvm::InlinerSizeModel)
@@ -55,6 +55,8 @@ add_llvm_component_library(LLVMAnalysis
   DominanceFrontier.cpp
   EHPersonalities.cpp
   FunctionPropertiesAnalysis.cpp
+  GeexieFunctionAnalysis.cpp
+  GeexieLoopAnalysis.cpp
   GlobalsModRef.cpp
   GuardUtils.cpp
   HeatUtils.cpp

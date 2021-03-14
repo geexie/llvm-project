@@ -7,11 +7,18 @@
 //===----------------------------------------------------------------------===//
 
 #include "llvm/Transforms/GeexieCount/GeexieCount.h"
+#include "llvm/Analysis/FunctionPropertiesAnalysis.h"
+#include "llvm/Analysis/GeexieFunctionAnalysis.h"
+#include "llvm/Analysis/LoopAnalysisManager.h"
 
-#include "llvm/Analysis/LoopInfo.h"
-#include "llvm/IR/InstIterator.h"
-
-#include <set>
+// for loop analysis
+#include "llvm/Analysis/GeexieLoopAnalysis.h"
+#include "llvm/Analysis/AliasAnalysis.h"
+#include "llvm/Analysis/AssumptionCache.h"
+#include "llvm/Analysis/ScalarEvolution.h"
+#include "llvm/IR/Dominators.h"
+#include "llvm/Analysis/TargetLibraryInfo.h"
+#include "llvm/Analysis/TargetTransformInfo.h"
 
 #define DEBUG_TYPE "geexie-count"
 #include "llvm/ADT/Statistic.h"
@@ -23,45 +30,51 @@ STATISTIC(TotalBBs, "Number of basic blocks");
 STATISTIC(TotalLoops, "Number of loops");
 STATISTIC(TotalMulAndAdds, "Number of multiply and add instructions");
 STATISTIC(TotalPhis, "Number of Phi instructions");
+STATISTIC(TotalLoopsVectorizableIV, "Number of intermost loops in a canonical form with a single induction variable update");
 
-void handleLoop(Loop *L) {
-  TotalLoops++;
+static void handleLoop(Loop *L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
+  if (L->isInnermost()) {
+    auto& GLA = LAM.getResult<GeexieLoopAnalysis>(*L, AR);
+    if (GLA.InvUpdatesCount == 1) {
+      TotalLoopsVectorizableIV++;
+    }
+  }
+
   for (Loop *SL : L->getSubLoops()) {
-    handleLoop(SL);
+    handleLoop(SL, LAM, AR);
   }
 }
 
-PreservedAnalyses GeexieCountPass::run(Function &F,
-                                      FunctionAnalysisManager &AM) {
+PreservedAnalyses GeexieCountPass::run(Function &F, FunctionAnalysisManager &AM) {
   // count functions
   TotalFuncs++;
 
-  // count basic blocks within a function
-  for (auto BB = F.begin(); BB != F.end(); ++BB) {
-    TotalBBs++;
+  // get standart function properties and print them to error stream
+  // auto& FP = AM.getResult<FunctionPropertiesAnalysis>(F);
+  // FP.print(errs());
 
-    // count specific instructions within a basic block
-    for (auto I = BB->begin(); I != BB->end(); ++I) {
-      std::set<decltype(I->getOpcode())> ioi = {Instruction::Add, Instruction::FAdd, Instruction::Mul, Instruction::FMul};
-      if (isa<BinaryOperator>(*I)) {
-        if (!!ioi.count(I->getOpcode())) {
-          TotalMulAndAdds++;
-        }
-      }
-    }
-  }
+  // get custom analysis
+  auto& GFP = AM.getResult<GeexieFunctionAnalysis>(F);
 
-  // count loops within a function
+  // append analysis to total counts
+  TotalBBs += GFP.BBsCount;
+  TotalMulAndAdds += GFP.MulAndAddsCount;
+  TotalPhis += GFP.PhisCount;
+  TotalLoops += GFP.LoopsCount;
+
+    // // count loops within a function
   auto& LI = AM.getResult<LoopAnalysis>(F);
-  for (auto& L : LI) {
-    handleLoop(L);
-  }
+  auto &LAM = AM.getResult<LoopAnalysisManagerFunctionProxy>(F).getManager();
 
-  // count Phi-nodes over all instructions in a block
-  for (auto& I : instructions(F)) {
-    if (isa<PHINode>(&I)) {
-      TotalPhis++;
-    }
+  auto &AA = AM.getResult<AAManager>(F);
+  auto &AC = AM.getResult<AssumptionAnalysis>(F);
+  auto &DT = AM.getResult<DominatorTreeAnalysis>(F);
+  auto &SE = AM.getResult<ScalarEvolutionAnalysis>(F);
+  auto &TLI = AM.getResult<TargetLibraryAnalysis>(F);
+  auto &TTI = AM.getResult<TargetIRAnalysis>(F);
+  LoopStandardAnalysisResults AR = {AA, AC, DT, LI, SE, TLI, TTI, nullptr, nullptr};
+  for (auto& L : LI) {
+    handleLoop(L, LAM, AR);
   }
 
   return PreservedAnalyses::all();

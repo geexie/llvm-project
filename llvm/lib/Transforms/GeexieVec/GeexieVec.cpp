@@ -27,20 +27,13 @@ using namespace llvm;
 Value* vectorizeValue(Value* val, int VECTOR_SIZE, PHINode* indVar) {
   if (auto* constant = dyn_cast<ConstantData>(val)) {
     return ConstantDataVector::getSplat(VECTOR_SIZE, constant);
-
   } else if (auto* inst = dyn_cast<Instruction>(val)) {
     IRBuilder<> builder(inst);
     Value* initVec;
-
     if (auto* intType = dyn_cast<IntegerType>(inst->getType())) {
-      initVec =
-          ConstantDataVector::getSplat(VECTOR_SIZE,
-              ConstantInt::get(intType, 0));
-
+      initVec = ConstantDataVector::getSplat(VECTOR_SIZE, ConstantInt::get(intType, 0));
     } else {
-      initVec =
-          ConstantDataVector::getSplat(VECTOR_SIZE,
-              ConstantFP::get(val->getType(), 0.0));
+      initVec = ConstantDataVector::getSplat(VECTOR_SIZE, ConstantFP::get(val->getType(), 0.0));
     }
 
     builder.SetInsertPoint(inst->getNextNode());
@@ -71,10 +64,6 @@ Value* vectorizeValue(Value* val, int VECTOR_SIZE, PHINode* indVar) {
 }
 
 bool handleLoopVec(Loop *L) {
-  // look for intermost loop
-  // for (Loop *SL : L->getSubLoops()) {
-  //   handleLoop(SL);
-  // }
   int VECTOR_SIZE = 4;
   errs() << "name: " << L->getName() << "\n";
 
@@ -186,11 +175,7 @@ bool handleLoopVec(Loop *L) {
   errs() << "hasCrossIterationDependencies = " << hasCrossIterationDependencies << "\n";
   if (hasCrossIterationDependencies) return false;
 
-  bool isVectorizable =
-      hasVectorizableLoopBound
-      && hasLoopUpdate
-      && !hasCrossIterationDependencies;
-
+  bool isVectorizable = hasVectorizableLoopBound && hasLoopUpdate && !hasCrossIterationDependencies;
   errs() << "vectorizable? " << isVectorizable << "\n";
 
   // vectorize!
@@ -219,7 +204,7 @@ bool handleLoopVec(Loop *L) {
               Type* arrIndType =
                   PointerType::getUnqual(
                       VectorType::get(elementPtrType->getElementType(),
-                          unsigned(VECTOR_SIZE), false));
+                          unsigned(VECTOR_SIZE), false)); // FIXME: use something like 128/32
               Value* arrayIndVec = builder.CreateBitCast(gep, arrIndType);
               valmap.insert(std::pair<Value*,Value*>(gep,arrayIndVec));
             }
@@ -263,7 +248,6 @@ bool handleLoopVec(Loop *L) {
     // finally, update inductive variable stride to be VECTOR_SIZE
     if (indVarUpdate->getOperand(0) == indVar) {
       indVarUpdate->setOperand(1, ConstantInt::get(indVar->getType(), VECTOR_SIZE));
-
     } else {
       indVarUpdate->setOperand(0, ConstantInt::get(indVar->getType(), VECTOR_SIZE));
     }
@@ -272,13 +256,31 @@ bool handleLoopVec(Loop *L) {
   return isVectorizable;
 }
 
+static void collectIntermostLoops(Loop &L, SmallVectorImpl<Loop *> &V) {
+  if (L.isInnermost()) {
+    V.push_back(&L);
+    return;
+  }
+  for (Loop *InnerL : L)
+    collectIntermostLoops(*InnerL, V);
+}
+
+// Naive loop vectorize. Asumes:
+// 1. Loops are not explicitly vectorized
+// 1. Supports only constant trip count
 PreservedAnalyses GeexieVecPass::run(Function &F,
                                       FunctionAnalysisManager &AM) {
-  errs() << "running vec pass\n";
   auto pa = PreservedAnalyses::all();
+  SmallVector<Loop*, 16> work_set;
+  for (auto& L : AM.getResult<LoopAnalysis>(F)) {
+    collectIntermostLoops(*L, work_set);
+  }
+
+  errs() << "running vec pass " << work_set.size() << " \n";
 
   bool vectorized = false;
-  for (auto& L : AM.getResult<LoopAnalysis>(F)) {
+  while (!work_set.empty()) {
+    auto L = work_set.pop_back_val();
     vectorized |= handleLoopVec(L);
   }
 
