@@ -46,7 +46,7 @@ Value* vectorizeValue(Value* val, int VECTOR_SIZE, PHINode* indVar) {
     // vector of inductive variables has to have its stride
     if (val == indVar) {
       std::vector<uint64_t> strides;
-      for (uint64_t i = 0; i < VECTOR_SIZE; i++) {
+      for (uint64_t i = 0; i < (uint64_t)VECTOR_SIZE; i++) {
         strides.push_back(i);
       }
 
@@ -63,77 +63,80 @@ Value* vectorizeValue(Value* val, int VECTOR_SIZE, PHINode* indVar) {
   return NULL;
 }
 
-bool handleLoopVec(Loop *L) {
+PreservedAnalyses handleLoopVec(Loop *L) {
   int VECTOR_SIZE = 4;
   errs() << "name: " << L->getName() << "\n";
 
-  PHINode* indVar = L->getCanonicalInductionVariable();
-  BinaryOperator* indVarUpdate = NULL;
-  ICmpInst* cmp = NULL;
-
-  // check loop bound and see if it is divisible by VECTOR_SIZE
-  bool hasVectorizableLoopBound = false;
-  if (BasicBlock* latchBlock = L->getExitingBlock()) {
-    for (auto& lbInst : *latchBlock) {
+  auto indVar = L->getCanonicalInductionVariable();
+  auto getExitingConditional = [](Loop *L) -> ICmpInst* {
+    if (BasicBlock* latchBlock = L->getExitingBlock()) {
+      Instruction& lbInst = *latchBlock->rbegin();
       if (auto* exitingBranch = dyn_cast<BranchInst>(&lbInst)) {
         // branch must have a condition (which sets the loop bound)
         if (exitingBranch->isConditional()) {
-          if (cmp = dyn_cast<ICmpInst>(exitingBranch->getCondition())) {
-            Value* op1 = cmp->getOperand(0);
-            Value* op2 = cmp->getOperand(1);
-            Value* loopBound = op1 == indVar ? op2 : (op2 == indVar ? op1 : NULL);
-
-            // loop bound must be a constant. otherwise we can't vectorize
-            if (loopBound != NULL) {
-              if (auto* loopBoundConst = dyn_cast<ConstantInt>(loopBound)) {
-                int64_t intBound = loopBoundConst->getSExtValue();
-                hasVectorizableLoopBound = intBound % VECTOR_SIZE == 0;
-              }
-            } else {
-              errs() << "no loop bound found!\n";
-            }
-          }
+          return dyn_cast<ICmpInst>(exitingBranch->getCondition());
         }
       }
     }
-  }
-
-  errs() << "hasVectorizableLoopBound = " << hasVectorizableLoopBound << "\n";
-
-  if (!hasVectorizableLoopBound) return false;
-
+    return nullptr;
+  };
   // find indvar update instruction
-  // dont vectorize unless we find an update instruction
-  bool hasLoopUpdate = false;
-  for (auto i = 0; i < indVar->getNumIncomingValues(); i++) {
-    Value* incomingVal = indVar->getIncomingValue(i);
-
-    if (auto* binOp = dyn_cast<BinaryOperator>(incomingVal)) {
-      bool isIndVarOp = binOp->getOperand(0) == indVar || binOp->getOperand(1) == indVar;
-
-      if (isIndVarOp && indVarUpdate == NULL) {
-        indVarUpdate = binOp;
-        hasLoopUpdate = true;
-
-      // multiple updates to the indvar is not allowed!
-      } else if (isIndVarOp && indVarUpdate != NULL) {
-        errs() << "HAS LOOP UPDATE\n";
-        hasLoopUpdate = false;
+  auto getIVUpdate = [](PHINode* indVar) -> BinaryOperator* {
+    SmallVector<BinaryOperator*, 16> updates;
+    for (unsigned int i = 0; i < indVar->getNumIncomingValues(); i++) {
+      if (auto* binOp = dyn_cast<BinaryOperator>(indVar->getIncomingValue(i))) {
+        if (binOp->getOperand(0) == indVar || binOp->getOperand(1) == indVar) {
+          updates.push_back(binOp);
+        }
       }
     }
+    return (updates.size() == 1) ? updates.pop_back_val() : nullptr;
+  };
+  auto getLoopBound = [](PHINode* indVar, ICmpInst* cmp) -> Value* {
+    if (cmp != nullptr && indVar != nullptr) {
+      Value* op1 = cmp->getOperand(0);
+      Value* op2 = cmp->getOperand(1);
+      return (op1 == indVar) ? op2 : (op2 == indVar ? op1 : nullptr);
+    }
+    return nullptr;
+  };
+
+  ICmpInst* cmp = getExitingConditional(L);
+  Value* loopBound = getLoopBound(indVar, cmp);
+  BinaryOperator* indVarUpdate = getIVUpdate(indVar);
+
+  if (indVarUpdate == nullptr) {
+    errs() << "update for induction variable is not found\n";
+    return PreservedAnalyses::all();
   }
 
-  errs() << "hasLoopUpdate = " << hasLoopUpdate << "\n";
-  if (!hasLoopUpdate) return false;
+  if (loopBound == nullptr) {
+    errs() << "loop bound cannot be determined\n";
+    return PreservedAnalyses::all();
+  }
+
+  if (cmp == nullptr) {
+    errs() << "cmp for induction variable is not found\n";
+    return PreservedAnalyses::all();
+  }
+
+  // check loop bound and see if it is divisible by VECTOR_SIZE
+  // loop bound must be a constant. otherwise we can't vectorize
+  bool hasVectorizableLoopBound = false;
+  if (auto* loopBoundConst = dyn_cast<ConstantInt>(loopBound)) {
+    hasVectorizableLoopBound = loopBoundConst->getSExtValue() % VECTOR_SIZE == 0;
+  }
+
+  if (!hasVectorizableLoopBound) {
+    errs() << "loop bound is not vectorizable\n";
+    return PreservedAnalyses::all();
+  }
 
   // check that all instructions in the body are vectorizable
-  bool hasCrossIterationDependencies = false;
   std::set<Value*> vectorizedSet;
   for (auto &B : L->getBlocks()) {
     for (auto &I : *B) {
       errs() << I << "\n";
-      if (hasCrossIterationDependencies) break;
-
       if (&I == cmp || &I == indVar || &I == indVarUpdate) {
 
       // approximate checking for cross-iteration dependencies by
@@ -142,44 +145,33 @@ bool handleLoopVec(Loop *L) {
         for (auto& index : gep->indices()) {
           if (index != indVar && !L->isLoopInvariant(index)) {
             errs() << "cross gep! index: " << *index << "\n";
-            hasCrossIterationDependencies = true;
+            return PreservedAnalyses::all();
           }
         }
-
         vectorizedSet.insert(gep);
-
       } else if (auto* branch = dyn_cast<BranchInst>(&I)) {
         if (branch->isConditional()) {
           if (L->isLoopInvariant(branch->getCondition())) {
             errs() << "cross gep!" << "\n";
-            hasCrossIterationDependencies = true;
+            return PreservedAnalyses::all();
           }
         }
-
       } else {
-        for (auto i = 0; i < I.getNumOperands(); i ++) {
+        for (unsigned int i = 0; i < I.getNumOperands(); i ++) {
           Value* operand = I.getOperand(i);
-          if (vectorizedSet.count(operand) == 0
-              && !L->isLoopInvariant(operand)
-              && operand != indVar) {
+          if (vectorizedSet.count(operand) == 0 && !L->isLoopInvariant(operand) && operand != indVar) {
             errs() << "cross gep #2!" << "\n";
-            hasCrossIterationDependencies = true;
+            return PreservedAnalyses::all();
           }
         }
-
         vectorizedSet.insert(&I);
       }
     }
   }
 
-  errs() << "hasCrossIterationDependencies = " << hasCrossIterationDependencies << "\n";
-  if (hasCrossIterationDependencies) return false;
+  errs() << "VECTORIZE!!!!!\n";
 
-  bool isVectorizable = hasVectorizableLoopBound && hasLoopUpdate && !hasCrossIterationDependencies;
-  errs() << "vectorizable? " << isVectorizable << "\n";
-
-  // vectorize!
-  if (isVectorizable) {
+  if (true) {
     // maintain a map of vectorized instructions
     // if an instruction reads a vectorized instruction,
     // it is also vectorized
@@ -216,7 +208,7 @@ bool handleLoopVec(Loop *L) {
                 || dyn_cast<LoadInst>(&I) != NULL
                 || dyn_cast<StoreInst>(&I) != NULL) {
 
-          for (auto i = 0; i < I.getNumOperands(); i++) {
+          for (unsigned int i = 0; i < I.getNumOperands(); i++) {
             Value* operand = I.getOperand(i);
             std::map<Value*,Value*>::iterator it = valmap.find(operand);
 
@@ -253,14 +245,17 @@ bool handleLoopVec(Loop *L) {
     }
   }
 
-  return isVectorizable;
+  return PreservedAnalyses::none();;
 }
 
 static void collectIntermostLoops(Loop &L, SmallVectorImpl<Loop *> &V) {
   if (L.isInnermost()) {
-    V.push_back(&L);
+    if (!!L.getCanonicalInductionVariable()) {
+      V.push_back(&L);
+    }
     return;
   }
+
   for (Loop *InnerL : L)
     collectIntermostLoops(*InnerL, V);
 }
@@ -268,9 +263,9 @@ static void collectIntermostLoops(Loop &L, SmallVectorImpl<Loop *> &V) {
 // Naive loop vectorize. Asumes:
 // 1. Loops are not explicitly vectorized
 // 1. Supports only constant trip count
-PreservedAnalyses GeexieVecPass::run(Function &F,
-                                      FunctionAnalysisManager &AM) {
+PreservedAnalyses GeexieVecPass::run(Function &F, FunctionAnalysisManager &AM) {
   auto pa = PreservedAnalyses::all();
+
   SmallVector<Loop*, 16> work_set;
   for (auto& L : AM.getResult<LoopAnalysis>(F)) {
     collectIntermostLoops(*L, work_set);
@@ -278,14 +273,10 @@ PreservedAnalyses GeexieVecPass::run(Function &F,
 
   errs() << "running vec pass " << work_set.size() << " \n";
 
-  bool vectorized = false;
   while (!work_set.empty()) {
     auto L = work_set.pop_back_val();
-    vectorized |= handleLoopVec(L);
+    pa.intersect(handleLoopVec(L));
   }
-
-  if (vectorized)
-    pa = PreservedAnalyses::none();
 
   return pa;
 }
