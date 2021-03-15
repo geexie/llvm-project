@@ -1,8 +1,3 @@
-#ifndef LLVM_TRANSFORMS_TSYPLAKOVCOUNTER_TSYPLAKOVCOUNTER_H
-#define LLVM_TRANSFORMS_TSYPLAKOVCOUNTER_TSYPLAKOVCOUNTER_H
-
-#define DEBUG_TYPE "TsyplakovCounter"
-
 #include "llvm/IR/PassManager.h"
 #include "llvm/ADT/Statistic.h"
 #include "llvm/Analysis/LoopInfo.h"

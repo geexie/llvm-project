@@ -1,3 +1,8 @@
+#ifndef LLVM_TRANSFORMS_TSYPLAKOVCOUNTER_TSYPLAKOVCOUNTER_H
+#define LLVM_TRANSFORMS_TSYPLAKOVCOUNTER_TSYPLAKOVCOUNTER_H
+
+#define DEBUG_TYPE "TsyplakovCounter"
+
 #include "llvm/Transforms/TsyplakovCounter/TsyplakovCounter.h"
 
 using namespace llvm;
