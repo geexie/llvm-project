@@ -22,7 +22,11 @@ Expr* Parser::parseExpr() {
     Expr *op1 = parseExpr();
     Expr *op2 = parseExpr();
     return new MulExpr(op1, op2);
+  } else if (tk[0] == '^') {
+    Expr *op1 = parseExpr();
+    Expr *op2 = parseExpr();
+    return new PowExpr(op1, op2);
   } else {
-    return NULL;
+    return nullptr;
   }
 }

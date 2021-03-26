@@ -63,7 +63,7 @@ llvm::Function *createLambdaFunction( llvm::Module *module, llvm::LLVMContext &c
   Lexer lexer;
   Parser parser(&lexer);
   Expr* expr = parser.parseExpr();
-  llvm::Value* retVal = expr->gen(&builder, context);
+  llvm::Value* retVal = expr->gen(&builder, module, context);
   builder.CreateRet(retVal);
 
   return function;

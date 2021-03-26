@@ -6,13 +6,13 @@
 class Expr {
 public:
   virtual ~Expr() {}
-  virtual llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::LLVMContext& con) const = 0;
+  virtual llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::Module *mod, llvm::LLVMContext& con) const = 0;
 };
 
 class NumExpr : public Expr {
 public:
   NumExpr(int argNum) : num(argNum) {}
-  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::LLVMContext& con) const;
+  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::Module *mod, llvm::LLVMContext& con) const;
   static const unsigned int SIZE_INT = 32;
 
 private:
@@ -21,14 +21,14 @@ private:
 
 class VarExpr : public Expr {
 public:
-  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::LLVMContext& con) const;
+  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::Module *mod, llvm::LLVMContext& con) const;
   static llvm::Value* varValue;
 };
 
 class AddExpr : public Expr {
 public:
   AddExpr(Expr* op1Arg, Expr* op2Arg) : op1(op1Arg), op2(op2Arg) {}
-  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::LLVMContext& con) const;
+  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::Module *mod, llvm::LLVMContext& con) const;
 
 private:
   const Expr* op1;
@@ -38,12 +38,22 @@ private:
 class MulExpr : public Expr {
 public:
   MulExpr(Expr* op1Arg, Expr* op2Arg) : op1(op1Arg), op2(op2Arg) {}
-  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::LLVMContext& con) const;
+  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::Module *mod, llvm::LLVMContext& con) const;
 
 private:
   const Expr* op1;
   const Expr* op2;
 };
 
+// ^ operator
+class PowExpr : public Expr {
+public:
+  PowExpr(Expr* op1Arg, Expr* op2Arg) : op1(op1Arg), op2(op2Arg) {}
+  llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::Module *mod, llvm::LLVMContext& con) const;
+
+private:
+  const Expr* op1;
+  const Expr* op2;
+};
 
 #endif // AST_HPP
