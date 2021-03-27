@@ -52,6 +52,8 @@ add_llvm_component_library(LLVMAnalysis
   DominanceFrontier.cpp
   EHPersonalities.cpp
   FunctionPropertiesAnalysis.cpp
+  KorkunovAnalysisPass.cpp
+  KorkunovLoopAnalysis.cpp
   GlobalsModRef.cpp
   GuardUtils.cpp
   HeatUtils.cpp
