@@ -20,6 +20,7 @@ add_llvm_component_library(LLVMPasses
   ObjCARC
   Scalar
   Support
+  solovevaPass
   Target
   TransformUtils
   Vectorize
