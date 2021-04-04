@@ -32,7 +32,7 @@ void check_innermost_loop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysi
     TotalLoops++;   
     if (L->isInnermost()) {
         auto& LA = LAM.getResult<MelnikovLab3LoopAnalysis>(*L, LSAR);
-        if (LA.IVUpdatesCount == 1){ // why the fuck doesn't this shit count
+        if (LA.IVUpdatesCount == 1){ 
            TotalVectorizableLoops++; 
         }
         errs() << "---IVUpdatesCount: " << LA.IVUpdatesCount << "---\n";
