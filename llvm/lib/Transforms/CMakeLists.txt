@@ -38,8 +38,12 @@ add_subdirectory(BaturinaPass)
 add_subdirectory(VokhmyaninaCounter)
 add_subdirectory(CountPass)
 add_subdirectory(MoiseevPass2)
+<<<<<<< HEAD
 add_subdirectory(VolokhSecondPass)
 add_subdirectory(KatyaMalyshevaLab1Pass)
 add_subdirectory(KatyaMalyshevaLab2Pass)
 add_subdirectory(CounterPass)
 add_subdirectory(VoronovaLab2)
+=======
+add_subdirectory(MoiseevPass3)
+>>>>>>> parent of 81214e9c4236 (Revert "lab3")

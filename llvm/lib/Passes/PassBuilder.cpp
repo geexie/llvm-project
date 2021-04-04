@@ -68,6 +68,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/MoiseevAnalysis.h"
+#include "llvm/Analysis/MoiseevLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -265,7 +267,12 @@
 #include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
 #include "llvm/Transforms/MoiseevPass2/MoiseevPass2.h"
+<<<<<<< HEAD
 #include "llvm/Transforms/VolokhSecondPass/VolokhSecondPass.h"
+=======
+#include "llvm/Transforms/MoiseevPass3/MoiseevPass3.h"
+
+>>>>>>> parent of 81214e9c4236 (Revert "lab3")
 
 #include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h" // lab1 pass
 #include "llvm/Transforms/MelnikovLab2Pass/MelnikovLab2Pass.h"
