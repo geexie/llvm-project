@@ -173,6 +173,7 @@ FUNCTION_ANALYSIS("targetir",
 FUNCTION_ANALYSIS("verify", VerifierAnalysis())
 FUNCTION_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
+FUNCTION_ANALYSIS("BaturinaAnalysis", BaturinaAnalysis())
 
 #ifndef FUNCTION_ALIAS_ANALYSIS
 #define FUNCTION_ALIAS_ANALYSIS(NAME, CREATE_PASS)                             \
@@ -226,6 +227,7 @@ FUNCTION_PASS("gvn-sink", GVNSinkPass())
 FUNCTION_PASS("helloworld", HelloWorldPass())
 FUNCTION_PASS("baturinapass", BaturinaPass())
 FUNCTION_PASS("baturinapass2", BaturinaPass2())
+FUNCTION_PASS("baturinapass3", BaturinaPass3())
 FUNCTION_PASS("pankratovaPass", PankratovaPass())
 FUNCTION_PASS("pankratovaASPass", PankratovaASPass())
 FUNCTION_PASS("Selivanovskaya_lab2", Selivanovskaya_lab2())
@@ -427,6 +429,7 @@ LOOP_ANALYSIS("access-info", LoopAccessAnalysis())
 LOOP_ANALYSIS("ddg", DDGAnalysis())
 LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+LOOP_ANALYSIS("BaturinaLoopAnalysis", BaturinaLoopAnalysis())
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS
