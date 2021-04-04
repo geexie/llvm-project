@@ -241,6 +241,10 @@
 #include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h" // lab1 pass
 #include "llvm/Transforms/MelnikovLab2Pass/MelnikovLab2Pass.h"
 
+#include "llvm/Transforms/MelnikovLab3Pass/MelnikovLab3Pass.h"
+#include "llvm/Analysis/MelnikovLab3FunctionAnalysis.h"
+#include "llvm/Analysis/MelnikovLab3LoopAnalysis.h"
+
 using namespace llvm;
 
 extern cl::opt<unsigned> MaxDevirtIterations;

@@ -28,4 +28,5 @@ add_llvm_component_library(LLVMPasses
 
   MelnikovLab1pass
   MelnikovLab2pass
+  MelnikovLab3pass
   )
