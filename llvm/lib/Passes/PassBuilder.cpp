@@ -244,6 +244,9 @@
 #include "llvm/Transforms/VolokhPass/VolokhPass.h"
 #include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
+#include "llvm/Transforms/Bogoroditskaya3/Bogoroditskaya3.h"
+#include "llvm/Analysis/BogoroditskayaFunctionAnalysis.h"
+#include "llvm/Analysis/BogoroditskayaLoopAnalysis.h"
 
 using namespace llvm;
 
