@@ -1,6 +1,7 @@
 add_subdirectory(Utils)
 add_subdirectory(Bogoroditskaya)
 add_subdirectory(Bogoroditskaya2)
+add_subdirectory(Bogoroditskaya3)
 add_subdirectory(idoroshenkoPass)
 add_subdirectory(Instrumentation)
 add_subdirectory(AggressiveInstCombine)
