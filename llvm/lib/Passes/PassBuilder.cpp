@@ -68,6 +68,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/VokhmyaninaAnalysis.h"
+#include "llvm/Analysis/VokhmyaninaLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -239,6 +241,7 @@
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
 #include "llvm/Transforms/VokhmyaninaLab2/VokhmyaninaLab2.h"
+#include "llvm/Transforms/VokhmyaninaLab3/VokhmyaninaLab3.h"
 
 using namespace llvm;
 

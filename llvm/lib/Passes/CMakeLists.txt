@@ -26,4 +26,5 @@ add_llvm_component_library(LLVMPasses
   Instrumentation
   VokhmyaninaCounter
   VokhmyaninaLab2
+  VokhmyaninaLab3
   )
