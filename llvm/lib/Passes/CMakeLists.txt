@@ -32,6 +32,7 @@ add_llvm_component_library(LLVMPasses
   Instrumentation
   MoiseevPass
   MoiseevPass2
+  MoiseevPass3
   KovakimyCount
   BaturinaPass
   VokhmyaninaCounte
