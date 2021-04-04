@@ -2,6 +2,7 @@ add_llvm_component_library(LLVMPasses
   PassBuilder.cpp
   PassPlugin.cpp
   StandardInstrumentations.cpp
+  MoiseevPass3
 
   ADDITIONAL_HEADER_DIRS
   ${LLVM_MAIN_INCLUDE_DIR}/llvm
