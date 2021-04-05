@@ -68,6 +68,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/AvmusatovAnalysis.h"
+#include "llvm/Analysis/AvmusatovLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -136,7 +138,6 @@
 #include "llvm/Transforms/Instrumentation/PoisonChecking.h"
 #include "llvm/Transforms/Instrumentation/SanitizerCoverage.h"
 #include "llvm/Transforms/Instrumentation/ThreadSanitizer.h"
-#include "llvm/Transforms/KovakimyCount/KovakimyCount.h"
 #include "llvm/Transforms/ObjCARC.h"
 #include "llvm/Transforms/Scalar/ADCE.h"
 #include "llvm/Transforms/Scalar/AlignmentFromAssumptions.h"
@@ -219,9 +220,7 @@
 #include "llvm/Transforms/Utils/FixIrreducible.h"
 #include "llvm/Transforms/Utils/HelloWorld.h"
 #include "llvm/Transforms/AvmusatovCount/AvmusatovCount.h"
-#include "llvm/Transforms/PyanzinPass1/PyanzinPass1.h"
-#include "llvm/Transforms/PankratovaPass/PankratovaPass.h"
-#include "llvm/Transforms/idoroshenkoPass/idoroshenkoPass.h"
+#include "llvm/Transforms/AvmusatovPass/AvmusatovPass.h"
 #include "llvm/Transforms/Utils/InjectTLIMappings.h"
 #include "llvm/Transforms/Utils/InstructionNamer.h"
 #include "llvm/Transforms/Utils/LCSSA.h"
@@ -243,9 +242,6 @@
 #include "llvm/Transforms/Vectorize/LoopVectorize.h"
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
-#include "llvm/Transforms/VolokhPass/VolokhPass.h"
-#include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
-#include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
 
 using namespace llvm;
 
