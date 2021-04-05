@@ -18,8 +18,10 @@
 #include "../PassDetail.h"
 #include "mlir/Conversion/AsyncToLLVM/AsyncToLLVM.h"
 #include "mlir/Conversion/StandardToLLVM/ConvertStandardToLLVM.h"
+#include "mlir/Conversion/VectorToLLVM/ConvertVectorToLLVM.h"
 #include "mlir/Dialect/Async/IR/Async.h"
 #include "mlir/Dialect/GPU/GPUDialect.h"
+#include "mlir/Dialect/GPU/Passes.h"
 #include "mlir/Dialect/LLVMIR/LLVMDialect.h"
 #include "mlir/IR/Attributes.h"
 #include "mlir/IR/Builders.h"
@@ -27,10 +29,6 @@
 #include "mlir/IR/BuiltinTypes.h"
 
 #include "llvm/ADT/STLExtras.h"
-#include "llvm/IR/DataLayout.h"
-#include "llvm/IR/DerivedTypes.h"
-#include "llvm/IR/Module.h"
-#include "llvm/IR/Type.h"
 #include "llvm/Support/Error.h"
 #include "llvm/Support/FormatVariadic.h"
 
@@ -48,8 +46,17 @@ public:
       this->gpuBinaryAnnotation = gpuBinaryAnnotation.str();
   }
 
+  GpuToLLVMConversionPass(const GpuToLLVMConversionPass &other)
+      : GpuToLLVMConversionPassBase(other) {}
+
   // Run the dialect converter on the module.
   void runOnOperation() override;
+
+private:
+  Option<std::string> gpuBinaryAnnotation{
+      *this, "gpu-binary-annotation",
+      llvm::cl::desc("Annotation attribute string for GPU binary"),
+      llvm::cl::init(gpu::getDefaultGpuBinaryAnnotation())};
 };
 
 struct FunctionCallBuilder {
@@ -307,6 +314,7 @@ void GpuToLLVMConversionPass::runOnOperation() {
   OwningRewritePatternList patterns;
   LLVMConversionTarget target(getContext());
 
+  populateVectorToLLVMConversionPatterns(converter, patterns);
   populateStdToLLVMConversionPatterns(converter, patterns);
   populateAsyncStructuralTypeConversionsAndLegality(&getContext(), converter,
                                                     patterns, target);

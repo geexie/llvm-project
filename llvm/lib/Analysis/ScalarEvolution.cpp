@@ -1065,15 +1065,23 @@ const SCEV *ScalarEvolution::getPtrToIntExpr(const SCEV *Op, Type *Ty,
     return getTruncateOrZeroExtend(S, Ty);
 
   // If not, is this expression something we can't reduce any further?
-  if (isa<SCEVUnknown>(Op)) {
-    // Create an explicit cast node.
-    // We can reuse the existing insert position since if we get here,
-    // we won't have made any changes which would invalidate it.
+  if (auto *U = dyn_cast<SCEVUnknown>(Op)) {
     Type *IntPtrTy = getDataLayout().getIntPtrType(Op->getType());
     assert(getDataLayout().getTypeSizeInBits(getEffectiveSCEVType(
                Op->getType())) == getDataLayout().getTypeSizeInBits(IntPtrTy) &&
            "We can only model ptrtoint if SCEV's effective (integer) type is "
            "sufficiently wide to represent all possible pointer values.");
+
+    // Perform some basic constant folding. If the operand of the ptr2int cast
+    // is a null pointer, don't create a ptr2int SCEV expression (that will be
+    // left as-is), but produce a zero constant.
+    // NOTE: We could handle a more general case, but lack motivational cases.
+    if (isa<ConstantPointerNull>(U->getValue()))
+      return getZero(Ty);
+
+    // Create an explicit cast node.
+    // We can reuse the existing insert position since if we get here,
+    // we won't have made any changes which would invalidate it.
     SCEV *S = new (SCEVAllocator)
         SCEVPtrToIntExpr(ID.Intern(SCEVAllocator), Op, IntPtrTy);
     UniqueSCEVs.InsertNode(S, IP);
@@ -5848,24 +5856,31 @@ ScalarEvolution::getRangeRef(const SCEV *S,
     KnownBits Known = computeKnownBits(U->getValue(), DL, 0, &AC, nullptr, &DT);
     if (Known.getBitWidth() != BitWidth)
       Known = Known.zextOrTrunc(BitWidth);
-    // If Known does not result in full-set, intersect with it.
-    if (Known.getMinValue() != Known.getMaxValue() + 1)
-      ConservativeResult = ConservativeResult.intersectWith(
-          ConstantRange(Known.getMinValue(), Known.getMaxValue() + 1),
-          RangeType);
 
     // ValueTracking may be able to compute a tighter result for the number of
     // sign bits than for the value of those sign bits.
     unsigned NS = ComputeNumSignBits(U->getValue(), DL, 0, &AC, nullptr, &DT);
-    // If the pointer size is larger than the index size type, this can cause
-    // NS to be larger than BitWidth. So compensate for this.
     if (U->getType()->isPointerTy()) {
+      // If the pointer size is larger than the index size type, this can cause
+      // NS to be larger than BitWidth. So compensate for this.
       unsigned ptrSize = DL.getPointerTypeSizeInBits(U->getType());
       int ptrIdxDiff = ptrSize - BitWidth;
       if (ptrIdxDiff > 0 && ptrSize > BitWidth && NS > (unsigned)ptrIdxDiff)
         NS -= ptrIdxDiff;
     }
 
+    if (NS > 1) {
+      // If we know any of the sign bits, we know all of the sign bits.
+      if (!Known.Zero.getHiBits(NS).isNullValue())
+        Known.Zero.setHighBits(NS);
+      if (!Known.One.getHiBits(NS).isNullValue())
+        Known.One.setHighBits(NS);
+    }
+
+    if (Known.getMinValue() != Known.getMaxValue() + 1)
+      ConservativeResult = ConservativeResult.intersectWith(
+          ConstantRange(Known.getMinValue(), Known.getMaxValue() + 1),
+          RangeType);
     if (NS > 1)
       ConservativeResult = ConservativeResult.intersectWith(
           ConstantRange(APInt::getSignedMinValue(BitWidth).ashr(NS - 1),
@@ -6359,9 +6374,6 @@ const SCEV *ScalarEvolution::createSCEV(Value *V) {
       return getUnknown(UndefValue::get(V->getType()));
   } else if (ConstantInt *CI = dyn_cast<ConstantInt>(V))
     return getConstant(CI);
-  else if (isa<ConstantPointerNull>(V))
-    // FIXME: we shouldn't special-case null pointer constant.
-    return getZero(V->getType());
   else if (GlobalAlias *GA = dyn_cast<GlobalAlias>(V))
     return GA->isInterposable() ? getUnknown(V) : getSCEV(GA->getAliasee());
   else if (!isa<ConstantExpr>(V))
@@ -6701,11 +6713,6 @@ const SCEV *ScalarEvolution::createSCEV(Value *V) {
     Value *Ptr = U->getOperand(0);
     const SCEV *Op = getSCEV(Ptr);
     Type *DstIntTy = U->getType();
-    // SCEV doesn't have constant pointer expression type, but it supports
-    // nullptr constant (and only that one), which is modelled in SCEV as a
-    // zero integer constant. So just skip the ptrtoint cast for constants.
-    if (isa<SCEVConstant>(Op))
-      return getTruncateOrZeroExtend(Op, DstIntTy);
     Type *PtrTy = Ptr->getType();
     Type *IntPtrTy = getDataLayout().getIntPtrType(PtrTy);
     // But only if effective SCEV (integer) type is wide enough to represent
@@ -9527,12 +9534,39 @@ bool ScalarEvolution::isKnownPredicate(ICmpInst::Predicate Pred,
   return isKnownViaNonRecursiveReasoning(Pred, LHS, RHS);
 }
 
+Optional<bool> ScalarEvolution::evaluatePredicate(ICmpInst::Predicate Pred,
+                                                  const SCEV *LHS,
+                                                  const SCEV *RHS) {
+  if (isKnownPredicate(Pred, LHS, RHS))
+    return true;
+  else if (isKnownPredicate(ICmpInst::getInversePredicate(Pred), LHS, RHS))
+    return false;
+  return None;
+}
+
 bool ScalarEvolution::isKnownPredicateAt(ICmpInst::Predicate Pred,
                                          const SCEV *LHS, const SCEV *RHS,
                                          const Instruction *Context) {
   // TODO: Analyze guards and assumes from Context's block.
   return isKnownPredicate(Pred, LHS, RHS) ||
          isBasicBlockEntryGuardedByCond(Context->getParent(), Pred, LHS, RHS);
+}
+
+Optional<bool>
+ScalarEvolution::evaluatePredicateAt(ICmpInst::Predicate Pred, const SCEV *LHS,
+                                     const SCEV *RHS,
+                                     const Instruction *Context) {
+  Optional<bool> KnownWithoutContext = evaluatePredicate(Pred, LHS, RHS);
+  if (KnownWithoutContext)
+    return KnownWithoutContext;
+
+  if (isBasicBlockEntryGuardedByCond(Context->getParent(), Pred, LHS, RHS))
+    return true;
+  else if (isBasicBlockEntryGuardedByCond(Context->getParent(),
+                                          ICmpInst::getInversePredicate(Pred),
+                                          LHS, RHS))
+    return false;
+  return None;
 }
 
 bool ScalarEvolution::isKnownOnEveryIteration(ICmpInst::Predicate Pred,
@@ -9984,9 +10018,6 @@ bool ScalarEvolution::isBasicBlockEntryGuardedByCond(const BasicBlock *BB,
     assert(!verifyFunction(*BB->getParent(), &dbgs()) &&
            "This cannot be done on broken IR!");
 
-  if (isKnownViaNonRecursiveReasoning(Pred, LHS, RHS))
-    return true;
-
   // If we cannot prove strict comparison (e.g. a > b), maybe we can prove
   // the facts (a >= b && a != b) separately. A typical situation is when the
   // non-strict comparison is known from ranges and non-equality is known from
@@ -10095,6 +10126,10 @@ bool ScalarEvolution::isLoopEntryGuardedByCond(const Loop *L,
          "LHS is not available at Loop Entry");
   assert(isAvailableAtLoopEntry(RHS, L) &&
          "RHS is not available at Loop Entry");
+
+  if (isKnownViaNonRecursiveReasoning(Pred, LHS, RHS))
+    return true;
+
   return isBasicBlockEntryGuardedByCond(L->getHeader(), Pred, LHS, RHS);
 }
 
@@ -10102,6 +10137,11 @@ bool ScalarEvolution::isImpliedCond(ICmpInst::Predicate Pred, const SCEV *LHS,
                                     const SCEV *RHS,
                                     const Value *FoundCondValue, bool Inverse,
                                     const Instruction *Context) {
+  // False conditions implies anything. Do not bother analyzing it further.
+  if (FoundCondValue ==
+      ConstantInt::getBool(FoundCondValue->getContext(), Inverse))
+    return true;
+
   if (!PendingLoopPredicates.insert(FoundCondValue).second)
     return false;
 

@@ -209,7 +209,7 @@ Type *Argument::getParamStructRetType() const {
 }
 
 Type *Argument::getParamByRefType() const {
-  assert(getType()->isPointerTy() && "Only pointers have byval types");
+  assert(getType()->isPointerTy() && "Only pointers have byref types");
   return getParent()->getParamByRefType(getArgNo());
 }
 
@@ -238,6 +238,11 @@ bool Argument::hasNoAliasAttr() const {
 bool Argument::hasNoCaptureAttr() const {
   if (!getType()->isPointerTy()) return false;
   return hasAttribute(Attribute::NoCapture);
+}
+
+bool Argument::hasNoFreeAttr() const {
+  if (!getType()->isPointerTy()) return false;
+  return hasAttribute(Attribute::NoFree);
 }
 
 bool Argument::hasStructRetAttr() const {
