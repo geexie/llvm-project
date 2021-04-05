@@ -227,11 +227,8 @@ FUNCTION_PASS("gvn-sink", GVNSinkPass())
 FUNCTION_PASS("helloworld", HelloWorldPass())
 FUNCTION_PASS("Selivanovskaya_lab2", Selivanovskaya_lab2())
 FUNCTION_PASS("counterpass", CounterPass())
-<<<<<<< HEAD
-=======
 FUNCTION_PASS("voronovalab2", VoronovaLab2())
 FUNCTION_PASS("Selivanovskaya_lab1", Selivanovskaya_lab1())
->>>>>>> 3cf9bf5dc0f9766069012dca61146a32f3f9dda3
 FUNCTION_PASS("ilyinpass", IlyinPass())
 FUNCTION_PASS("voronovalab3", VoronovaLab3())
 FUNCTION_PASS("pazamelin", PAZamelinPass())
