@@ -173,6 +173,7 @@ FUNCTION_ANALYSIS("targetir",
 FUNCTION_ANALYSIS("verify", VerifierAnalysis())
 FUNCTION_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
+FUNCTION_ANALYSIS("dvorobyovanalysis", DVorobyovAnalysis())
 
 #ifndef FUNCTION_ALIAS_ANALYSIS
 #define FUNCTION_ALIAS_ANALYSIS(NAME, CREATE_PASS)                             \
@@ -269,6 +270,7 @@ FUNCTION_PASS("newgvn", NewGVNPass())
 FUNCTION_PASS("dvorobyovcountpass", DVorobyovCountPass())
 FUNCTION_PASS("kovakimycountpass", KovakimyCountPass())
 FUNCTION_PASS("dvorobyovlab2pass", DVorobyovLab2Pass())
+FUNCTION_PASS("DVorobyovAnalysisPass", DVorobyovAnalysisPass())
 FUNCTION_PASS("jump-threading", JumpThreadingPass())
 FUNCTION_PASS("partially-inline-libcalls", PartiallyInlineLibCallsPass())
 FUNCTION_PASS("lcssa", LCSSAPass())
@@ -400,6 +402,7 @@ LOOP_ANALYSIS("access-info", LoopAccessAnalysis())
 LOOP_ANALYSIS("ddg", DDGAnalysis())
 LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+LOOP_ANALYSIS("dvorobyovloopanalysis", DVorobyovLoopAnalysis())
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS
