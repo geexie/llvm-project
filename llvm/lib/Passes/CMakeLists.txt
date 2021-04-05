@@ -25,5 +25,6 @@ add_llvm_component_library(LLVMPasses
   Vectorize
   PankratovaPass
   PankratovaASPass
+  PankratovaTransformPass
   Instrumentation
   )

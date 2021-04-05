@@ -100,6 +100,8 @@ add_llvm_component_library(LLVMAnalysis
   ObjCARCAnalysisUtils.cpp
   ObjCARCInstKind.cpp
   OptimizationRemarkEmitter.cpp
+  PankratovaAnalysis.cpp
+  PankratovaLoopAnalysis.cpp
   PHITransAddr.cpp
   PhiValues.cpp
   PostDominators.cpp
