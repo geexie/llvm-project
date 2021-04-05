@@ -34,7 +34,6 @@ add_llvm_component_library(LLVMPasses
   IDoroshenkoPass
   Instrumentation
   DVorobyovCount
-<<<<<<< HEAD
   Selivanovskaya_lab1
   IlyinPass
   pazamelin

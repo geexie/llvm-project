@@ -57,7 +57,7 @@ PreservedAnalyses DVorobyovAnalysisPass::run(Function& F, FunctionAnalysisManage
     LoopStandardAnalysisResults AR = {AA, AC, DT, LA, SE, TLI, TTI, nullptr, nullptr};
     for(auto& L : LA)
 	{
-        innLoops(L, LAM, AR);
+        Loops(L, LAM, AR);
     }
     return PreservedAnalyses::all();
 }
