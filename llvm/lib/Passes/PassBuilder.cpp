@@ -68,6 +68,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/SelivanovskayaAnalysis.h"
+#include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -238,6 +240,7 @@
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
 #include "llvm/Transforms/Selivanovskaya_lab2/Selivanovskaya_lab2.h"
+#include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
 
 using namespace llvm;
 
