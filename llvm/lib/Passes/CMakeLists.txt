@@ -34,6 +34,7 @@ add_llvm_component_library(LLVMPasses
   Instrumentation
   IlyinPass
   IlyinPass2
+  IlyinAnalysisPass
   pazamelin
   MelnikovLab1pass
   MoiseevPass

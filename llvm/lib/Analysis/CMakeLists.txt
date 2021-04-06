@@ -71,6 +71,8 @@ add_llvm_component_library(LLVMAnalysis
   InstructionSimplify.cpp
   Interval.cpp
   IntervalPartition.cpp
+  IlyinAnalysis.cpp
+  IlyinLoopAnalysis.cpp
   LazyBranchProbabilityInfo.cpp
   LazyBlockFrequencyInfo.cpp
   LazyCallGraph.cpp
