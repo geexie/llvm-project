@@ -30,7 +30,7 @@ void loopsProc(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& L
     }
 }
 
-PreservedAnalyses BaturinaLab3::run(Function &F, FunctionAnalysisManager &FAM) {
+PreservedAnalyses BaturinaPass3::run(Function &F, FunctionAnalysisManager &FAM) {
 
     auto& result = AM.getResult<BaturinaAnalysis>(F);
     TotalAdd += result.totalAdd;

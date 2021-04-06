@@ -1,5 +1,6 @@
 #pragma once
 
+#define DEBUG_TYPE "Baturina"
 #include "llvm/IR/PassManager.h"
 #include "llvm/ADT/Statistic.h"
 #include "llvm/Transforms/Utils/LoopUtils.h"

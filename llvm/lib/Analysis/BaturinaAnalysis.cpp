@@ -24,10 +24,10 @@ BaturinaAnalysis::Result BaturinaAnalysis::run(Function& F, FunctionAnalysisMana
     }
     return result;
 }
-}
 
 void BaturinaAnalysisInfo::print(raw_ostream &ostream) const {
     ostream << "Total pow: " << totalPow << "\n"
        << "Total add: " << totalAdd << "\n"
        << "Total mul: " << totalMul << "\n";
+}
 }
