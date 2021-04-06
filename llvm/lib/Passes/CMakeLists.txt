@@ -69,4 +69,5 @@ udachinaPass
   KatyaMalyshevaLab2Pass
   CounterPass
   VoronovaLab2
+  udachinaAnalysisPass
   )
