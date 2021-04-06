@@ -85,5 +85,6 @@ add_llvm_component_library(LLVMPasses
   pvi3
   udachinaAnalysisPass
 
+  SelivanovskayaLab3
   )
 
