@@ -24,6 +24,5 @@ add_llvm_component_library(LLVMPasses
   TransformUtils
   Vectorize
   Instrumentation
-  Selivanovskaya_lab2
   SelivanovskayaLab3
   )
