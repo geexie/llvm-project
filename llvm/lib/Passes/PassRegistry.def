@@ -172,6 +172,7 @@ FUNCTION_ANALYSIS("targetir",
 FUNCTION_ANALYSIS("verify", VerifierAnalysis())
 FUNCTION_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
+FUNCTION_ANALYSIS("KMalyshevaAnalysis", KMalyshevaAnalysis())
 
 #ifndef FUNCTION_ALIAS_ANALYSIS
 #define FUNCTION_ALIAS_ANALYSIS(NAME, CREATE_PASS)                             \
@@ -329,6 +330,7 @@ FUNCTION_PASS("msan", MemorySanitizerPass({}))
 FUNCTION_PASS("kmsan", MemorySanitizerPass({0, false, /*Kernel=*/true}))
 FUNCTION_PASS("tsan", ThreadSanitizerPass())
 FUNCTION_PASS("memprof", MemProfilerPass())
+FUNCTION_PASS("KMalyshevaLab3Pass", KMalyshevaLab3Pass())
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
@@ -379,6 +381,7 @@ LOOP_ANALYSIS("access-info", LoopAccessAnalysis())
 LOOP_ANALYSIS("ddg", DDGAnalysis())
 LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+LOOP_ANALYSIS("KMalyshevaLoopAnalysis", KMalyshevaLoopAnalysis())
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS
