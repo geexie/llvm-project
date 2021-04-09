@@ -132,6 +132,10 @@ add_llvm_component_library(LLVMAnalysis
   VFABIDemangling.cpp
   VokhmyaninaAnalysis.cpp
   VokhmyaninaLoopAnalysis.cpp
+  PyanzinAnalysis.cpp
+  PyanzinLoopAnalysis.cpp
+  IDoroshenkoAnalysis.cpp
+  IDoroshenkoLoopAnalysis.cpp
   ${GeneratedMLSources}
 
   ADDITIONAL_HEADER_DIRS
