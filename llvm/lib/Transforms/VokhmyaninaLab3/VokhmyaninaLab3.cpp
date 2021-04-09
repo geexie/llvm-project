@@ -8,6 +8,8 @@
 #include "llvm/Analysis/ScalarEvolution.h"
 #include "llvm/Analysis/TargetLibraryInfo.h"
 
+#define DEBUG_TYPE "VokhmyaninaLab3"
+
 using namespace llvm;
 
 STATISTIC(TotalAdd, "Number of add");
