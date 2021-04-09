@@ -1,6 +1,5 @@
 #pragma once
 
-#define DEBUG_TYPE "VokhmyaninaLab3"
 #include "llvm/IR/PassManager.h"
 #include "llvm/ADT/Statistic.h"
 #include "llvm/Transforms/Utils/LoopUtils.h"
