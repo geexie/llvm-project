@@ -29,6 +29,7 @@ udachinaPass
   OksanaKozlova
   PyanzinPass1
   Pyanzin_ASPass
+  PyanzinPass3
   Scalar
   Support
   solovevaPass
