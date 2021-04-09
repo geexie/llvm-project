@@ -1,7 +1,10 @@
 if (DEFINED LLVM_HAVE_TF_AOT OR DEFINED LLVM_HAVE_TF_API)
   if (DEFINED LLVM_HAVE_TF_AOT)
+    set(LLVM_INLINER_MODEL_PATH "models/inliner" 
+      CACHE STRING 
+      "ML-driven inliner policy location (path to saved model)")
     include(TensorFlowCompile)
-    tfcompile(models/inliner serve action InlinerSizeModel llvm::InlinerSizeModel)
+    tfcompile(${LLVM_INLINER_MODEL_PATH} serve action InlinerSizeModel llvm::InlinerSizeModel)
     list(APPEND GeneratedMLSources
       $<TARGET_OBJECTS:tf_xla_runtime_objects>
       ${GENERATED_OBJS}
@@ -129,6 +132,10 @@ add_llvm_component_library(LLVMAnalysis
   VFABIDemangling.cpp
   aanoskovCounter.cpp
   aanoskovLoopAnalysis.cpp
+  PyanzinAnalysis.cpp
+  PyanzinLoopAnalysis.cpp
+  IDoroshenkoAnalysis.cpp
+  IDoroshenkoLoopAnalysis.cpp
   ${GeneratedMLSources}
 
   ADDITIONAL_HEADER_DIRS
