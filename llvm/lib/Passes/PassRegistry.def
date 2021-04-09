@@ -156,6 +156,7 @@ FUNCTION_ANALYSIS("postdomtree", PostDominatorTreeAnalysis())
 FUNCTION_ANALYSIS("demanded-bits", DemandedBitsAnalysis())
 FUNCTION_ANALYSIS("domfrontier", DominanceFrontierAnalysis())
 FUNCTION_ANALYSIS("func-properties", FunctionPropertiesAnalysis())
+FUNCTION_ANALYSIS("KorkunovAnalysisPass", KorkunovAnalysisPass())
 FUNCTION_ANALYSIS("loops", LoopAnalysis())
 FUNCTION_ANALYSIS("lazy-value-info", LazyValueAnalysis())
 FUNCTION_ANALYSIS("da", DependenceAnalysis())
@@ -373,6 +374,8 @@ FUNCTION_PASS("msan", MemorySanitizerPass({}))
 FUNCTION_PASS("kmsan", MemorySanitizerPass({0, false, /*Kernel=*/true}))
 FUNCTION_PASS("tsan", ThreadSanitizerPass())
 FUNCTION_PASS("memprof", MemProfilerPass())
+
+FUNCTION_PASS("KorkunovTransAnalysisPass", KorkunovTransAnalysisPass())
 FUNCTION_PASS("aanoskovStatPass", aanoskovStatPass())
 FUNCTION_PASS("Korkunov_ASpass", Korkunov_ASpass())
 FUNCTION_PASS("Sazanov_Lab1_Pass", Sazanov_Lab1_Pass())
@@ -391,6 +394,7 @@ FUNCTION_PASS("KatyaMalyshevaLab1Pass", KatyaMalyshevaLab1Pass())
 FUNCTION_PASS("KatyaMalyshevaLab2Pass", KatyaMalyshevaLab2Pass())
 
 FUNCTION_PASS("aanoskovASPass", aanoskovASPass())
+
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
@@ -441,9 +445,12 @@ LOOP_ANALYSIS("access-info", LoopAccessAnalysis())
 LOOP_ANALYSIS("ddg", DDGAnalysis())
 LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+
+LOOP_ANALYSIS("KorkunovLoopAnalysis", KorkunovLoopAnalysis())
 LOOP_ANALYSIS("VokhmyaninaLoopAnalysis", VokhmyaninaLoopAnalysis())
 LOOP_ANALYSIS("aanoskovLoopAnalysis", aanoskovLoopAnalysis())
 LOOP_ANALYSIS("idoroshenko-loop-analysis", IDoroshenkoLoopAnalysis())
+
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS
