@@ -20,9 +20,10 @@ add_llvm_component_library(LLVMPasses
   Coroutines
   IPO
   InstCombine
-udachinaPass
+ udachinaPass
   AKomyaginCount
   AKomyaginASPass
+ akUdachinaPass
   AvmusatovCount
   AvmusatovAS
   ObjCARC
