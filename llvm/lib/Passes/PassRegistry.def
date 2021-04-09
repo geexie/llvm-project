@@ -146,6 +146,7 @@ CGSCC_PASS("no-op-cgscc", NoOpCGSCCPass())
 #ifndef FUNCTION_ANALYSIS
 #define FUNCTION_ANALYSIS(NAME, CREATE_PASS)
 #endif
+FUNCTION_ANALYSIS("PyanzinAnalysis", PyanzinAnalysis())
 FUNCTION_ANALYSIS("aa", AAManager())
 FUNCTION_ANALYSIS("assumptions", AssumptionAnalysis())
 FUNCTION_ANALYSIS("block-freq", BlockFrequencyAnalysis())
@@ -155,6 +156,7 @@ FUNCTION_ANALYSIS("postdomtree", PostDominatorTreeAnalysis())
 FUNCTION_ANALYSIS("demanded-bits", DemandedBitsAnalysis())
 FUNCTION_ANALYSIS("domfrontier", DominanceFrontierAnalysis())
 FUNCTION_ANALYSIS("func-properties", FunctionPropertiesAnalysis())
+FUNCTION_ANALYSIS("KorkunovAnalysisPass", KorkunovAnalysisPass())
 FUNCTION_ANALYSIS("loops", LoopAnalysis())
 FUNCTION_ANALYSIS("lazy-value-info", LazyValueAnalysis())
 FUNCTION_ANALYSIS("da", DependenceAnalysis())
@@ -173,7 +175,10 @@ FUNCTION_ANALYSIS("targetir",
                   TM ? TM->getTargetIRAnalysis() : TargetIRAnalysis())
 FUNCTION_ANALYSIS("verify", VerifierAnalysis())
 FUNCTION_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+FUNCTION_ANALYSIS("aanoskovCounter", aanoskovCounter())
+FUNCTION_ANALYSIS("idoroshenko-analysis", IDoroshenkoAnalysis())
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
+FUNCTION_ANALYSIS("VokhmyaninaAnalysis", VokhmyaninaAnalysis())
 
 #ifndef FUNCTION_ALIAS_ANALYSIS
 #define FUNCTION_ALIAS_ANALYSIS(NAME, CREATE_PASS)                             \
@@ -244,12 +249,15 @@ FUNCTION_PASS("avmusatov-count", AvmusatovCount())
 FUNCTION_PASS("avmusatov-as", AvmusatovAS())
 FUNCTION_PASS("pyanzinpass1", PyanzinPass1())
 FUNCTION_PASS("pyanzin_aspass", Pyanzin_ASPass())
+FUNCTION_PASS("pyanzinpass3", PyanzinPass3())
 FUNCTION_PASS("Bogoroditskaya", Bogoroditskaya())
 FUNCTION_PASS("Bogoroditskaya2", Bogoroditskaya2())
 FUNCTION_PASS("VokhmyaninaCounter", VokhmyaninaCounter())
 FUNCTION_PASS("VokhmyaninaLab2", VokhmyaninaLab2())
+FUNCTION_PASS("VokhmyaninaLab3", VokhmyaninaLab3())
 FUNCTION_PASS("idoroshenkopass", IDoroshenkoPass())
 FUNCTION_PASS("idoroshenkopass2", IDoroshenkoPass2())
+FUNCTION_PASS("idoroshenkopass3", IDoroshenkoPass3())
 FUNCTION_PASS("infer-address-spaces", InferAddressSpacesPass())
 FUNCTION_PASS("instcombine", InstCombinePass())
 FUNCTION_PASS("instcount", InstCountPass())
@@ -368,6 +376,9 @@ FUNCTION_PASS("msan", MemorySanitizerPass({}))
 FUNCTION_PASS("kmsan", MemorySanitizerPass({0, false, /*Kernel=*/true}))
 FUNCTION_PASS("tsan", ThreadSanitizerPass())
 FUNCTION_PASS("memprof", MemProfilerPass())
+
+FUNCTION_PASS("KorkunovTransAnalysisPass", KorkunovTransAnalysisPass())
+FUNCTION_PASS("aanoskovStatPass", aanoskovStatPass())
 FUNCTION_PASS("Korkunov_ASpass", Korkunov_ASpass())
 FUNCTION_PASS("Sazanov_Lab1_Pass", Sazanov_Lab1_Pass())
 FUNCTION_PASS("Strakhovcounter", Strakhovcounter())
@@ -385,6 +396,7 @@ FUNCTION_PASS("KatyaMalyshevaLab1Pass", KatyaMalyshevaLab1Pass())
 FUNCTION_PASS("KatyaMalyshevaLab2Pass", KatyaMalyshevaLab2Pass())
 
 FUNCTION_PASS("aanoskovASPass", aanoskovASPass())
+
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
@@ -435,6 +447,12 @@ LOOP_ANALYSIS("access-info", LoopAccessAnalysis())
 LOOP_ANALYSIS("ddg", DDGAnalysis())
 LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+
+LOOP_ANALYSIS("KorkunovLoopAnalysis", KorkunovLoopAnalysis())
+LOOP_ANALYSIS("VokhmyaninaLoopAnalysis", VokhmyaninaLoopAnalysis())
+LOOP_ANALYSIS("aanoskovLoopAnalysis", aanoskovLoopAnalysis())
+LOOP_ANALYSIS("idoroshenko-loop-analysis", IDoroshenkoLoopAnalysis())
+
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS
@@ -465,6 +483,7 @@ LOOP_PASS("guard-widening", GuardWideningPass())
 LOOP_PASS("simple-loop-unswitch", SimpleLoopUnswitchPass())
 LOOP_PASS("loop-reroll", LoopRerollPass())
 LOOP_PASS("loop-versioning-licm", LoopVersioningLICMPass())
+LOOP_ANALYSIS("pyanzinloopanalysis", PyanzinLoopAnalysis())
 #undef LOOP_PASS
 
 #ifndef LOOP_PASS_WITH_PARAMS

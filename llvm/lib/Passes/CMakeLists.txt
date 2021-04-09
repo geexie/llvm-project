@@ -29,6 +29,7 @@ udachinaPass
   OksanaKozlova
   PyanzinPass1
   Pyanzin_ASPass
+  PyanzinPass3
   Scalar
   Support
   solovevaPass
@@ -41,6 +42,8 @@ udachinaPass
   PankratovaASPass
   IDoroshenkoPass
   Instrumentation
+  KorkunovTransAnalysisPass
+  aanoskovStatPass
   Selivanovskaya_lab2
   Korkunov_ASpass
   Sazanov_Lab1_Pass
@@ -62,6 +65,7 @@ udachinaPass
   BaturinaPass2
   VokhmyaninaCounter
   VokhmyaninaLab2
+  VokhmyaninaLab3
   VolokhPass
   Sazanov_Lab2_Pass
   VolokhSecondPass
@@ -71,3 +75,4 @@ udachinaPass
   VoronovaLab2
   udachinaAnalysisPass
   )
+
