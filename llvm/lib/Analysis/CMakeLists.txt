@@ -130,6 +130,8 @@ add_llvm_component_library(LLVMAnalysis
   ValueTracking.cpp
   VectorUtils.cpp
   VFABIDemangling.cpp
+  aanoskovCounter.cpp
+  aanoskovLoopAnalysis.cpp
   PyanzinAnalysis.cpp
   PyanzinLoopAnalysis.cpp
   IDoroshenkoAnalysis.cpp

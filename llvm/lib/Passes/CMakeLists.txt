@@ -42,6 +42,7 @@ udachinaPass
   PankratovaASPass
   IDoroshenkoPass
   Instrumentation
+  aanoskovStatPass
   Selivanovskaya_lab2
   Korkunov_ASpass
   Sazanov_Lab1_Pass
