@@ -1,4 +1,3 @@
-#include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
 #include "llvm/Analysis/SelivanovskayaAnalysis.h"
 #include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
 
@@ -9,6 +8,7 @@
 #include "llvm/Analysis/AssumptionCache.h"
 
 #define DEBUG_TYPE "SelivanovskayaLab3"
+#include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
 using namespace llvm;
 
 STATISTIC(VecLoops, "Number of vectorizable loops");
