@@ -280,6 +280,7 @@
 #include "llvm/Transforms/aanoskovStatPass/aanoskovStatPass.h"
 #include "llvm/Transforms/Selivanovskaya_lab2/Selivanovskaya_lab2.h"
 #include "llvm/Transforms/Korkunov_ASpass/Korkunov_ASpass.h"
+#include "llvm/Transforms/KorkunovTransAnalysisPass/KorkunovTransAnalysisPass.h"
 #include "llvm/Transforms/Sazanov_Lab1_Pass/Sazanov_Lab1_Pass.h"
 #include "llvm/Transforms/Strakhovcounter/Strakhovcounter.h"
 #include "llvm/Transforms/Selivanovskaya_lab1/Selivanovskaya_lab1.h"
@@ -291,7 +292,6 @@
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
 #include "llvm/Transforms/VokhmyaninaLab2/VokhmyaninaLab2.h"
 #include "llvm/Transforms/VokhmyaninaLab3/VokhmyaninaLab3.h"
-#include "llvm/Transforms/KorkunovTransAnalysisPass/KorkunovTransAnalysisPass.h"
 
 #include "llvm/Transforms/MoiseevPass2/MoiseevPass2.h"
 #include "llvm/Transforms/VolokhSecondPass/VolokhSecondPass.h"
