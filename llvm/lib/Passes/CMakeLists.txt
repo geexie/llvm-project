@@ -64,6 +64,7 @@ udachinaPass
   BaturinaPass2
   VokhmyaninaCounter
   VokhmyaninaLab2
+  VokhmyaninaLab3
   VolokhPass
   Sazanov_Lab2_Pass
   VolokhSecondPass
