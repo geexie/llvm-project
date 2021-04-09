@@ -43,6 +43,8 @@ add_llvm_component_library(LLVMPasses
   PankratovaASPass
   IDoroshenkoPass
   Instrumentation
+  KorkunovTransAnalysisPass
+  aanoskovStatPass
   Selivanovskaya_lab2
   Korkunov_ASpass
   Sazanov_Lab1_Pass
@@ -64,6 +66,7 @@ add_llvm_component_library(LLVMPasses
   BaturinaPass2
   VokhmyaninaCounter
   VokhmyaninaLab2
+  VokhmyaninaLab3
   VolokhPass
   Sazanov_Lab2_Pass
   VolokhSecondPass
@@ -72,3 +75,4 @@ add_llvm_component_library(LLVMPasses
   CounterPass
   VoronovaLab2
   )
+
