@@ -132,6 +132,8 @@ add_llvm_component_library(LLVMAnalysis
   VFABIDemangling.cpp
   VokhmyaninaAnalysis.cpp
   VokhmyaninaLoopAnalysis.cpp
+  aanoskovCounter.cpp
+  aanoskovLoopAnalysis.cpp
   PyanzinAnalysis.cpp
   PyanzinLoopAnalysis.cpp
   IDoroshenkoAnalysis.cpp
