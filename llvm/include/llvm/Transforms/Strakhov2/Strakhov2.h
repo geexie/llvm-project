@@ -1,7 +1,3 @@
-#pragma once
-
-#define DEBUG_TYPE "Strakhov2"
-
 #include "llvm/Analysis/LoopInfo.h"
 #include "llvm/IR/BasicBlock.h"
 #include "llvm/IR/Instruction.h"
