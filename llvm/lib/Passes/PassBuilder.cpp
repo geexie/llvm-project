@@ -71,6 +71,10 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+
+#include "llvm/Analysis/udachinaAnalysis.h"
+#include "llvm/Analysis/udachinaLoopAnalysis.h"
+
 #include "llvm/Analysis/VokhmyaninaAnalysis.h"
 #include "llvm/Analysis/VokhmyaninaLoopAnalysis.h"
 #include "llvm/Analysis/aanoskovCounter.h"
@@ -79,6 +83,7 @@
 #include "llvm/Analysis/IDoroshenkoLoopAnalysis.h"
 #include "llvm/Analysis/KorkunovAnalysisPass.h"
 #include "llvm/Analysis/KorkunovLoopAnalysis.h"
+
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -212,6 +217,7 @@
 #include "llvm/Transforms/Scalar/MergedLoadStoreMotion.h"
 #include "llvm/Transforms/Scalar/NaryReassociate.h"
 #include "llvm/Transforms/Scalar/NewGVN.h"
+#include "llvm/Transforms/udachinaAnalysisPass/udachinaAnalysisPass.h"
 #include "llvm/Transforms/Scalar/PartiallyInlineLibCalls.h"
 #include "llvm/Transforms/Scalar/Reassociate.h"
 #include "llvm/Transforms/Scalar/Reg2Mem.h"

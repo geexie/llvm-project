@@ -76,5 +76,7 @@ add_llvm_component_library(LLVMPasses
   CounterPass
   VoronovaLab2
 
+  udachinaAnalysisPass
+
   )
 
