@@ -132,6 +132,9 @@ add_llvm_component_library(LLVMAnalysis
   ValueTracking.cpp
   VectorUtils.cpp
   VFABIDemangling.cpp
+
+  MelnikovLab3FunctionAnalysis.cpp
+  MelnikovLab3LoopAnalysis.cpp
   VokhmyaninaAnalysis.cpp
   VokhmyaninaLoopAnalysis.cpp
   aanoskovCounter.cpp
@@ -140,6 +143,7 @@ add_llvm_component_library(LLVMAnalysis
   PyanzinLoopAnalysis.cpp
   IDoroshenkoAnalysis.cpp
   IDoroshenkoLoopAnalysis.cpp
+
   ${GeneratedMLSources}
 
   ADDITIONAL_HEADER_DIRS

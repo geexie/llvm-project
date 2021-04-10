@@ -23,6 +23,9 @@ add_subdirectory(BaturinaPass)
 add_subdirectory(BaturinaPass2)
 add_subdirectory(MelnikovLab1Pass)
 add_subdirectory(MelnikovLab2Pass)
+
+add_subdirectory(MelnikovLab3Pass)
+
 add_subdirectory(Selivanovskaya_lab2)
 add_subdirectory(Korkunov_ASpass)
 add_subdirectory(KorkunovTransAnalysisPass)
@@ -59,3 +62,4 @@ add_subdirectory(KatyaMalyshevaLab2Pass)
 add_subdirectory(CounterPass)
 add_subdirectory(VoronovaLab2)
 add_subdirectory(aanoskovASPass)
+

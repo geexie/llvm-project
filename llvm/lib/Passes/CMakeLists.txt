@@ -59,6 +59,7 @@ add_llvm_component_library(LLVMPasses
   pazamelin_as
   MelnikovLab1pass
   MelnikovLab2pass
+  MelnikovLab3pass
   MoiseevPass
   MoiseevPass2
   KovakimyCount
@@ -74,5 +75,6 @@ add_llvm_component_library(LLVMPasses
   KatyaMalyshevaLab2Pass
   CounterPass
   VoronovaLab2
+
   )
 

@@ -304,6 +304,11 @@
 #include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h" // lab1 pass
 #include "llvm/Transforms/MelnikovLab2Pass/MelnikovLab2Pass.h"
 
+
+#include "llvm/Transforms/MelnikovLab3Pass/MelnikovLab3Pass.h"
+#include "llvm/Analysis/MelnikovLab3FunctionAnalysis.h"
+#include "llvm/Analysis/MelnikovLab3LoopAnalysis.h"
+
 #include "llvm/Transforms/pazamelin/pass.h"
 #include "llvm/Transforms/pazamelin_as/pass_as.h"
 
@@ -312,6 +317,7 @@
 #include "llvm/Transforms/KatyaMalyshevaLab1Pass/KatyaMalyshevaLab1Pass.h"
 #include "llvm/Transforms/KatyaMalyshevaLab2Pass/KatyaMalyshevaLab2Pass.h"
 #include "llvm/Transforms/aanoskovASPass/aanoskovASPass.h"
+
 
 using namespace llvm;
 
