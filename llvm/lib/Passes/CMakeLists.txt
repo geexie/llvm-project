@@ -20,9 +20,10 @@ add_llvm_component_library(LLVMPasses
   Coroutines
   IPO
   InstCombine
-udachinaPass
+ udachinaPass
   AKomyaginCount
   AKomyaginASPass
+ akUdachinaPass
   AvmusatovCount
   AvmusatovAS
   ObjCARC
@@ -58,6 +59,7 @@ udachinaPass
   pazamelin_as
   MelnikovLab1pass
   MelnikovLab2pass
+  MelnikovLab3pass
   MoiseevPass
   MoiseevPass2
   KovakimyCount
@@ -73,6 +75,8 @@ udachinaPass
   KatyaMalyshevaLab2Pass
   CounterPass
   VoronovaLab2
+
   udachinaAnalysisPass
+
   )
 
