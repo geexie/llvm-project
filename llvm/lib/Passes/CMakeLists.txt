@@ -55,6 +55,7 @@ add_llvm_component_library(LLVMPasses
   Selivanovskaya_lab1
   IlyinPass
   IlyinPass2
+  IlyinAnalysisPass
   pazamelin
   pazamelin_as
   MelnikovLab1pass
