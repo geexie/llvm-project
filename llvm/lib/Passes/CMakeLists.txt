@@ -41,6 +41,7 @@ add_llvm_component_library(LLVMPasses
   Bogoroditskaya2
   PankratovaPass
   PankratovaASPass
+  PankratovaTransformPass
   IDoroshenkoPass
   Instrumentation
   KorkunovTransAnalysisPass
