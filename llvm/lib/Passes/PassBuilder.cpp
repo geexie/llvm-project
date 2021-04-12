@@ -219,6 +219,7 @@
 #include "llvm/Transforms/Utils/EntryExitInstrumenter.h"
 #include "llvm/Transforms/Utils/FixIrreducible.h"
 #include "llvm/Transforms/Utils/HelloWorld.h"
+#include "llvm/Transforms/VoronovaLab2/VoronovaLab2.h"
 #include "llvm/Transforms/IlyinPass/IlyinPass.h"
 #include "llvm/Transforms/AKomyaginCount/AKomyaginCount.h"
 #include "llvm/Transforms/AvmusatovCount/AvmusatovCount.h"
