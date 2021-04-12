@@ -431,6 +431,7 @@ LOOP_ANALYSIS("access-info", LoopAccessAnalysis())
 LOOP_ANALYSIS("ddg", DDGAnalysis())
 LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+LOOP_ANALYSIS("oksana-loop-analysis", OksanaKozlovaLoopAnalysis())
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS
@@ -452,7 +453,6 @@ LOOP_PASS("loop-reduce", LoopStrengthReducePass())
 LOOP_PASS("indvars", IndVarSimplifyPass())
 LOOP_PASS("loop-unroll-full", LoopFullUnrollPass())
 LOOP_PASS("print-access-info", LoopAccessInfoPrinterPass(dbgs()))
-LOOP_ANALYSIS("oksana-loop-analysis", OksanaKozlovaLoopAnalysis())
 LOOP_PASS("print<ddg>", DDGAnalysisPrinterPass(dbgs()))
 LOOP_PASS("print<iv-users>", IVUsersPrinterPass(dbgs()))
 LOOP_PASS("print<loopnest>", LoopNestPrinterPass(dbgs()))
