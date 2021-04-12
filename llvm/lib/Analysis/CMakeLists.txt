@@ -55,6 +55,8 @@ add_llvm_component_library(LLVMAnalysis
   DominanceFrontier.cpp
   EHPersonalities.cpp
   FunctionPropertiesAnalysis.cpp
+  KorkunovAnalysisPass.cpp
+  KorkunovLoopAnalysis.cpp
   GlobalsModRef.cpp
   GuardUtils.cpp
   HeatUtils.cpp
@@ -71,6 +73,8 @@ add_llvm_component_library(LLVMAnalysis
   InstructionSimplify.cpp
   Interval.cpp
   IntervalPartition.cpp
+  IlyinAnalysis.cpp
+  IlyinLoopAnalysis.cpp
   LazyBranchProbabilityInfo.cpp
   LazyBlockFrequencyInfo.cpp
   LazyCallGraph.cpp
@@ -100,6 +104,10 @@ add_llvm_component_library(LLVMAnalysis
   ObjCARCAnalysisUtils.cpp
   ObjCARCInstKind.cpp
   OptimizationRemarkEmitter.cpp
+  PankratovaAnalysis.cpp
+  PankratovaLoopAnalysis.cpp
+  udachinaAnalysis.cpp
+  udachinaLoopAnalysis.cpp
   PHITransAddr.cpp
   PhiValues.cpp
   PostDominators.cpp
@@ -131,6 +139,17 @@ add_llvm_component_library(LLVMAnalysis
   VectorUtils.cpp
   VFABIDemangling.cpp
   VoronovaAnalisis.cpp
+  MelnikovLab3FunctionAnalysis.cpp
+  MelnikovLab3LoopAnalysis.cpp
+  VokhmyaninaAnalysis.cpp
+  VokhmyaninaLoopAnalysis.cpp
+  aanoskovCounter.cpp
+  aanoskovLoopAnalysis.cpp
+  PyanzinAnalysis.cpp
+  PyanzinLoopAnalysis.cpp
+  IDoroshenkoAnalysis.cpp
+  IDoroshenkoLoopAnalysis.cpp
+
   ${GeneratedMLSources}
 
   ADDITIONAL_HEADER_DIRS

@@ -1,5 +1,7 @@
 #pragma once
+
 #define DEBUG_TYPE "VoronovaLab2"
+
 
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/IR/InstIterator.h"
@@ -12,6 +14,7 @@
 namespace llvm {
 
 	class VoronovaLab2 : public PassInfoMixin<VoronovaLab2> 
+
 	{
 	  public:
 		PreservedAnalyses run(Function& F, FunctionAnalysisManager& AM);
