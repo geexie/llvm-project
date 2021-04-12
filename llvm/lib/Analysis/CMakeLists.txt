@@ -103,6 +103,8 @@ add_llvm_component_library(LLVMAnalysis
   ObjCARCAliasAnalysis.cpp
   ObjCARCAnalysisUtils.cpp
   ObjCARCInstKind.cpp
+  OksanaKozlovaAnalysis.cpp
+  OksanaKozlovaLoopAnalysis.cpp
   OptimizationRemarkEmitter.cpp
   PankratovaAnalysis.cpp
   PankratovaLoopAnalysis.cpp

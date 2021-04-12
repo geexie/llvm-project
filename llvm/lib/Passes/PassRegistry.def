@@ -168,6 +168,7 @@ FUNCTION_ANALYSIS("phi-values", PhiValuesAnalysis())
 FUNCTION_ANALYSIS("regions", RegionInfoAnalysis())
 FUNCTION_ANALYSIS("pankratovaAnalysis", PankratovaAnalysis())
 FUNCTION_ANALYSIS("no-op-function", NoOpFunctionAnalysis())
+FUNCTION_ANALYSIS("oksana-analysis", OksanaKozlovaAnalysis())
 FUNCTION_ANALYSIS("opt-remark-emit", OptimizationRemarkEmitterAnalysis())
 FUNCTION_ANALYSIS("scalar-evolution", ScalarEvolutionAnalysis())
 FUNCTION_ANALYSIS("stack-safety-local", StackSafetyAnalysis())
@@ -315,6 +316,7 @@ FUNCTION_PASS("loop-versioning", LoopVersioningPass())
 FUNCTION_PASS("objc-arc", ObjCARCOptPass())
 FUNCTION_PASS("objc-arc-contract", ObjCARCContractPass())
 FUNCTION_PASS("objc-arc-expand", ObjCARCExpandPass())
+FUNCTION_PASS("oksana-count", OksanaKozlovaCountPass())
 FUNCTION_PASS("oksanaaspass", OksanaASPass())
 FUNCTION_PASS("oksanakozlovapass", OksanaKozlovaPass())
 FUNCTION_PASS("pankratovaPass", PankratovaPass())
@@ -461,17 +463,13 @@ LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pankratovaLoopAnalysis", PankratovaLoopAnalysis())
 LOOP_ANALYSIS("ilyinloopanalysis", IlyinLoopAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
-
-
+LOOP_ANALYSIS("oksana-loop-analysis", OksanaKozlovaLoopAnalysis())
 LOOP_ANALYSIS("MelnikovLab3LoopAnalysis", MelnikovLab3LoopAnalysis())
-
 LOOP_ANALYSIS("KorkunovLoopAnalysis", KorkunovLoopAnalysis())
 LOOP_ANALYSIS("VokhmyaninaLoopAnalysis", VokhmyaninaLoopAnalysis())
 LOOP_ANALYSIS("aanoskovLoopAnalysis", aanoskovLoopAnalysis())
 LOOP_ANALYSIS("idoroshenko-loop-analysis", IDoroshenkoLoopAnalysis())
-
 LOOP_ANALYSIS("pyanzinloopanalysis", PyanzinLoopAnalysis())
-
 
 
 #undef LOOP_ANALYSIS
