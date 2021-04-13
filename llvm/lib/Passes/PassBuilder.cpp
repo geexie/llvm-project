@@ -77,6 +77,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/BaturinaAnalysis.h"
+#include "llvm/Analysis/BaturinaLoopAnalysis.h"
 #include "llvm/Analysis/KovakimyAnalysis.h"
 #include "llvm/Analysis/KovakimyAnalysisLoop.h"
 
@@ -91,7 +93,6 @@
 #include "llvm/Analysis/IDoroshenkoLoopAnalysis.h"
 #include "llvm/Analysis/KorkunovAnalysisPass.h"
 #include "llvm/Analysis/KorkunovLoopAnalysis.h"
-
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -308,6 +309,7 @@
 #include "llvm/Transforms/VolokhPass/VolokhPass.h"
 #include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
 #include "llvm/Transforms/BaturinaPass2/BaturinaPass2.h"
+#include "llvm/Transforms/BaturinaPass3/BaturinaPass3.h"
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
 #include "llvm/Transforms/VokhmyaninaLab2/VokhmyaninaLab2.h"
 

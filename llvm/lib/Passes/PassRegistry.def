@@ -182,10 +182,10 @@ FUNCTION_ANALYSIS("KovakimyAnalysis", KovakimyAnalysis())
 FUNCTION_ANALYSIS("aanoskovCounter", aanoskovCounter())
 FUNCTION_ANALYSIS("idoroshenko-analysis", IDoroshenkoAnalysis())
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
+FUNCTION_ANALYSIS("BaturinaAnalysis", BaturinaAnalysis())
 FUNCTION_ANALYSIS("VokhmyaninaAnalysis", VokhmyaninaAnalysis())
 
 FUNCTION_ANALYSIS("Lab3 Function Analysis", MelnikovLab3FunctionAnalysis())
-
 #ifndef FUNCTION_ALIAS_ANALYSIS
 #define FUNCTION_ALIAS_ANALYSIS(NAME, CREATE_PASS)                             \
   FUNCTION_ANALYSIS(NAME, CREATE_PASS)
@@ -239,6 +239,7 @@ FUNCTION_PASS("helloworld", HelloWorldPass())
 FUNCTION_PASS("ilyinanalysispass", IlyinAnalysisPass())
 FUNCTION_PASS("baturinapass", BaturinaPass())
 FUNCTION_PASS("baturinapass2", BaturinaPass2())
+FUNCTION_PASS("baturinapass3", BaturinaPass3())
 FUNCTION_PASS("pankratovaPass", PankratovaPass())
 FUNCTION_PASS("pankratovaASPass", PankratovaASPass())
 FUNCTION_PASS("pankratovaTransformPass", PankratovaTransformPass())
@@ -466,6 +467,7 @@ LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pankratovaLoopAnalysis", PankratovaLoopAnalysis())
 LOOP_ANALYSIS("ilyinloopanalysis", IlyinLoopAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+LOOP_ANALYSIS("BaturinaLoopAnalysis", BaturinaLoopAnalysis())
 LOOP_ANALYSIS("oksana-loop-analysis", OksanaKozlovaLoopAnalysis())
 LOOP_ANALYSIS("MelnikovLab3LoopAnalysis", MelnikovLab3LoopAnalysis())
 LOOP_ANALYSIS("KorkunovLoopAnalysis", KorkunovLoopAnalysis())
@@ -473,7 +475,6 @@ LOOP_ANALYSIS("VokhmyaninaLoopAnalysis", VokhmyaninaLoopAnalysis())
 LOOP_ANALYSIS("aanoskovLoopAnalysis", aanoskovLoopAnalysis())
 LOOP_ANALYSIS("idoroshenko-loop-analysis", IDoroshenkoLoopAnalysis())
 LOOP_ANALYSIS("pyanzinloopanalysis", PyanzinLoopAnalysis())
-
 
 #undef LOOP_ANALYSIS
 

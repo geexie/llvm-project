@@ -65,5 +65,5 @@ add_subdirectory(KatyaMalyshevaLab1Pass)
 add_subdirectory(KatyaMalyshevaLab2Pass)
 add_subdirectory(CounterPass)
 add_subdirectory(VoronovaLab2)
+add_subdirectory(BaturinaPass3)
 add_subdirectory(aanoskovASPass)
-

@@ -68,6 +68,7 @@ add_llvm_component_library(LLVMPasses
   KovakimyAnalysisPass
   BaturinaPass
   BaturinaPass2
+  BaturinaPass3
   VokhmyaninaCounter
   VokhmyaninaLab2
   VokhmyaninaLab3
