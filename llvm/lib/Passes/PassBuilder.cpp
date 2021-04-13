@@ -77,6 +77,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/KovakimyAnalysis.h"
+#include "llvm/Analysis/KovakimyAnalysisLoop.h"
 
 #include "llvm/Analysis/udachinaAnalysis.h"
 #include "llvm/Analysis/udachinaLoopAnalysis.h"
@@ -165,6 +167,7 @@
 #include "llvm/Transforms/DVorobyovCount/DVorobyovLab2.h"
 #include "llvm/Transforms/KovakimyCount/KovakimyCount.h"
 #include "llvm/Transforms/KovakimyCount/KovakimyAS.h"
+#include "llvm/Transforms/KovakimyAnalysisPass/KovakimyAnalysisPass.h"
 #include "llvm/Transforms/ObjCARC.h"
 #include "llvm/Transforms/OksanaKozlova/OksanaAS.h"
 #include "llvm/Transforms/OksanaKozlova/OksanaKozlovaCount.h"
