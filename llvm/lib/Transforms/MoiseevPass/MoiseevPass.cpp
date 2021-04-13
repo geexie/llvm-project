@@ -1,5 +1,7 @@
 #include "llvm/Transforms/MoiseevPass/MoiseevPass.h"
+#define DEBUG_TYPE "MoiseevPass"
 
+#include "llvm/ADT/Statistic.h"
 using namespace llvm;
 
 STATISTIC(TotalAdd, "Num of add");
@@ -10,7 +12,6 @@ STATISTIC(TotalBasicBlocks, "Num of basic blocks");
 
 
 static void countLoops(Loop * loop){
-
     TotalLoops++;
 
     for (Loop::iterator loopIterator = loop->begin(); loopIterator != loop->end(); ++loopIterator){
