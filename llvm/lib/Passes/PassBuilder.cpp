@@ -59,6 +59,8 @@
 #include "llvm/Analysis/ModuleDebugInfoPrinter.h"
 #include "llvm/Analysis/ModuleSummaryAnalysis.h"
 #include "llvm/Analysis/MustExecute.h"
+#include "llvm/Analysis/OksanaKozlovaAnalysis.h"
+#include "llvm/Analysis/OksanaKozlovaLoopAnalysis.h"
 #include "llvm/Analysis/ObjCARCAliasAnalysis.h"
 #include "llvm/Analysis/OptimizationRemarkEmitter.h"
 #include "llvm/Analysis/PankratovaAnalysis.h"
@@ -75,6 +77,12 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/VolokhAnalysis.h"
+#include "llvm/Analysis/VolokhLoopAnalysis.h"
+#include "llvm/Analysis/BaturinaAnalysis.h"
+#include "llvm/Analysis/BaturinaLoopAnalysis.h"
+#include "llvm/Analysis/KovakimyAnalysis.h"
+#include "llvm/Analysis/KovakimyAnalysisLoop.h"
 
 #include "llvm/Analysis/VoronovaAnalisis.h"
 
@@ -90,7 +98,6 @@
 #include "llvm/Analysis/IDoroshenkoLoopAnalysis.h"
 #include "llvm/Analysis/KorkunovAnalysisPass.h"
 #include "llvm/Analysis/KorkunovLoopAnalysis.h"
-
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -166,8 +173,10 @@
 #include "llvm/Transforms/DVorobyovCount/DVorobyovLab2.h"
 #include "llvm/Transforms/KovakimyCount/KovakimyCount.h"
 #include "llvm/Transforms/KovakimyCount/KovakimyAS.h"
+#include "llvm/Transforms/KovakimyAnalysisPass/KovakimyAnalysisPass.h"
 #include "llvm/Transforms/ObjCARC.h"
 #include "llvm/Transforms/OksanaKozlova/OksanaAS.h"
+#include "llvm/Transforms/OksanaKozlova/OksanaKozlovaCount.h"
 #include "llvm/Transforms/CounterPass/FirstLab.h"
 #include "llvm/Transforms/VoronovaLab2/VoronovaLab2.h"
 #include "llvm/Transforms/OksanaKozlova/OksanaKozlova.h"
@@ -307,6 +316,7 @@
 #include "llvm/Transforms/VolokhPass/VolokhPass.h"
 #include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
 #include "llvm/Transforms/BaturinaPass2/BaturinaPass2.h"
+#include "llvm/Transforms/BaturinaPass3/BaturinaPass3.h"
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
 #include "llvm/Transforms/VokhmyaninaLab2/VokhmyaninaLab2.h"
 
@@ -317,6 +327,7 @@
 
 #include "llvm/Transforms/MoiseevPass2/MoiseevPass2.h"
 #include "llvm/Transforms/VolokhSecondPass/VolokhSecondPass.h"
+#include "llvm/Transforms/VolokhAnalysisPass/VolokhAnalysisPass.h"
 
 #include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h" // lab1 pass
 #include "llvm/Transforms/MelnikovLab2Pass/MelnikovLab2Pass.h"

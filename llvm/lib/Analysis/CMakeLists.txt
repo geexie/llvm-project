@@ -103,6 +103,8 @@ add_llvm_component_library(LLVMAnalysis
   ObjCARCAliasAnalysis.cpp
   ObjCARCAnalysisUtils.cpp
   ObjCARCInstKind.cpp
+  OksanaKozlovaAnalysis.cpp
+  OksanaKozlovaLoopAnalysis.cpp
   OptimizationRemarkEmitter.cpp
   PankratovaAnalysis.cpp
   PankratovaLoopAnalysis.cpp
@@ -139,6 +141,12 @@ add_llvm_component_library(LLVMAnalysis
   VectorUtils.cpp
   VFABIDemangling.cpp
   VoronovaAnalisis.cpp
+  VolokhAnalysis.cpp
+  VolokhLoopAnalysis.cpp
+  BaturinaAnalysis.cpp
+  BaturinaLoopAnalysis.cpp
+  KovakimyAnalysis.cpp
+  KovakimyAnalysisLoop.cpp
   MelnikovLab3FunctionAnalysis.cpp
   MelnikovLab3LoopAnalysis.cpp
   VokhmyaninaAnalysis.cpp
