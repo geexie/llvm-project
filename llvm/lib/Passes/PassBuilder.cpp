@@ -77,6 +77,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/VolokhAnalysis.h"
+#include "llvm/Analysis/VolokhLoopAnalysis.h"
 #include "llvm/Analysis/BaturinaAnalysis.h"
 #include "llvm/Analysis/BaturinaLoopAnalysis.h"
 #include "llvm/Analysis/KovakimyAnalysis.h"
@@ -320,6 +322,7 @@
 
 #include "llvm/Transforms/MoiseevPass2/MoiseevPass2.h"
 #include "llvm/Transforms/VolokhSecondPass/VolokhSecondPass.h"
+#include "llvm/Transforms/VolokhAnalysisPass/VolokhAnalysisPass.h"
 
 #include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h" // lab1 pass
 #include "llvm/Transforms/MelnikovLab2Pass/MelnikovLab2Pass.h"
