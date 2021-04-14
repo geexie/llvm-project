@@ -1,14 +1,16 @@
 #pragma once
 
-#define DEBUG_TYPE "VoronovaLab2"
+
 
 
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/IR/InstIterator.h"
 #include "llvm/IR/IntrinsicInst.h"
 #include "llvm/IR/Intrinsics.h"
-#include "llvm/ADT/Statistic.h"
 #include "llvm/IR/PassManager.h"
+
+#define DEBUG_TYPE "VoronovaLab2"
+#include "llvm/ADT/Statistic.h"
 
 
 namespace llvm {
