@@ -154,6 +154,8 @@ add_llvm_component_library(LLVMAnalysis
   aanoskovLoopAnalysis.cpp
   PyanzinAnalysis.cpp
   PyanzinLoopAnalysis.cpp
+  pvia.cpp
+  pvila.cpp
   IDoroshenkoAnalysis.cpp
   IDoroshenkoLoopAnalysis.cpp
 
