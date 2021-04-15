@@ -1,4 +1,5 @@
-
+#ifndef LLVM_TRANSFORMS_UDACHINAPASS_H
+#define LLVM_TRANSFORMS_UDACHINAPASS_H
 
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/Statistic.h"
@@ -16,4 +17,4 @@ namespace llvm {
 	};
 
 }
-#endif
+
