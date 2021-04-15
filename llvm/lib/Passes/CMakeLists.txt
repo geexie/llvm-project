@@ -80,6 +80,7 @@ add_llvm_component_library(LLVMPasses
   KatyaMalyshevaLab2Pass
   CounterPass
   VoronovaLab2
+  pvi
 
   udachinaAnalysisPass
 
