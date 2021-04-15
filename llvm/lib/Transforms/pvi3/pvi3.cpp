@@ -10,6 +10,8 @@
 
 using namespace llvm;
 
+#define DEBUG_TYPE "pvi3"
+
 STATISTIC(AddCounter, "Number of add");
 STATISTIC(MulCounter, "Number of mul");
 STATISTIC(PowCounter, "Number of pow");
