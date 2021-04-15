@@ -1,6 +1,3 @@
-#pragma once
-
-#define DEBUG_TYPE "ErmolaevPass"
 
 #include "llvm/ADT/Statistic.h"
 #include "llvm/IR/PassManager.h"
