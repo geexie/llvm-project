@@ -173,6 +173,9 @@ FUNCTION_ANALYSIS("targetir",
 FUNCTION_ANALYSIS("verify", VerifierAnalysis())
 FUNCTION_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
+FUNCTION_ANALYSIS("volokh-analysis", VolokhAnalysis())
+FUNCTION_ANALYSIS("BaturinaAnalysis", BaturinaAnalysis())
+FUNCTION_ANALYSIS("VokhmyaninaAnalysis", VokhmyaninaAnalysis())
 FUNCTION_ANALYSIS("BogoroditskayaFunctionAnalysis", BogoroditskayaFunctionAnalysis())
 
 #ifndef FUNCTION_ALIAS_ANALYSIS
@@ -389,6 +392,15 @@ LOOP_ANALYSIS("access-info", LoopAccessAnalysis())
 LOOP_ANALYSIS("ddg", DDGAnalysis())
 LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
+LOOP_ANALYSIS("volokh-loop-analysis", VolokhLoopAnalysis())
+LOOP_ANALYSIS("BaturinaLoopAnalysis", BaturinaLoopAnalysis())
+LOOP_ANALYSIS("oksana-loop-analysis", OksanaKozlovaLoopAnalysis())
+LOOP_ANALYSIS("MelnikovLab3LoopAnalysis", MelnikovLab3LoopAnalysis())
+LOOP_ANALYSIS("KorkunovLoopAnalysis", KorkunovLoopAnalysis())
+LOOP_ANALYSIS("VokhmyaninaLoopAnalysis", VokhmyaninaLoopAnalysis())
+LOOP_ANALYSIS("aanoskovLoopAnalysis", aanoskovLoopAnalysis())
+LOOP_ANALYSIS("idoroshenko-loop-analysis", IDoroshenkoLoopAnalysis())
+LOOP_ANALYSIS("pyanzinloopanalysis", PyanzinLoopAnalysis())
 LOOP_ANALYSIS("BogoroditskayaLoopAnalysis", BogoroditskayaLoopAnalysis())
 #undef LOOP_ANALYSIS
 
