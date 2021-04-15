@@ -244,6 +244,34 @@
 #include "llvm/Transforms/VolokhPass/VolokhPass.h"
 #include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
+#include "llvm/Transforms/VokhmyaninaLab2/VokhmyaninaLab2.h"
+
+#include "llvm/Transforms/akUdachinaPass/akUdachinaPass.h"
+
+#include "llvm/Transforms/VokhmyaninaLab3/VokhmyaninaLab3.h"
+
+
+#include "llvm/Transforms/MoiseevPass2/MoiseevPass2.h"
+#include "llvm/Transforms/VolokhSecondPass/VolokhSecondPass.h"
+#include "llvm/Transforms/VolokhAnalysisPass/VolokhAnalysisPass.h"
+
+#include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h" // lab1 pass
+#include "llvm/Transforms/MelnikovLab2Pass/MelnikovLab2Pass.h"
+
+
+#include "llvm/Transforms/MelnikovLab3Pass/MelnikovLab3Pass.h"
+#include "llvm/Analysis/MelnikovLab3FunctionAnalysis.h"
+#include "llvm/Analysis/MelnikovLab3LoopAnalysis.h"
+
+#include "llvm/Transforms/pazamelin/pass.h"
+#include "llvm/Transforms/pazamelin_as/pass_as.h"
+
+#include "llvm/Transforms/Sazanov_Lab2_Pass/Sazanov_Lab2_Pass.h"
+
+#include "llvm/Transforms/KatyaMalyshevaLab1Pass/KatyaMalyshevaLab1Pass.h"
+#include "llvm/Transforms/KatyaMalyshevaLab2Pass/KatyaMalyshevaLab2Pass.h"
+#include "llvm/Transforms/aanoskovASPass/aanoskovASPass.h"
+
 #include "llvm/Transforms/Bogoroditskaya3/Bogoroditskaya3.h"
 #include "llvm/Analysis/BogoroditskayaFunctionAnalysis.h"
 #include "llvm/Analysis/BogoroditskayaLoopAnalysis.h"
