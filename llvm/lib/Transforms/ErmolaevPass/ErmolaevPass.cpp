@@ -1,5 +1,5 @@
 #include "llvm/Transforms/ErmolaevPass/ErmolaevPass.h"
-
+#define DEBUG_TYPE "ErmolaevPass"
 
 using namespace llvm;
 
