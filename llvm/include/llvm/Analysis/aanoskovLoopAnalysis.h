@@ -1,5 +1,5 @@
 #ifndef LLVM_AANOSKOVLOOPANALYSIS_H_
-#define LLVM_SSNOSKOVLOOPANALYSIS_H_
+#define LLVM_AANOSKOVLOOPANALYSIS_H_
 
 #include "llvm/Analysis/LoopInfo.h"
 #include "llvm/IR/PassManager.h"
@@ -29,6 +29,6 @@ public:
 };
 
 } // namespace llvm
-#endif 
+#endif
 
 

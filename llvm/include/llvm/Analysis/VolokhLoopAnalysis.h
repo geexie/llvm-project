@@ -10,7 +10,7 @@ namespace llvm {
             int64_t updates = 0;
     };
 
-    class VolokhLoopAnalysis : public AnalysisInfoMixin<VolokhLoopAnalysisInfo> {
+    class VolokhLoopAnalysis : public AnalysisInfoMixin<VolokhLoopAnalysis> {
         public:
             static AnalysisKey Key;
             using Result = VolokhLoopAnalysisInfo;

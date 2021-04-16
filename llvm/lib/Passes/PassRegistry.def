@@ -179,7 +179,7 @@ FUNCTION_ANALYSIS("targetir",
 FUNCTION_ANALYSIS("verify", VerifierAnalysis())
 FUNCTION_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
 FUNCTION_ANALYSIS("KovakimyAnalysis", KovakimyAnalysis())
-FUNCTION_ANALYSIS("aanoskovCounter", aanoskovCounter())
+FUNCTION_ANALYSIS("aanoskovCounterAnalysis", aanoskovCounterAnalysis())
 FUNCTION_ANALYSIS("idoroshenko-analysis", IDoroshenkoAnalysis())
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
 FUNCTION_ANALYSIS("volokh-analysis", VolokhAnalysis())
@@ -403,8 +403,8 @@ FUNCTION_PASS("aanoskovCounter", aanoskovCounter())
 FUNCTION_PASS("sdanilov", SdanilovPass())
 FUNCTION_PASS("MelnikovLab1Pass", MelnikovLab1Pass()) // Lab1 pass
 
-FUNCTION_PASS("MelnikovLab2Pass", MelnikovLab2Pass()) 
-FUNCTION_PASS("MelnikovLab3Pass", MelnikovLab3Pass()) 
+FUNCTION_PASS("MelnikovLab2Pass", MelnikovLab2Pass())
+FUNCTION_PASS("MelnikovLab3Pass", MelnikovLab3Pass())
 
 FUNCTION_PASS("MelnikovLab2Pass", MelnikovLab2Pass())
 FUNCTION_PASS("MoiseevPass", MoiseevPass())

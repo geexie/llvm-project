@@ -32,7 +32,7 @@ aanoskovCounterInfo::getCounts(const Function &F) {
             ++FPI.AddsCount;
         else if ( ( instr->getOpcode() == Instruction::Mul ) || ( instr->getOpcode() == Instruction::FMul))
             ++FPI.MulsCount;
-      }    
+      }
     }
   }
   return FPI;
@@ -47,8 +47,8 @@ void aanoskovCounterInfo::print(raw_ostream &OS) const {
 }
 
 
-AnalysisKey aanoskovCounter::Key;
+AnalysisKey aanoskovCounterAnalysis::Key;
 
-aanoskovCounter::Result aanoskovCounter::run(Function &F, FunctionAnalysisManager &FAM) {
+aanoskovCounterAnalysis::Result aanoskovCounterAnalysis::run(Function &F, FunctionAnalysisManager &FAM) {
   return aanoskovCounterInfo::getCounts(F);
 }

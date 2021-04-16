@@ -26,7 +26,7 @@ pvia::Result pvia::run(Function &F, FunctionAnalysisManager &FAM) {
   return result;
 }
 
-void pviaInfo::print(raw_ostream &ostream) const {
+void pviainf::print(raw_ostream &ostream) const {
   ostream << "pow counter: " << Powcounter << "\n"
           << "add counter: " << Addcounter << "\n"
           << "mul counter: " << Mulcounter << "\n";

@@ -1,7 +1,7 @@
-add_llvm_component_library( LLVMBaturinaPass3
-  BaturinaPass3.cpp
+add_llvm_component_library( LLVMpvi3
+  pvi3.cpp
 
-  ADDITIONAL_HEADER_DIRS
-  ${LLVM_MAIN_INCLUDE_DIR}/llvm/Transforms
-  ${LLVM_MAIN_INCLUDE_DIR}/llvm/Transforms/BaturinaPass3
-) 
+  # ADDITIONAL_HEADER_DIRS
+  # ${LLVM_MAIN_INCLUDE_DIR}/llvm/Transforms
+  # ${LLVM_MAIN_INCLUDE_DIR}/llvm/Transforms/BaturinaPass3
+)

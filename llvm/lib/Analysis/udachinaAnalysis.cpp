@@ -1,5 +1,3 @@
-#pragma once
-
 #include "llvm/Analysis/udachinaAnalysis.h"
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/InstIterator.h"
@@ -12,9 +10,9 @@ AnalysisKey udachinaAnalysis::Key;
 
 
 udachinaAnalysis::Result udachinaAnalysis::run(Function& F, FunctionAnalysisManager& AM){
-	
+
 	Result data;
-	
+
 	for (Function::iterator B = F.begin(); B != F.end(); ++B)
 	{
 		for (BasicBlock::iterator H = B->begin(); H != B->end(); ++H)
@@ -28,7 +26,7 @@ udachinaAnalysis::Result udachinaAnalysis::run(Function& F, FunctionAnalysisMana
 			{
 				data.val_add++;
 			};
-			
+
 
 		}
 	}
@@ -49,5 +47,5 @@ void udachinaAnalysisInfo::print(raw_ostream &ostream)const {
 	ostream << "Mul: " << val_mul << "/n";
 	ostream << "Block: " << val_block << "/n";
 
-	
+
 }

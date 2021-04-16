@@ -2,6 +2,7 @@
 
 using namespace llvm;
 
+namespace {
 
 void handleLoops(Loop *L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
     if (L->isInnermost()) {
@@ -13,6 +14,8 @@ void handleLoops(Loop *L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults&
     for (Loop* subLoop : L->getSubLoops()) {
         handleLoops(subLoop, LAM, AR);
     }
+}
+
 }
 
 

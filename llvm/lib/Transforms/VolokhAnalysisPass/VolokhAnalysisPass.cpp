@@ -1,5 +1,3 @@
-#pragma once
-
 #include "llvm/Transforms/VolokhAnalysisPass/VolokhAnalysisPass.h"
 #include "llvm/Analysis/VolokhAnalysis.h"
 #include "llvm/Analysis/VolokhLoopAnalysis.h"

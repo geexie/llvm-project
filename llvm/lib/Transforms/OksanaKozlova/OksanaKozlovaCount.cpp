@@ -17,12 +17,12 @@ STATISTIC(TotalArithmInstrs, "Number of arithmetic instructions");
 STATISTIC(TotalLoopsVertorizable, "Number of vectorizable loops");
 
 
-void handleLoops(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
+static void handleLoops(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
     if (L->isInnermost()) {
         auto &result = LAM.getResult<OksanaKozlovaLoopAnalysis>(*L, AR);
         if (result.updCount == 1) {
             TotalLoopsVertorizable++;
-        }                                                                                                  
+        }
     }
 
     for (Loop* SL : L->getSubLoops()) {

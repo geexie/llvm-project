@@ -17,7 +17,7 @@ STATISTIC(MulCounter, "Number of mul");
 STATISTIC(PowCounter, "Number of pow");
 STATISTIC(VectorizableLoops, "Number of vectorizable loops");
 
-void loopsProc(Loop *L, LoopAnalysisManager &LAM,
+static void loopsProc(Loop *L, LoopAnalysisManager &LAM,
                LoopStandardAnalysisResults &LSAR) {
   if (L->isInnermost()) {
     auto &result = LAM.getResult<pvila>(*L, LSAR);
@@ -34,22 +34,22 @@ void loopsProc(Loop *L, LoopAnalysisManager &LAM,
 PreservedAnalyses pvi3::run(Function &F,
                                      FunctionAnalysisManager &FAM) {
 
-  auto &result = AM.getResult<pvia>(F);
+  auto &result = FAM.getResult<pvia>(F);
   AddCounter += result.Addcounter;
   MulCounter += result.Mulcounter;
   PowCounter += result.Powcounter;
 
   result.print(errs());
 
-  auto &LA = AM.getResult<LoopAnalysis>(F);
-  auto &LAM = AM.getResult<LoopAnalysisManagerFunctionProxy>(F).getManager();
+  auto &LA = FAM.getResult<LoopAnalysis>(F);
+  auto &LAM = FAM.getResult<LoopAnalysisManagerFunctionProxy>(F).getManager();
 
-  auto &AA = AM.getResult<AAManager>(F);
-  AssumptionCache &AC = AM.getResult<AssumptionAnalysis>(F);
-  DominatorTree &DT = AM.getResult<DominatorTreeAnalysis>(F);
-  ScalarEvolution &SE = AM.getResult<ScalarEvolutionAnalysis>(F);
-  TargetLibraryInfo &TLI = AM.getResult<TargetLibraryAnalysis>(F);
-  TargetTransformInfo &TTI = AM.getResult<TargetIRAnalysis>(F);
+  auto &AA = FAM.getResult<AAManager>(F);
+  AssumptionCache &AC = FAM.getResult<AssumptionAnalysis>(F);
+  DominatorTree &DT = FAM.getResult<DominatorTreeAnalysis>(F);
+  ScalarEvolution &SE = FAM.getResult<ScalarEvolutionAnalysis>(F);
+  TargetLibraryInfo &TLI = FAM.getResult<TargetLibraryAnalysis>(F);
+  TargetTransformInfo &TTI = FAM.getResult<TargetIRAnalysis>(F);
   LoopStandardAnalysisResults LSAR = {AA,  AC,  DT,      LA,     SE,
                                       TLI, TTI, nullptr, nullptr};
 

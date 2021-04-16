@@ -1,4 +1,4 @@
-add_llvm_component_library(LLVMAvmusatovPass
+add_llvm_component_library(LLVMIlyinAnalysisPass
   IlyinAnalysisPass.cpp
 
   ADDITIONAL_HEADER_DIRS
