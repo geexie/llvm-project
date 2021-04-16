@@ -130,6 +130,24 @@ add_llvm_component_library(LLVMAnalysis
   ValueTracking.cpp
   VectorUtils.cpp
   VFABIDemangling.cpp
+  VolokhAnalysis.cpp
+  VolokhLoopAnalysis.cpp
+  BaturinaAnalysis.cpp
+  BaturinaLoopAnalysis.cpp
+  KovakimyAnalysis.cpp
+  KovakimyAnalysisLoop.cpp
+  MelnikovLab3FunctionAnalysis.cpp
+  MelnikovLab3LoopAnalysis.cpp
+  VokhmyaninaAnalysis.cpp
+  VokhmyaninaLoopAnalysis.cpp
+  aanoskovCounter.cpp
+  aanoskovLoopAnalysis.cpp
+  PyanzinAnalysis.cpp
+  PyanzinLoopAnalysis.cpp
+  pvia.cpp
+  pvila.cpp
+  IDoroshenkoAnalysis.cpp
+  IDoroshenkoLoopAnalysis.cpp
   MoiseevAnalysis.cpp
   MoiseevLoopAnalysis.cpp
   ${GeneratedMLSources}
