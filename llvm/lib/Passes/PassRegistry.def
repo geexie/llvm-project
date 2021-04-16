@@ -249,7 +249,6 @@ FUNCTION_PASS("baturinapass3", BaturinaPass3())
 FUNCTION_PASS("pankratovaPass", PankratovaPass())
 FUNCTION_PASS("pankratovaASPass", PankratovaASPass())
 FUNCTION_PASS("pankratovaTransformPass", PankratovaTransformPass())
-FUNCTION_PASS("Selivanovskaya_lab2", Selivanovskaya_lab2())
 FUNCTION_PASS("counterpass", CounterPass())
 FUNCTION_PASS("voronovalab2", VoronovaLab2())
 FUNCTION_PASS("akUdachinaPass", akUdachinaPass())
@@ -394,7 +393,6 @@ FUNCTION_PASS("msan", MemorySanitizerPass({}))
 FUNCTION_PASS("kmsan", MemorySanitizerPass({0, false, /*Kernel=*/true}))
 FUNCTION_PASS("tsan", ThreadSanitizerPass())
 FUNCTION_PASS("memprof", MemProfilerPass())
-<<<<<<< HEAD
 
 FUNCTION_PASS("KorkunovTransAnalysisPass", KorkunovTransAnalysisPass())
 FUNCTION_PASS("aanoskovStatPass", aanoskovStatPass())
@@ -422,9 +420,7 @@ FUNCTION_PASS("KatyaMalyshevaLab2Pass", KatyaMalyshevaLab2Pass())
 FUNCTION_PASS("aanoskovASPass", aanoskovASPass())
 
 
-=======
 FUNCTION_PASS("SelivanovskayaLab3", SelivanovskayaLab3())
->>>>>>> 37436e8c214a... lab3
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
@@ -479,7 +475,6 @@ LOOP_ANALYSIS("iv-users", IVUsersAnalysis())
 LOOP_ANALYSIS("pankratovaLoopAnalysis", PankratovaLoopAnalysis())
 LOOP_ANALYSIS("ilyinloopanalysis", IlyinLoopAnalysis())
 LOOP_ANALYSIS("pass-instrumentation", PassInstrumentationAnalysis(PIC))
-<<<<<<< HEAD
 LOOP_ANALYSIS("volokh-loop-analysis", VolokhLoopAnalysis())
 LOOP_ANALYSIS("BaturinaLoopAnalysis", BaturinaLoopAnalysis())
 LOOP_ANALYSIS("oksana-loop-analysis", OksanaKozlovaLoopAnalysis())
@@ -490,9 +485,7 @@ LOOP_ANALYSIS("aanoskovLoopAnalysis", aanoskovLoopAnalysis())
 LOOP_ANALYSIS("idoroshenko-loop-analysis", IDoroshenkoLoopAnalysis())
 LOOP_ANALYSIS("pyanzinloopanalysis", PyanzinLoopAnalysis())
 
-=======
 LOOP_ANALYSIS("SelivanovskayaLoopAnalysis", SelivanovskayaLoopAnalysis())
->>>>>>> 37436e8c214a... lab3
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS

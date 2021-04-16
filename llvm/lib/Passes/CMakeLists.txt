@@ -46,7 +46,6 @@ add_llvm_component_library(LLVMPasses
   Instrumentation
   KorkunovTransAnalysisPass
   aanoskovStatPass
-  Selivanovskaya_lab2
   Korkunov_ASpass
   Sazanov_Lab1_Pass
   ArivanovCount

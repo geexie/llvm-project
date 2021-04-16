@@ -77,7 +77,6 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
-<<<<<<< HEAD
 #include "llvm/Analysis/VolokhAnalysis.h"
 #include "llvm/Analysis/VolokhLoopAnalysis.h"
 #include "llvm/Analysis/BaturinaAnalysis.h"
@@ -98,10 +97,8 @@
 #include "llvm/Analysis/KorkunovLoopAnalysis.h"
 #include "llvm/Analysis/pvia.h"
 #include "llvm/Analysis/pvila.h"
-=======
 #include "llvm/Analysis/SelivanovskayaAnalysis.h"
 #include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
->>>>>>> 37436e8c214a... lab3
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -310,7 +307,6 @@
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
 #include "llvm/Transforms/aanoskovStatPass/aanoskovStatPass.h"
-#include "llvm/Transforms/Selivanovskaya_lab2/Selivanovskaya_lab2.h"
 #include "llvm/Transforms/Korkunov_ASpass/Korkunov_ASpass.h"
 #include "llvm/Transforms/KorkunovTransAnalysisPass/KorkunovTransAnalysisPass.h"
 #include "llvm/Transforms/Sazanov_Lab1_Pass/Sazanov_Lab1_Pass.h"
