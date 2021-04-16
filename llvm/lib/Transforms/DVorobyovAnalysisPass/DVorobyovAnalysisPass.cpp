@@ -1,5 +1,3 @@
-#pragma once
-
 #include "llvm/Transforms/DVorobyovAnalysisPass/DVorobyovAnalysisPass.h"
 #include "llvm/Analysis/DVorobyovAnalysis.h"
 #include "llvm/Analysis/DVorobyovLoopAnalysis.h"
