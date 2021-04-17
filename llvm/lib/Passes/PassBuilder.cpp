@@ -351,6 +351,7 @@
 #include "llvm/Transforms/aanoskovASPass/aanoskovASPass.h"
 
 #include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
+#include "llvm/Transforms/Strakhov2/Strakhov2.h"
 
 using namespace llvm;
 

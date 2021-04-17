@@ -86,5 +86,6 @@ add_llvm_component_library(LLVMPasses
   udachinaAnalysisPass
 
   SelivanovskayaLab3
+  Strakhov2
   )
 

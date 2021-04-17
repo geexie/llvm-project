@@ -423,6 +423,7 @@ FUNCTION_PASS("aanoskovASPass", aanoskovASPass())
 
 
 FUNCTION_PASS("SelivanovskayaLab3", SelivanovskayaLab3())
+FUNCTION_PASS("Strakhov2", Strakhov2())
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
