@@ -16,27 +16,15 @@ add_llvm_component_library(LLVMPasses
   Analysis
   Core
   Coroutines
-  HelloNew
   IPO
   InstCombine
   AKomyaginCount
   AKomyaginASPass
-  AvmusatovCount
+  AKomyaginPass3
   ObjCARC
-  PyanzinPass1
   Scalar
   Support
   Target
   TransformUtils
   Vectorize
-  Bogoroditskaya
-  PankratovaPass
-  IDoroshenkoPass
-  Instrumentation
-  MelnikovLab1pass
-  MoiseevPass
-  KovakimyCount
-  BaturinaPass
-  VokhmyaninaCounte
-  VolokhPass
   )
