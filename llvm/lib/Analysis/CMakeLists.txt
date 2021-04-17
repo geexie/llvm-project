@@ -158,6 +158,8 @@ add_llvm_component_library(LLVMAnalysis
   pvila.cpp
   IDoroshenkoAnalysis.cpp
   IDoroshenkoLoopAnalysis.cpp
+  KMalyshevaAnalysis.cpp
+  KMalyshevaLoopAnalysis.cpp
 
   ${GeneratedMLSources}
 
