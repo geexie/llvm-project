@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(pankratovaLambda
+  pankratovaLambda.cpp
+  lexer.cpp
+  lexer.hpp
+  parser.cpp
+  parser.hpp
+  ast.cpp
+  ast.hpp
+  )

@@ -1,0 +1,15 @@
+E -> E + T / T
+T -> T * F / F
+F -> C / id
+
+C, id = x, +, *
+integer data type
+
+E + T -> + E T
+
+(lambda x.x x + 1)2 -> 3
+
+// * 3 + x * 5 + x 1
+// * x + * x 4 + * x 3 + x + * x x * 3 x
+
+
