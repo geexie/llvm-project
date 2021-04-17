@@ -95,6 +95,8 @@
 #include "llvm/Analysis/IDoroshenkoLoopAnalysis.h"
 #include "llvm/Analysis/KorkunovAnalysisPass.h"
 #include "llvm/Analysis/KorkunovLoopAnalysis.h"
+#include "llvm/Analysis/KMalyshevaAnalysis.h"
+#include "llvm/Analysis/KMalyshevaLoopAnalysis.h"
 #include "llvm/Analysis/pvia.h"
 #include "llvm/Analysis/pvila.h"
 #include "llvm/Analysis/SelivanovskayaAnalysis.h"
@@ -345,6 +347,7 @@
 
 #include "llvm/Transforms/KatyaMalyshevaLab1Pass/KatyaMalyshevaLab1Pass.h"
 #include "llvm/Transforms/KatyaMalyshevaLab2Pass/KatyaMalyshevaLab2Pass.h"
+#include "llvm/Transforms/KMalyshevaLab3Pass/KMalyshevaLab3Pass.h"
 #include "llvm/Transforms/aanoskovASPass/aanoskovASPass.h"
 
 #include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
