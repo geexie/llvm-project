@@ -13,7 +13,7 @@ namespace llvm {
             int64_t powfs = 0;
     };
 
-    class VolokhAnalysis : public AnalysisInfoMixin<VolokhAnalysisInfo> {
+    class VolokhAnalysis : public AnalysisInfoMixin<VolokhAnalysis> {
         public:
             static AnalysisKey Key;
 

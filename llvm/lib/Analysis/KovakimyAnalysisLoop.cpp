@@ -1,5 +1,3 @@
-#pragma once
-
 #include "llvm/Analysis/KovakimyAnalysisLoop.h"
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/InstIterator.h"

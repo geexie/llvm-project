@@ -1,10 +1,10 @@
 #include "llvm/Analysis/IlyinLoopAnalysis.h"
 
-using namespace llvm {
+using namespace llvm;
 
 	AnalysisKey IlyinLoopAnalysis::Key;
 
-	IlyinLoopAnalysis::Result IlyinLoopAnalysi::run(Loop& L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
+	IlyinLoopAnalysis::Result IlyinLoopAnalysis::run(Loop& L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
 		Result result;
 		if (PHINode * indVar = L.getCanonicalInductionVariable()) {
 			SmallVector<BinaryOperator*, 16> updates;
@@ -19,5 +19,3 @@ using namespace llvm {
 		}
 		return result;
 	}
-
-}

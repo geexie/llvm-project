@@ -11,7 +11,6 @@
 using namespace llvm;
 
 #define DEBUG_TYPE "aanoskovStatPass"
-using namespace llvm;
 
 STATISTIC(TotalFuncDefs, "Number of function definitions");
 STATISTIC(TotalBasicBlocks, "Number of basic blocks");
@@ -43,8 +42,8 @@ PreservedAnalyses aanoskovStatPass::run(Function &F,
     errs() << F.getName() << "\n";
     if (!F.isDeclaration())
         TotalFuncDefs++;
-    
-    auto& FPI = AM.getResult<aanoskovCounter>(F);
+
+    auto& FPI = AM.getResult<aanoskovCounterAnalysis>(F);
     TotalBasicBlocks += FPI.BasicBlockCount;
     TotalAdds += FPI.AddsCount;
     TotalMuls += FPI.MulsCount;
@@ -55,7 +54,13 @@ PreservedAnalyses aanoskovStatPass::run(Function &F,
 
     auto& AA = AM.getResult<AAManager>(F);
     AssumptionCache &AC = AM.getResult<AssumptionAnalysis>(F);
+    // for  for
     DominatorTree &DT = AM.getResult<DominatorTreeAnalysis>(F);
+    // int sum = 0;
+    // for (int i = 0; i < 100; i++) {
+    //  sum += ptr[i];
+    //}
+    // int avg = sum / 100;
     ScalarEvolution &SE = AM.getResult<ScalarEvolutionAnalysis>(F);
     TargetLibraryInfo &TLI = AM.getResult<TargetLibraryAnalysis>(F);
     TargetTransformInfo &TTI = AM.getResult<TargetIRAnalysis>(F);
@@ -66,6 +71,6 @@ PreservedAnalyses aanoskovStatPass::run(Function &F,
     {
         LoopsRecursion(*loop, LAM, LSAR);
     }
-    
+
     return PreservedAnalyses::all();
 }

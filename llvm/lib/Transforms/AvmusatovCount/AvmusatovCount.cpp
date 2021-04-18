@@ -1,5 +1,14 @@
 #include "llvm/Transforms/AvmusatovCount/AvmusatovCount.h"
 
+
+#define DEBUG_TYPE "AvmusatovCount"
+
+STATISTIC(funcDefCount, "Number of function definitions");
+STATISTIC(loopsCount, "Number of loops");
+STATISTIC(basicBlocksCount, "Number of basic blocks");
+STATISTIC(mulOperationCount, "Number of mul operations");
+STATISTIC(addOperationCount, "Number of add operations");
+
 using namespace llvm;
 
 void countOperations(BasicBlock& basicBlock) {

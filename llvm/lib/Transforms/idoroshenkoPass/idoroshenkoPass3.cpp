@@ -22,7 +22,7 @@ STATISTIC(TotalMul, "Number of 'Mul'");
 STATISTIC(TotalLoopsVectorizable, "Number of vectorizable loops");
 
 
-void handleLoops(Loop* loop, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
+static void handleLoops(Loop* loop, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
     if (loop->isInnermost()) {
         auto& GLA = LAM.getResult<IDoroshenkoLoopAnalysis>(*loop, AR);
         if (GLA.InvUpdatesCount == 1) {
@@ -45,7 +45,7 @@ PreservedAnalyses IDoroshenkoPass3::run(Function &F, FunctionAnalysisManager &AM
 
     auto& LI = AM.getResult<LoopAnalysis>(F);
     auto& LAM = AM.getResult<LoopAnalysisManagerFunctionProxy>(F).getManager();
-    
+
     auto& AA = AM.getResult<AAManager>(F);
     AssumptionCache &AC = AM.getResult<AssumptionAnalysis>(F);
     DominatorTree &DT = AM.getResult<DominatorTreeAnalysis>(F);

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "llvm/Transforms/KovakimyAnalysisPass/KovakimyAnalysisPass.h"
 #include "llvm/Analysis/KovakimyAnalysis.h"
 #include "llvm/Analysis/KovakimyAnalysisLoop.h"
@@ -38,7 +36,7 @@ void counterLoops(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults
 }
 
 PreservedAnalyses KovakimyAnalysisPass::run(Function &F,
-                                            FunctionAnalysisManager &AM) 
+                                            FunctionAnalysisManager &AM)
 {
   auto &result = AM.getResult<KovakimyAnalysis>(F);
   CounterAdd   += result.counterAdd;
@@ -63,4 +61,3 @@ PreservedAnalyses KovakimyAnalysisPass::run(Function &F,
 
   return PreservedAnalyses::all();
 }
-  

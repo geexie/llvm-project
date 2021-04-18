@@ -1,10 +1,11 @@
-#pragma once
-
 #include "llvm/Analysis/VolokhLoopAnalysis.h"
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/InstIterator.h"
 
 namespace llvm {
+
+    AnalysisKey VolokhLoopAnalysis::Key;
+
     VolokhLoopAnalysis::Result VolokhLoopAnalysis::run(Loop& loop, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LAS){
         Result res;
         if (PHINode* indVar = loop.getCanonicalInductionVariable()){

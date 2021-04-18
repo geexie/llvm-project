@@ -1,4 +1,3 @@
-#pragma once
 #include "llvm/Transforms/udachinaAnalysisPass/udachinaAnalysisPass.h"
 #include "llvm/Analysis/udachinaAnalysis.h"
 #include "llvm/Analysis/udachinaLoopAnalysis.h"

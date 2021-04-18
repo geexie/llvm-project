@@ -21,8 +21,8 @@ PreservedAnalyses MelnikovLab2Pass::run(Function &func, FunctionAnalysisManager 
   for (auto& I : instructions(func)) {
     if (auto BO = dyn_cast<BinaryOperator>(&I)) {
       if (auto float_const = dyn_cast<ConstantFP>(BO->getOperand(0))) {
-        if ((float_const->getValue().convertToFloat() == 0.f) && (BO->getOpcode() == Instruction::FAdd) ||
-            (float_const->getValue().convertToFloat() == 1.f) && (BO->getOpcode() == Instruction::FMul))
+        if (((float_const->getValue().convertToFloat() == 0.f) && (BO->getOpcode() == Instruction::FAdd)) ||
+            ((float_const->getValue().convertToFloat() == 1.f) && (BO->getOpcode() == Instruction::FMul)))
         {
           BOs_left_const.push_back(BO);
           pa = PreservedAnalyses::none();
@@ -30,8 +30,8 @@ PreservedAnalyses MelnikovLab2Pass::run(Function &func, FunctionAnalysisManager 
       }
 
       else if (auto float_const = dyn_cast<ConstantFP>(BO->getOperand(1))) {
-        if (float_const->getValue().convertToFloat() == 0.f && BO->getOpcode() == Instruction::FAdd ||
-            float_const->getValue().convertToFloat() == 1.f && BO->getOpcode() == Instruction::FMul)
+        if (((float_const->getValue().convertToFloat() == 0.f) && (BO->getOpcode() == Instruction::FAdd)) ||
+            ((float_const->getValue().convertToFloat() == 1.f) && (BO->getOpcode() == Instruction::FMul)))
         {
           BOs_right_const.push_back(BO);
           pa = PreservedAnalyses::none();

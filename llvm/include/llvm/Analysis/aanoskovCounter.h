@@ -19,8 +19,8 @@ public:
 };
 
 // Analysis pass
-class aanoskovCounter
-    : public AnalysisInfoMixin<aanoskovCounter> {
+class aanoskovCounterAnalysis
+    : public AnalysisInfoMixin<aanoskovCounterAnalysis> {
 
 public:
   static AnalysisKey Key;
@@ -31,4 +31,4 @@ public:
 };
 
 } // namespace llvm
-#endif 
+#endif
