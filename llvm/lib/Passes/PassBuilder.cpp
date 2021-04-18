@@ -106,6 +106,8 @@
 #include "llvm/Analysis/pvila.h"
 #include "llvm/Analysis/SelivanovskayaAnalysis.h"
 #include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
+#include "llvm/Analysis/DVorobyovAnalysis.h"
+#include "llvm/Analysis/DVorobyovLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -363,6 +365,7 @@
 #include "llvm/Transforms/Bogoroditskaya3/Bogoroditskaya3.h"
 #include "llvm/Analysis/BogoroditskayaFunctionAnalysis.h"
 #include "llvm/Analysis/BogoroditskayaLoopAnalysis.h"
+#include "llvm/Transforms/DVorobyovAnalysisPass/DVorobyovAnalysisPass.h"
 
 using namespace llvm;
 
