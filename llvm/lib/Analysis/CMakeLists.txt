@@ -160,6 +160,8 @@ add_llvm_component_library(LLVMAnalysis
   IDoroshenkoLoopAnalysis.cpp
   KMalyshevaAnalysis.cpp
   KMalyshevaLoopAnalysis.cpp
+  BogoroditskayaFunctionAnalysis.cpp
+  BogoroditskayaLoopAnalysis.cpp
 
   SelivanovskayaAnalysis.cpp
   SelivanovskayaLoopAnalysis.cpp

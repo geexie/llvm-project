@@ -39,6 +39,7 @@ add_llvm_component_library(LLVMPasses
   Vectorize
   Bogoroditskaya
   Bogoroditskaya2
+  Bogoroditskaya3
   PankratovaPass
   PankratovaASPass
   PankratovaTransformPass

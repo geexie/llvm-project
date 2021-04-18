@@ -352,6 +352,9 @@
 
 #include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
 #include "llvm/Transforms/Strakhov2/Strakhov2.h"
+#include "llvm/Transforms/Bogoroditskaya3/Bogoroditskaya3.h"
+#include "llvm/Analysis/BogoroditskayaFunctionAnalysis.h"
+#include "llvm/Analysis/BogoroditskayaLoopAnalysis.h"
 
 using namespace llvm;
 
