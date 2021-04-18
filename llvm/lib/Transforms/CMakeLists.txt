@@ -76,3 +76,5 @@ add_subdirectory(aanoskovASPass)
 add_subdirectory(SelivanovskayaLab3)
 add_subdirectory(Strakhovcounter)
 add_subdirectory(Strakhov2)
+add_subdirectory(RazzhivinAnalysisPass)
+

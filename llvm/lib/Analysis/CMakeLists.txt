@@ -168,21 +168,5 @@ add_llvm_component_library(LLVMAnalysis
 
   SelivanovskayaAnalysis.cpp
   SelivanovskayaLoopAnalysis.cpp
-  ${GeneratedMLSources}
-
-  ADDITIONAL_HEADER_DIRS
-  ${LLVM_MAIN_INCLUDE_DIR}/llvm/Analysis
-
-  DEPENDS
-  intrinsics_gen
-
-  LINK_LIBS
-  ${MLLinkDeps}
-
-  LINK_COMPONENTS
-  BinaryFormat
-  Core
-  Object
-  ProfileData
-  Support
-  )
+  RazzhivinAnalysis.cpp
+  RazzhivinLoopAnalysis.cpp

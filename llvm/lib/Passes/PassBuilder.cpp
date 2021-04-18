@@ -106,6 +106,8 @@
 #include "llvm/Analysis/pvila.h"
 #include "llvm/Analysis/SelivanovskayaAnalysis.h"
 #include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
+#include "llvm/Analysis/RazzhivinAnalysis.h"
+#include "llvm/Analysis/RazzhivinLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -392,6 +394,7 @@ static cl::opt<bool>
                             cl::Hidden,
                             cl::desc("Enable inline deferral during PGO"));
 
+#include "llvm/Transforms/RazzhivinAnalysisPass/RazzhivinAnalysisPass.h"
 static cl::opt<bool> EnableMemProfiler("enable-mem-prof", cl::init(false),
                                        cl::Hidden, cl::ZeroOrMore,
                                        cl::desc("Enable memory profiler"));
