@@ -12,7 +12,7 @@ STATISTIC(LoopsAmount, "Number of loops");
 
 
 
-void loopsCount(Loop *loop) {
+void loopsCount(const Loop *loop) {
   LoopsAmount++;
   for (Loop::iterator loop_it = loop->begin(); loop_it != loop->end(); ++loop_it)
   {
@@ -43,3 +43,5 @@ PreservedAnalyses ErmolaevPass::run(Function &func, FunctionAnalysisManager &AM)
   }
   return PreservedAnalyses::all();
 }
+
+#endif
