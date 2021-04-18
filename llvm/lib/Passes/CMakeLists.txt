@@ -25,6 +25,8 @@ add_llvm_component_library(LLVMPasses
   AKomyaginASPass
  akUdachinaPass
   AvmusatovCount
+  AvmusatovPass
+  ObjCARC
   AvmusatovAS
   ObjCARC
   OksanaKozlova
@@ -37,6 +39,7 @@ add_llvm_component_library(LLVMPasses
   Target
   TransformUtils
   Vectorize
+  Instrumentation
   Bogoroditskaya
   Bogoroditskaya2
   Bogoroditskaya3

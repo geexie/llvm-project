@@ -140,6 +140,8 @@ add_llvm_component_library(LLVMAnalysis
   ValueTracking.cpp
   VectorUtils.cpp
   VFABIDemangling.cpp
+  AvmusatovAnalysis.cpp
+  AvmusatovLoopAnalysis.cpp
   VolokhAnalysis.cpp
   VolokhLoopAnalysis.cpp
   BaturinaAnalysis.cpp
