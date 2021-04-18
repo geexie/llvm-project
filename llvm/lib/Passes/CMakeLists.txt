@@ -67,6 +67,7 @@ add_llvm_component_library(LLVMPasses
   MelnikovLab3pass
   MoiseevPass
   MoiseevPass2
+  MoiseevPass3
   KovakimyCount
   KovakimyAnalysisPass
   BaturinaPass

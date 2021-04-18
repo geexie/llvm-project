@@ -108,6 +108,8 @@
 #include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
 #include "llvm/Analysis/DVorobyovAnalysis.h"
 #include "llvm/Analysis/DVorobyovLoopAnalysis.h"
+#include "llvm/Analysis/MoiseevAnalysis.h"
+#include "llvm/Analysis/MoiseevLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -339,6 +341,7 @@
 
 
 #include "llvm/Transforms/MoiseevPass2/MoiseevPass2.h"
+#include "llvm/Transforms/MoiseevPass3/MoiseevPass3.h"
 #include "llvm/Transforms/VolokhSecondPass/VolokhSecondPass.h"
 #include "llvm/Transforms/VolokhAnalysisPass/VolokhAnalysisPass.h"
 
