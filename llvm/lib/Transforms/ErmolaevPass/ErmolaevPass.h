@@ -1,4 +1,4 @@
-
+#pragma once
 #include "llvm/ADT/Statistic.h"
 #include "llvm/IR/PassManager.h"
 #include "llvm/IR/BasicBlock.h"
