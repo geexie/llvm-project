@@ -87,6 +87,7 @@ add_llvm_component_library(LLVMPasses
   pvi
   pvi2
   pvi3
+  VoronovaLab3
   udachinaAnalysisPass
 
   SelivanovskayaLab3

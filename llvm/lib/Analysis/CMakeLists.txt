@@ -142,6 +142,7 @@ add_llvm_component_library(LLVMAnalysis
   VFABIDemangling.cpp
   AvmusatovAnalysis.cpp
   AvmusatovLoopAnalysis.cpp
+  VoronovaAnalisis.cpp
   VolokhAnalysis.cpp
   VolokhLoopAnalysis.cpp
   BaturinaAnalysis.cpp

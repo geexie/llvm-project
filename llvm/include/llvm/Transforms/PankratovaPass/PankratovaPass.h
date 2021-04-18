@@ -15,4 +15,3 @@ public:
 };
 
 } // namespace llvm
-#undef DEBUG_TYPE

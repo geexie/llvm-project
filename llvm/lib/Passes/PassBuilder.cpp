@@ -86,6 +86,9 @@
 #include "llvm/Analysis/KovakimyAnalysis.h"
 #include "llvm/Analysis/KovakimyAnalysisLoop.h"
 
+#include "llvm/Analysis/VoronovaAnalisis.h"
+
+
 #include "llvm/Analysis/udachinaAnalysis.h"
 #include "llvm/Analysis/udachinaLoopAnalysis.h"
 
@@ -269,6 +272,8 @@
 #include "llvm/Transforms/Utils/EntryExitInstrumenter.h"
 #include "llvm/Transforms/Utils/FixIrreducible.h"
 #include "llvm/Transforms/Utils/HelloWorld.h"
+#include "llvm/Transforms/VoronovaLab2/VoronovaLab2.h"
+#include "llvm/Transforms/VoronovaLab3/VoronovaLab3.h"
 #include "llvm/Transforms/IlyinPass/IlyinPass.h"
 #include "llvm/Transforms/IlyinPass2/IlyinPass2.h"
 #include "llvm/Transforms/IlyinAnalysisPass/IlyinAnalysisPass.h"

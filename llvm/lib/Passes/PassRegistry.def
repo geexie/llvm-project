@@ -184,6 +184,9 @@ FUNCTION_ANALYSIS("idoroshenko-analysis", IDoroshenkoAnalysis())
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
 
 FUNCTION_ANALYSIS("avmusatov-analysis", AvmusatovAnalysis())
+FUNCTION_ANALYSIS("voronovaanalisis", VoronovaAnalisis())
+FUNCTION_ANALYSIS("Lab3 Function Analysis", MelnikovLab3FunctionAnalysis())
+
 FUNCTION_ANALYSIS("volokh-analysis", VolokhAnalysis())
 FUNCTION_ANALYSIS("BaturinaAnalysis", BaturinaAnalysis())
 FUNCTION_ANALYSIS("pvia", pvia())
@@ -192,7 +195,6 @@ FUNCTION_ANALYSIS("SelivanovskayaAnalysis", SelivanovskayaAnalysis())
 FUNCTION_ANALYSIS("KMalyshevaAnalysis", KMalyshevaAnalysis())
 FUNCTION_ANALYSIS("BogoroditskayaFunctionAnalysis", BogoroditskayaFunctionAnalysis())
 
-FUNCTION_ANALYSIS("Lab3 Function Analysis", MelnikovLab3FunctionAnalysis())
 #ifndef FUNCTION_ALIAS_ANALYSIS
 #define FUNCTION_ALIAS_ANALYSIS(NAME, CREATE_PASS)                             \
   FUNCTION_ANALYSIS(NAME, CREATE_PASS)
@@ -263,7 +265,12 @@ FUNCTION_PASS("ilyinpass", IlyinPass())
 FUNCTION_PASS("ilyinpass2", IlyinPass2())
 FUNCTION_PASS("udachinaPass", udachinaPass())
 FUNCTION_PASS("pazamelin", PAZamelinPass())
+
+FUNCTION_PASS("voronovalab2", VoronovaLab2())
+FUNCTION_PASS("voronovalab3", VoronovaLab3())
+
 FUNCTION_PASS("pazamelin", PAZamelinPassAS())
+
 FUNCTION_PASS("akomyagincount", AKomyaginCount())
 FUNCTION_PASS("akomyaginpass", AKomyaginASPass())
 FUNCTION_PASS("avmusatov-count", AvmusatovCount())
