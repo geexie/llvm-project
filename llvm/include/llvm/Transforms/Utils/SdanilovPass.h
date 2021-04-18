@@ -14,12 +14,6 @@
 #include "llvm/IR/IntrinsicInst.h"
 #include "llvm/IR/Intrinsics.h"
 
-#define DEBUG_TYPE "task"
-STATISTIC(FunctionCounter, "Counts number of declarations of functions");
-STATISTIC(BasicBlocksCounter, "Counts number of BB");
-STATISTIC(AddMulCounter, "Counts number of + and * operations");
-STATISTIC(LoopCounter, "Counts number of loops");
-
 namespace llvm {
     class SdanilovPass : public PassInfoMixin<SdanilovPass> {
     public:
@@ -28,5 +22,4 @@ namespace llvm {
         static bool isRequired(){return true;};
     };
 }
-#undef DEBUG_TYPE
 #endif

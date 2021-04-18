@@ -1,5 +1,3 @@
-#pragma once
-
 #include "llvm/Analysis/VolokhAnalysis.h"
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/InstIterator.h"
@@ -13,7 +11,7 @@ namespace llvm {
         OS << "Num of powfs: " << powfs << "\n"; //std::endl;
         return;
     }
-    
+
     VolokhAnalysis::Result VolokhAnalysis::run(Function& func, FunctionAnalysisManager& AM){
         Result res;
         for (auto baseBlock = func.begin(); baseBlock != func.end(); ++baseBlock){

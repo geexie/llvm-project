@@ -16,5 +16,4 @@ namespace llvm {
     static bool isRequired() { return true; }
   };
 }
-#undef DEBUG_TYPE
 #endif // LLVM_TRANSFORMS_UTILS_HELLOWORLD_H

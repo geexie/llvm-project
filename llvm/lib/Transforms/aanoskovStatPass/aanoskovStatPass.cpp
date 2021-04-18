@@ -54,7 +54,13 @@ PreservedAnalyses aanoskovStatPass::run(Function &F,
 
     auto& AA = AM.getResult<AAManager>(F);
     AssumptionCache &AC = AM.getResult<AssumptionAnalysis>(F);
+    // for  for
     DominatorTree &DT = AM.getResult<DominatorTreeAnalysis>(F);
+    // int sum = 0;
+    // for (int i = 0; i < 100; i++) {
+    //  sum += ptr[i];
+    //}
+    // int avg = sum / 100;
     ScalarEvolution &SE = AM.getResult<ScalarEvolutionAnalysis>(F);
     TargetLibraryInfo &TLI = AM.getResult<TargetLibraryAnalysis>(F);
     TargetTransformInfo &TTI = AM.getResult<TargetIRAnalysis>(F);
