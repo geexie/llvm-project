@@ -1,4 +1,4 @@
-#include "llvm/Transforms/MoiseevPass3>/MoiseevPass3.h"
+#include "llvm/Transforms/MoiseevPass3/MoiseevPass3.h"
 #include "llvm/Analysis/MoiseevAnalysis.h"
 #include "llvm/Analysis/MoiseevLoopAnalysis.h"
 
@@ -49,7 +49,7 @@ PreservedAnalyses MoiseevPass3::run(Function &F, FunctionAnalysisManager &AM) {
     TargetTransformInfo &TTI = AM.getResult<TargetIRAnalysis>(F);
     LoopStandardAnalysisResults LSAR = {AA , AC, DT, L, SE, TLI, TTI, nullptr, nullptr};
     for (auto& loop : L)
-        VectorizableLoops(loop, LAM, LSAR);
+        countVectorizableLoops(loop, LAM, LSAR);
 
     return PreservedAnalyses::all();
 } 
