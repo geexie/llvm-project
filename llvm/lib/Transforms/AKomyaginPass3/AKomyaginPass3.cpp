@@ -16,7 +16,7 @@ STATISTIC(totalLoopsVectorizable, "Number of vectorizable loops");
 
 using namespace llvm;
 
-void handleLoop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
+static void handleLoop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
     if (L->isInnermost()) {
         auto& result = LAM.getResult<AKomyaginLoopAnalysis>(*L, LSAR);
         if (result.InvUpd == 1) {
@@ -54,4 +54,4 @@ PreservedAnalyses AKomyaginPass3::run(Function& F, FunctionAnalysisManager& AM) 
         handleLoop(L, LAM, AR);
 
     return PreservedAnalyses::all();
-}  
+}
