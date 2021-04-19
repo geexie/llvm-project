@@ -35,4 +35,4 @@ namespace llvm {
         OS << "adds: " << totalAdd << "\n";
 		OS << "muls: " << totalMul << "\n";
 	}
-}
+} 

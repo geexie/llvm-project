@@ -19,12 +19,24 @@ add_llvm_component_library(LLVMPasses
   IPO
   InstCombine
   AKomyaginCount
-  AKomyaginASPass
   AKomyaginPass3
+  AKomyaginASPass
+  AvmusatovCount
   ObjCARC
+  PyanzinPass1
   Scalar
   Support
   Target
   TransformUtils
   Vectorize
+  Bogoroditskaya
+  PankratovaPass
+  IDoroshenkoPass
+  Instrumentation
+  MelnikovLab1pass
+  MoiseevPass
+  KovakimyCount
+  BaturinaPass
+  VokhmyaninaCounter
+  VolokhPass
   )

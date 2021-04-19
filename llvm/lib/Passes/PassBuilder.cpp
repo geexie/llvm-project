@@ -41,6 +41,8 @@
 #include "llvm/Analysis/InlineAdvisor.h"
 #include "llvm/Analysis/InlineSizeEstimatorAnalysis.h"
 #include "llvm/Analysis/InstCount.h"
+#include "llvm/Analysis/AKomyaginAnalysis.h"
+#include "llvm/Analysis/AKomyaginLoopAnalysis.h"
 #include "llvm/Analysis/LazyCallGraph.h"
 #include "llvm/Analysis/LazyValueInfo.h"
 #include "llvm/Analysis/Lint.h"
@@ -68,8 +70,6 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
-#include "llvm/Analysis/AKomyaginAnalysis.h"
-#include "llvm/Analysis/AKomyaginLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -87,6 +87,7 @@
 #include "llvm/Transforms/Coroutines/CoroEarly.h"
 #include "llvm/Transforms/Coroutines/CoroElide.h"
 #include "llvm/Transforms/Coroutines/CoroSplit.h"
+#include "llvm/Transforms/Bogoroditskaya/Bogoroditskaya.h"
 #include "llvm/Transforms/IPO/AlwaysInliner.h"
 #include "llvm/Transforms/IPO/Annotation2Metadata.h"
 #include "llvm/Transforms/IPO/ArgumentPromotion.h"
@@ -137,6 +138,7 @@
 #include "llvm/Transforms/Instrumentation/PoisonChecking.h"
 #include "llvm/Transforms/Instrumentation/SanitizerCoverage.h"
 #include "llvm/Transforms/Instrumentation/ThreadSanitizer.h"
+#include "llvm/Transforms/KovakimyCount/KovakimyCount.h"
 #include "llvm/Transforms/ObjCARC.h"
 #include "llvm/Transforms/Scalar/ADCE.h"
 #include "llvm/Transforms/Scalar/AlignmentFromAssumptions.h"
@@ -221,6 +223,10 @@
 #include "llvm/Transforms/AKomyaginCount/AKomyaginCount.h"
 #include "llvm/Transforms/AKomyaginASPass/AKomyaginASPass.h"
 #include "llvm/Transforms/AKomyaginPass3/AKomyaginPass3.h"
+#include "llvm/Transforms/AvmusatovCount/AvmusatovCount.h"
+#include "llvm/Transforms/PyanzinPass1/PyanzinPass1.h"
+#include "llvm/Transforms/PankratovaPass/PankratovaPass.h"
+#include "llvm/Transforms/idoroshenkoPass/idoroshenkoPass.h"
 #include "llvm/Transforms/Utils/InjectTLIMappings.h"
 #include "llvm/Transforms/Utils/InstructionNamer.h"
 #include "llvm/Transforms/Utils/LCSSA.h"
@@ -242,6 +248,14 @@
 #include "llvm/Transforms/Vectorize/LoopVectorize.h"
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
+#include "llvm/Transforms/MoiseevPass/MoiseevPass.h"
+#include "llvm/Transforms/VolokhPass/VolokhPass.h"
+#include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
+#include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
+
+#include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h"
+
+
 using namespace llvm;
 
 extern cl::opt<unsigned> MaxDevirtIterations;
