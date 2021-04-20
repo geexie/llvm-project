@@ -373,6 +373,7 @@
 #include "llvm/Analysis/BogoroditskayaFunctionAnalysis.h"
 #include "llvm/Analysis/BogoroditskayaLoopAnalysis.h"
 #include "llvm/Transforms/DVorobyovAnalysisPass/DVorobyovAnalysisPass.h"
+#include "llvm/Transforms/Sazanov_Lab3_Pass/Sazanov_Lab3_Pass.h"
 
 using namespace llvm;
 

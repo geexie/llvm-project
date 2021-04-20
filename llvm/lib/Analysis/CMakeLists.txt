@@ -174,6 +174,8 @@ add_llvm_component_library(LLVMAnalysis
   SelivanovskayaLoopAnalysis.cpp
   DVorobyovAnalysis.cpp
   DVorobyovLoopAnalysis.cpp
+  SazanovAnalysis.cpp
+  SazanovLoopAnalysis.cpp
   ${GeneratedMLSources}
 
   ADDITIONAL_HEADER_DIRS
