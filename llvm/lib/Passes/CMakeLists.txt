@@ -49,6 +49,9 @@ add_llvm_component_library(LLVMPasses
   PankratovaTransformPass
   IDoroshenkoPass
   Instrumentation
+  ErmolaevPass
+  ErmolaevLab2Pass
+  ErmolaevPass3
   KorkunovTransAnalysisPass
   aanoskovStatPass
   Korkunov_ASpass
@@ -95,6 +98,5 @@ add_llvm_component_library(LLVMPasses
   SelivanovskayaLab3
   Strakhov2
   DVorobyovAnalysisPass
-  Sazanov_Lab3_Pass
   )
 
