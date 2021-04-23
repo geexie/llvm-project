@@ -98,5 +98,6 @@ add_llvm_component_library(LLVMPasses
   SelivanovskayaLab3
   Strakhov2
   DVorobyovAnalysisPass
+  Sazanov_Lab3_Pass
   )
 
