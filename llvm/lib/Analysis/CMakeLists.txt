@@ -169,10 +169,13 @@ add_llvm_component_library(LLVMAnalysis
   BogoroditskayaLoopAnalysis.cpp
   MoiseevAnalysis.cpp
   MoiseevLoopAnalysis.cpp
+  
   SelivanovskayaAnalysis.cpp
   SelivanovskayaLoopAnalysis.cpp
   DVorobyovAnalysis.cpp
   DVorobyovLoopAnalysis.cpp
+  SazanovAnalysis.cpp
+  SazanovLoopAnalysis.cpp
   ErmolaevAnalysis.cpp
   ErmolaevLoopAnalysis.cpp
   ${GeneratedMLSources}
