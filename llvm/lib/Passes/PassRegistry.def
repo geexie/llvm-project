@@ -446,6 +446,7 @@ FUNCTION_PASS("ErmolaevLab2Pass", ErmolaevLab2Pass())
 FUNCTION_PASS("ErmolaevPass3", ErmolaevPass3())
 FUNCTION_PASS("SelivanovskayaLab3", SelivanovskayaLab3())
 FUNCTION_PASS("Strakhov2", Strakhov2())
+FUNCTION_PASS("Sazanov_Lab3_Pass", Sazanov_Lab3_Pass())
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
