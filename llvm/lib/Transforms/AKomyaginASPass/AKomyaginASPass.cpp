@@ -59,7 +59,7 @@ PreservedAnalyses AKomyaginASPass::run(Function &F, FunctionAnalysisManager &AM)
             }
         }
     }
-    
+
     while(!wark_set0.empty()){
         auto BO = wark_set0.pop_back_val();
         BO->replaceAllUsesWith(BO->getOperand(1));
@@ -83,7 +83,6 @@ PreservedAnalyses AKomyaginASPass::run(Function &F, FunctionAnalysisManager &AM)
 
     return pa;
 }
-
 
 
 

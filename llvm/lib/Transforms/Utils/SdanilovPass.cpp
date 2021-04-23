@@ -2,6 +2,12 @@
 #include <iostream>
 using namespace llvm;
 
+#define DEBUG_TYPE "task"
+STATISTIC(FunctionCounter, "Counts number of declarations of functions");
+STATISTIC(BasicBlocksCounter, "Counts number of BB");
+STATISTIC(AddMulCounter, "Counts number of + and * operations");
+STATISTIC(LoopCounter, "Counts number of loops");
+
 void SdanilovPass::countLoopsNested(Loop* loop){
   std::vector<Loop*> subLoop = loop->getSubLoops();
   LoopCounter+= subLoop.size();

@@ -20,10 +20,14 @@ add_llvm_component_library(LLVMPasses
   Coroutines
   IPO
   InstCombine
-udachinaPass
+ udachinaPass
   AKomyaginCount
+  AKomyaginPass3
   AKomyaginASPass
+ akUdachinaPass
   AvmusatovCount
+  AvmusatovPass
+  ObjCARC
   AvmusatovAS
   ObjCARC
   OksanaKozlova
@@ -36,14 +40,17 @@ udachinaPass
   Target
   TransformUtils
   Vectorize
+  Instrumentation
   Bogoroditskaya
   Bogoroditskaya2
+  Bogoroditskaya3
   PankratovaPass
   PankratovaASPass
+  PankratovaTransformPass
   IDoroshenkoPass
   Instrumentation
+  KorkunovTransAnalysisPass
   aanoskovStatPass
-  Selivanovskaya_lab2
   Korkunov_ASpass
   Sazanov_Lab1_Pass
   ArivanovCount
@@ -53,22 +60,41 @@ udachinaPass
   Selivanovskaya_lab1
   IlyinPass
   IlyinPass2
+  IlyinAnalysisPass
   pazamelin
   pazamelin_as
   MelnikovLab1pass
   MelnikovLab2pass
+  MelnikovLab3pass
   MoiseevPass
   MoiseevPass2
+  MoiseevPass3
   KovakimyCount
+  KovakimyAnalysisPass
   BaturinaPass
   BaturinaPass2
+  BaturinaPass3
   VokhmyaninaCounter
   VokhmyaninaLab2
+  VokhmyaninaLab3
   VolokhPass
   Sazanov_Lab2_Pass
   VolokhSecondPass
+  VolokhAnalysisPass
   KatyaMalyshevaLab1Pass
   KatyaMalyshevaLab2Pass
+  KMalyshevaLab3Pass
   CounterPass
   VoronovaLab2
+  pvi
+  pvi2
+  pvi3
+  VoronovaLab3
+  udachinaAnalysisPass
+
+  SelivanovskayaLab3
+  Strakhov2
+  DVorobyovAnalysisPass
+  Sazanov_Lab3_Pass
   )
+

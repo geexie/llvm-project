@@ -21,6 +21,6 @@ aanoskovLoopAnalysis::Result aanoskovLoopAnalysis::run(Loop &L, LoopAnalysisMana
                 }
             }
             res.InvUpdatesCount = updates.size();
-        }   
+        }
     return res;
 }

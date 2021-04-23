@@ -10,7 +10,7 @@ STATISTIC(TotalMulInstrs, "Number of mul instructions");
 STATISTIC(TotalLoopsVectorizableIV, "Number of intermost loops in canonical form with a single induction variable");
 
 
-void handleLoop(Loop *L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR)
+static void handleLoop(Loop *L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR)
 {
     if(L->isInnermost())
     {
@@ -29,7 +29,7 @@ void handleLoop(Loop *L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& 
 }
 
 PreservedAnalyses PyanzinPass3::run(Function &F,
-                                      FunctionAnalysisManager &AM) 
+                                      FunctionAnalysisManager &AM)
                                     {
 
   TotalFuncs++;
