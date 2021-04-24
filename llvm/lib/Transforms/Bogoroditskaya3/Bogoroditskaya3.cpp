@@ -17,7 +17,7 @@ STATISTIC(TotalLoops, "Number of loops");
 STATISTIC(TotalAdd, "Number of Arithmetic instructions of type add");
 STATISTIC(TotalMull, "Number of Arithmetic instructions of type mull");
 
-void handleLoops(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
+static void handleLoops(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& AR) {
     if (L->isInnermost()) {
         auto& GLA = LAM.getResult<BogoroditskayaLoopAnalysis>(*L, AR);
         if (GLA.InvUpdatesCount == 1) {
@@ -29,7 +29,7 @@ void handleLoops(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults&
     }
 }
 
-PreservedAnalyses Bogoroditskaya3::run(Function &F, FunctionAnalysisManager &AM) 
+PreservedAnalyses Bogoroditskaya3::run(Function &F, FunctionAnalysisManager &AM)
 {
     auto& GFP = AM.getResult<BogoroditskayaFunctionAnalysis>(F);
     TotalAdd += GFP.Num_Add;

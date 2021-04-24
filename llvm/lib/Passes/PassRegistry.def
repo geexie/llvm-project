@@ -196,7 +196,7 @@ FUNCTION_ANALYSIS("SelivanovskayaAnalysis", SelivanovskayaAnalysis())
 FUNCTION_ANALYSIS("KMalyshevaAnalysis", KMalyshevaAnalysis())
 FUNCTION_ANALYSIS("BogoroditskayaFunctionAnalysis", BogoroditskayaFunctionAnalysis())
 FUNCTION_ANALYSIS("MoiseevAnalysis", MoiseevAnalysis())
-
+FUNCTION_ANALYSIS("ErmolaevAnalysis", ErmolaevAnalysis())
 
 #ifndef FUNCTION_ALIAS_ANALYSIS
 #define FUNCTION_ALIAS_ANALYSIS(NAME, CREATE_PASS)                             \
@@ -440,13 +440,13 @@ FUNCTION_PASS("VolokhSecondPass", VolokhSecondPass())
 FUNCTION_PASS("VolokhAnalysisPass", VolokhAnalysisPass())
 FUNCTION_PASS("KatyaMalyshevaLab1Pass", KatyaMalyshevaLab1Pass())
 FUNCTION_PASS("KatyaMalyshevaLab2Pass", KatyaMalyshevaLab2Pass())
-
 FUNCTION_PASS("aanoskovASPass", aanoskovASPass())
-
-
-
+FUNCTION_PASS("ErmolaevPass", ErmolaevPass())
+FUNCTION_PASS("ErmolaevLab2Pass", ErmolaevLab2Pass())
+FUNCTION_PASS("ErmolaevPass3", ErmolaevPass3())
 FUNCTION_PASS("SelivanovskayaLab3", SelivanovskayaLab3())
 FUNCTION_PASS("Strakhov2", Strakhov2())
+FUNCTION_PASS("Sazanov_Lab3_Pass", Sazanov_Lab3_Pass())
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
@@ -517,7 +517,7 @@ LOOP_ANALYSIS("KMalyshevaLoopAnalysis", KMalyshevaLoopAnalysis())
 LOOP_ANALYSIS("DVorobyovLoopAnalysis", DVorobyovLoopAnalysis())
 LOOP_ANALYSIS("SelivanovskayaLoopAnalysis", SelivanovskayaLoopAnalysis())
 LOOP_ANALYSIS("BogoroditskayaLoopAnalysis", BogoroditskayaLoopAnalysis())
-
+LOOP_ANALYSIS("ErmolaevLoopAnalysis", ErmolaevLoopAnalysis())
 
 
 #undef LOOP_ANALYSIS

@@ -93,7 +93,8 @@
 
 #include "llvm/Analysis/udachinaAnalysis.h"
 #include "llvm/Analysis/udachinaLoopAnalysis.h"
-
+#include "llvm/Analysis/ErmolaevAnalysis.h"
+#include "llvm/Analysis/ErmolaevLoopAnalysis.h"
 #include "llvm/Analysis/VokhmyaninaAnalysis.h"
 #include "llvm/Analysis/VokhmyaninaLoopAnalysis.h"
 #include "llvm/Analysis/aanoskovCounter.h"
@@ -332,6 +333,9 @@
 #include "llvm/Transforms/aanoskovCounter/aanoskovCounter.h"
 #include "llvm/Transforms/MoiseevPass/MoiseevPass.h"
 #include "llvm/Transforms/VolokhPass/VolokhPass.h"
+#include "llvm/Transforms/ErmolaevPass/ErmolaevPass.h"
+#include "llvm/Transforms/ErmolaevLab2Pass/ErmolaevLab2Pass.h"
+#include "llvm/Transforms/ErmolaevPass3/ErmolaevPass3.h"
 #include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
 #include "llvm/Transforms/BaturinaPass2/BaturinaPass2.h"
 #include "llvm/Transforms/BaturinaPass3/BaturinaPass3.h"
@@ -373,6 +377,7 @@
 #include "llvm/Analysis/BogoroditskayaFunctionAnalysis.h"
 #include "llvm/Analysis/BogoroditskayaLoopAnalysis.h"
 #include "llvm/Transforms/DVorobyovAnalysisPass/DVorobyovAnalysisPass.h"
+#include "llvm/Transforms/Sazanov_Lab3_Pass/Sazanov_Lab3_Pass.h"
 
 using namespace llvm;
 

@@ -18,7 +18,7 @@ namespace llvm {
 	STATISTIC(NumbOfAdds, "Number of add instructions");
 	STATISTIC(NumbOfMulls, "Number of mul instructions");
 
-	void handleLoop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
+	static void handleLoop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
 		if (L->isInnermost()) {
 			auto& result = LAM.getResult<IlyinLoopAnalysis>(*L, LSAR);
 			if (result.updates == 1) {
