@@ -16,7 +16,7 @@ STATISTIC(totalLoopsVectorizable, "Number of vectorizable loops");
 
 using namespace llvm;
 
-void handleLoop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
+void handleLoop1(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& LSAR) {
     if (L->isInnermost()) {
         auto& result = LAM.getResult<AKomyaginLoopAnalysis>(*L, LSAR);
         if (result.InvUpd == 1) {
@@ -25,7 +25,7 @@ void handleLoop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisResults& 
     }
     else {
         for (Loop* subLoop : L->getSubLoops()) {
-            handleLoop(subLoop, LAM, LSAR);
+            handleLoop1(subLoop, LAM, LSAR);
         }
     }
 }
@@ -51,7 +51,7 @@ PreservedAnalyses AKomyaginPass3::run(Function& F, FunctionAnalysisManager& AM) 
     LoopStandardAnalysisResults AR = {AA , AC, DT, LI, SE, TLI, TTI, nullptr, nullptr};
 
     for (auto& L : LI)
-        handleLoop(L, LAM, AR);
+        handleLoop1(L, LAM, AR);
 
     return PreservedAnalyses::all();
 }  
