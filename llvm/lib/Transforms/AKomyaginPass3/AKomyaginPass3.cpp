@@ -25,7 +25,7 @@ static void handleLoop(Loop* L, LoopAnalysisManager& LAM, LoopStandardAnalysisRe
     }
     else {
         for (Loop* subLoop : L->getSubLoops()) {
-            handleLoop1(subLoop, LAM, LSAR);
+            handleLoop(subLoop, LAM, LSAR);
         }
     }
 }
@@ -51,7 +51,7 @@ PreservedAnalyses AKomyaginPass3::run(Function& F, FunctionAnalysisManager& AM) 
     LoopStandardAnalysisResults AR = {AA , AC, DT, LI, SE, TLI, TTI, nullptr, nullptr};
 
     for (auto& L : LI)
-        handleLoop1(L, LAM, AR);
+        handleLoop(L, LAM, AR);
 
     return PreservedAnalyses::all();
 }
