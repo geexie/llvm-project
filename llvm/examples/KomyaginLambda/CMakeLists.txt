@@ -8,7 +8,7 @@ set(LLVM_LINK_COMPONENTS
     nativecodegen
 )
 
-add_llvm_example(Korkunov_lambda
+add_llvm_example(KomyaginLambda
     KomyaginLambda.cpp
     lexer.cpp
     lexer.hpp
