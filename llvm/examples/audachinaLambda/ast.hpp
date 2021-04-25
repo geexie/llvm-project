@@ -29,7 +29,7 @@ public:
   llvm::Value *gen(llvm::IRBuilder<> *builder, llvm::LLVMContext& con, llvm::Module *mod) const;
 };
 
-#AddExpr Expression class for sum
+//AddExpr Expression class for sum
 class AddExpr: public Expr{
 public:
   AddExpr(Expr* fArg, Expr* sArg) : fOp(fArg), sOp(sArg) {}

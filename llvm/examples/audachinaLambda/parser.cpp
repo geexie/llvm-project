@@ -16,7 +16,7 @@ Expr* Parser::parseExpr() {
         case '+':
             Expr* fOp = parseExpr();
             Expr* sOp = parseExpr();
-            return new AddExpr(op1, op2);
+            return new AddExpr(fOp, sOp);
             break;
         case '*':
             Expr* fOp = parseExpr();
