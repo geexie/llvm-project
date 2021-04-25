@@ -9,9 +9,12 @@ add_subdirectory(PankratovaLambda)
 add_subdirectory(OrcV2Examples)
 add_subdirectory(SpeculativeJIT)
 add_subdirectory(Bye)
+add_subdirectory(idoroshenko_lam)
 add_subdirectory(Korkunov_lambda)
 add_subdirectory(VokhmyaninaLambda)
 add_subdirectory(AvmusatovLambda)
+add_subdirectory(VolokhLambda)
+add_subdirectory(KovakimyLambda)
 
 
 if(LLVM_ENABLE_EH AND (NOT WIN32) AND (NOT "${LLVM_NATIVE_ARCH}" STREQUAL "ARM"))
