@@ -1,7 +1,7 @@
 if (DEFINED LLVM_HAVE_TF_AOT OR DEFINED LLVM_HAVE_TF_API)
   if (DEFINED LLVM_HAVE_TF_AOT)
-    set(LLVM_INLINER_MODEL_PATH "models/inliner" 
-      CACHE STRING 
+    set(LLVM_INLINER_MODEL_PATH "models/inliner"
+      CACHE STRING
       "ML-driven inliner policy location (path to saved model)")
     include(TensorFlowCompile)
     tfcompile(${LLVM_INLINER_MODEL_PATH} serve action InlinerSizeModel llvm::InlinerSizeModel)
@@ -55,6 +55,8 @@ add_llvm_component_library(LLVMAnalysis
   DominanceFrontier.cpp
   EHPersonalities.cpp
   FunctionPropertiesAnalysis.cpp
+  KorkunovAnalysisPass.cpp
+  KorkunovLoopAnalysis.cpp
   GlobalsModRef.cpp
   GuardUtils.cpp
   HeatUtils.cpp
@@ -71,6 +73,8 @@ add_llvm_component_library(LLVMAnalysis
   InstructionSimplify.cpp
   Interval.cpp
   IntervalPartition.cpp
+  IlyinAnalysis.cpp
+  IlyinLoopAnalysis.cpp
   LazyBranchProbabilityInfo.cpp
   LazyBlockFrequencyInfo.cpp
   LazyCallGraph.cpp
@@ -99,7 +103,13 @@ add_llvm_component_library(LLVMAnalysis
   ObjCARCAliasAnalysis.cpp
   ObjCARCAnalysisUtils.cpp
   ObjCARCInstKind.cpp
+  OksanaKozlovaAnalysis.cpp
+  OksanaKozlovaLoopAnalysis.cpp
   OptimizationRemarkEmitter.cpp
+  PankratovaAnalysis.cpp
+  PankratovaLoopAnalysis.cpp
+  udachinaAnalysis.cpp
+  udachinaLoopAnalysis.cpp
   PHITransAddr.cpp
   PhiValues.cpp
   PostDominators.cpp
@@ -130,8 +140,44 @@ add_llvm_component_library(LLVMAnalysis
   ValueTracking.cpp
   VectorUtils.cpp
   VFABIDemangling.cpp
+  AKomyaginAnalysis.cpp
+  AKomyaginLoopAnalysis.cpp
+  AvmusatovAnalysis.cpp
+  AvmusatovLoopAnalysis.cpp
+  VoronovaAnalisis.cpp
+  VolokhAnalysis.cpp
+  VolokhLoopAnalysis.cpp
+  BaturinaAnalysis.cpp
+  BaturinaLoopAnalysis.cpp
+  KovakimyAnalysis.cpp
+  KovakimyAnalysisLoop.cpp
+  MelnikovLab3FunctionAnalysis.cpp
+  MelnikovLab3LoopAnalysis.cpp
+  VokhmyaninaAnalysis.cpp
+  VokhmyaninaLoopAnalysis.cpp
+  aanoskovCounter.cpp
+  aanoskovLoopAnalysis.cpp
+  PyanzinAnalysis.cpp
+  PyanzinLoopAnalysis.cpp
+  pvia.cpp
+  pvila.cpp
   IDoroshenkoAnalysis.cpp
   IDoroshenkoLoopAnalysis.cpp
+  KMalyshevaAnalysis.cpp
+  KMalyshevaLoopAnalysis.cpp
+  BogoroditskayaFunctionAnalysis.cpp
+  BogoroditskayaLoopAnalysis.cpp
+  MoiseevAnalysis.cpp
+  MoiseevLoopAnalysis.cpp
+  
+  SelivanovskayaAnalysis.cpp
+  SelivanovskayaLoopAnalysis.cpp
+  DVorobyovAnalysis.cpp
+  DVorobyovLoopAnalysis.cpp
+  SazanovAnalysis.cpp
+  SazanovLoopAnalysis.cpp
+  ErmolaevAnalysis.cpp
+  ErmolaevLoopAnalysis.cpp
   ${GeneratedMLSources}
 
   ADDITIONAL_HEADER_DIRS
