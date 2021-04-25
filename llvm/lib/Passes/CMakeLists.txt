@@ -3,6 +3,7 @@ add_llvm_component_library(LLVMPasses
   PassPlugin.cpp
   StandardInstrumentations.cpp
 
+
   ADDITIONAL_HEADER_DIRS
   ${LLVM_MAIN_INCLUDE_DIR}/llvm
   ${LLVM_MAIN_INCLUDE_DIR}/llvm/Passes
@@ -11,17 +12,92 @@ add_llvm_component_library(LLVMPasses
   intrinsics_gen
 
   LINK_COMPONENTS
+  aanoskovCounter
+  aanoskovASPass
   AggressiveInstCombine
   Analysis
   Core
   Coroutines
   IPO
   InstCombine
+ udachinaPass
+  AKomyaginCount
+  AKomyaginPass3
+  AKomyaginASPass
+ akUdachinaPass
+  AvmusatovCount
+  AvmusatovPass
   ObjCARC
+  AvmusatovAS
+  ObjCARC
+  OksanaKozlova
+  PyanzinPass1
+  Pyanzin_ASPass
+  PyanzinPass3
   Scalar
   Support
+  solovevaPass
   Target
   TransformUtils
   Vectorize
   Instrumentation
+  Bogoroditskaya
+  Bogoroditskaya2
+  Bogoroditskaya3
+  PankratovaPass
+  PankratovaASPass
+  PankratovaTransformPass
+  IDoroshenkoPass
+  Instrumentation
+  ErmolaevPass
+  ErmolaevLab2Pass
+  ErmolaevPass3
+  KorkunovTransAnalysisPass
+  aanoskovStatPass
+  Korkunov_ASpass
+  Sazanov_Lab1_Pass
+  ArivanovCount
+  ArivanovLab2
+  Strakhovcounter
+  DVorobyovCount
+  Selivanovskaya_lab1
+  IlyinPass
+  IlyinPass2
+  IlyinAnalysisPass
+  pazamelin
+  pazamelin_as
+  MelnikovLab1pass
+  MelnikovLab2pass
+  MelnikovLab3pass
+  MoiseevPass
+  MoiseevPass2
+  MoiseevPass3
+  KovakimyCount
+  KovakimyAnalysisPass
+  BaturinaPass
+  BaturinaPass2
+  BaturinaPass3
+  VokhmyaninaCounter
+  VokhmyaninaLab2
+  VokhmyaninaLab3
+  VolokhPass
+  Sazanov_Lab2_Pass
+  VolokhSecondPass
+  VolokhAnalysisPass
+  KatyaMalyshevaLab1Pass
+  KatyaMalyshevaLab2Pass
+  KMalyshevaLab3Pass
+  CounterPass
+  VoronovaLab2
+  pvi
+  pvi2
+  pvi3
+  VoronovaLab3
+  udachinaAnalysisPass
+
+  SelivanovskayaLab3
+  Strakhov2
+  DVorobyovAnalysisPass
+  Sazanov_Lab3_Pass
   )
+
