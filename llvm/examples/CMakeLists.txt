@@ -12,6 +12,7 @@ add_subdirectory(Bye)
 add_subdirectory(idoroshenko_lam)
 add_subdirectory(Korkunov_lambda)
 add_subdirectory(VokhmyaninaLambda)
+add_subdirectory(VolokhLambda)
 
 if(LLVM_ENABLE_EH AND (NOT WIN32) AND (NOT "${LLVM_NATIVE_ARCH}" STREQUAL "ARM"))
     add_subdirectory(ExceptionDemo)
