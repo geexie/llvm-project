@@ -42,7 +42,7 @@ class MulExpr : public Expr
 {
 public:
   MulExpr(Expr* op1Arg, Expr* op2Arg) : op1(op1Arg), op2(op2Arg) {}
-  llvm::Value *gen(llvm::IRBuilder<> *, llvm::LLVMContext &C, llvm::Module *M) const;
+  llvm::Value *gen(llvm::IRBuilder<> *IRB, llvm::LLVMContext &C, llvm::Module *M) const;
 private:
   const Expr* op1;
   const Expr* op2;
