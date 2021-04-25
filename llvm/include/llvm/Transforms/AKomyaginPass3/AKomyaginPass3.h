@@ -1,6 +1,6 @@
 #pragma once
 
-#define DEBUG_TYPE "AKomyaginPass3"
+
 
 #include "llvm/IR/PassManager.h"
 #include "llvm/ADT/Statistic.h"

@@ -1,7 +1,7 @@
 #include "llvm/Transforms/AKomyaginPass3/AKomyaginPass3.h"
 #include "llvm/Analysis/AKomyaginAnalysis.h"
 #include "llvm/Analysis/AKomyaginLoopAnalysis.h"
-
+#define DEBUG_TYPE "AKomyaginPass3"
 #include "llvm/Analysis/AliasAnalysis.h"
 #include "llvm/Analysis/AssumptionCache.h"
 #include "llvm/IR/Dominators.h"
