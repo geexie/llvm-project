@@ -79,13 +79,10 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
-<<<<<<< HEAD
 #include "llvm/Analysis/SelivanovskayaAnalysis.h"
 #include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
-=======
 #include "llvm/Analysis/AvmusatovAnalysis.h"
 #include "llvm/Analysis/AvmusatovLoopAnalysis.h"
->>>>>>> c42157c79fdde6b7208dea889cac87f3e1bd73e7
 #include "llvm/Analysis/VolokhAnalysis.h"
 #include "llvm/Analysis/VolokhLoopAnalysis.h"
 #include "llvm/Analysis/BaturinaAnalysis.h"
