@@ -1,5 +1,7 @@
 #include "llvm/Transforms/MoiseevPass/MoiseevPass.h"
+#define DEBUG_TYPE "MoiseevPass"
 
+#include "llvm/ADT/Statistic.h"
 using namespace llvm;
 
 STATISTIC(TotalAdd, "Num of add");
@@ -45,3 +47,4 @@ PreservedAnalyses MoiseevPass::run(Function &func, FunctionAnalysisManager &AM){
     }
     return PreservedAnalyses::all();
 }
+

@@ -1,7 +1,5 @@
 #pragma once
 
-#define DEBUG_TYPE "volokhpass"
-
 #include "llvm/IR/PassManager.h"
 #include "llvm/IR/BasicBlock.h"
 #include "llvm/Analysis/LoopInfo.h"

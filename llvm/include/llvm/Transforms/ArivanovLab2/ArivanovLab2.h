@@ -8,8 +8,6 @@
 #include "llvm/Analysis/LoopInfo.h"
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/IR/IntrinsicInst.h"
-#define DEBUG_TYPE "arivanovlab2"
-
 
 namespace llvm {
 
@@ -22,4 +20,3 @@ public:
 };
 
 }
-#undef DEBUG_TYPE
