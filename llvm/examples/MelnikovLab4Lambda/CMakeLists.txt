@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(MelnikovLab4Lambda
+  MelnikovLab4lambda.cpp
+  MelnikovLab4lexer.cpp
+  MelnikovLab4lexer.h
+  MelnikovLab4parser.cpp
+  MelnikovLab4parser.h 
+  MelnikovLab4ast.cpp 
+  MelnikovLab4ast.h
+  )
