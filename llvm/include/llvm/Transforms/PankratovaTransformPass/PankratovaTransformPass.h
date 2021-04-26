@@ -15,15 +15,6 @@
 #include "llvm/Analysis/ScalarEvolution.h"
 #include "llvm/Analysis/TargetLibraryInfo.h"
 
-
-#define DEBUG_TYPE "transform pass by Pankratova"
-
-STATISTIC(TotalVectorizableLoops, "Number of Vectorizable Loops");
-STATISTIC(TotalBlocks, "Number of Basic blocks");
-STATISTIC(TotalAdd, "Number of Add instructions");
-STATISTIC(TotalMul, "Number of Mul instructions");
-
-
 namespace llvm {
 
 class PankratovaTransformPass : public PassInfoMixin<PankratovaTransformPass> {

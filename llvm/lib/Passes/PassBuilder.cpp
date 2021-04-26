@@ -45,6 +45,8 @@
 #include "llvm/Analysis/InlineAdvisor.h"
 #include "llvm/Analysis/InlineSizeEstimatorAnalysis.h"
 #include "llvm/Analysis/InstCount.h"
+#include "llvm/Analysis/AKomyaginAnalysis.h"
+#include "llvm/Analysis/AKomyaginLoopAnalysis.h"
 #include "llvm/Analysis/LazyCallGraph.h"
 #include "llvm/Analysis/LazyValueInfo.h"
 
@@ -77,8 +79,13 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+<<<<<<< HEAD
 #include "llvm/Analysis/SelivanovskayaAnalysis.h"
 #include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
+=======
+#include "llvm/Analysis/AvmusatovAnalysis.h"
+#include "llvm/Analysis/AvmusatovLoopAnalysis.h"
+>>>>>>> c42157c79fdde6b7208dea889cac87f3e1bd73e7
 #include "llvm/Analysis/VolokhAnalysis.h"
 #include "llvm/Analysis/VolokhLoopAnalysis.h"
 #include "llvm/Analysis/BaturinaAnalysis.h"
@@ -86,9 +93,13 @@
 #include "llvm/Analysis/KovakimyAnalysis.h"
 #include "llvm/Analysis/KovakimyAnalysisLoop.h"
 
+#include "llvm/Analysis/VoronovaAnalisis.h"
+
+
 #include "llvm/Analysis/udachinaAnalysis.h"
 #include "llvm/Analysis/udachinaLoopAnalysis.h"
-
+#include "llvm/Analysis/ErmolaevAnalysis.h"
+#include "llvm/Analysis/ErmolaevLoopAnalysis.h"
 #include "llvm/Analysis/VokhmyaninaAnalysis.h"
 #include "llvm/Analysis/VokhmyaninaLoopAnalysis.h"
 #include "llvm/Analysis/aanoskovCounter.h"
@@ -97,8 +108,16 @@
 #include "llvm/Analysis/IDoroshenkoLoopAnalysis.h"
 #include "llvm/Analysis/KorkunovAnalysisPass.h"
 #include "llvm/Analysis/KorkunovLoopAnalysis.h"
+#include "llvm/Analysis/KMalyshevaAnalysis.h"
+#include "llvm/Analysis/KMalyshevaLoopAnalysis.h"
 #include "llvm/Analysis/pvia.h"
 #include "llvm/Analysis/pvila.h"
+#include "llvm/Analysis/SelivanovskayaAnalysis.h"
+#include "llvm/Analysis/SelivanovskayaLoopAnalysis.h"
+#include "llvm/Analysis/DVorobyovAnalysis.h"
+#include "llvm/Analysis/DVorobyovLoopAnalysis.h"
+#include "llvm/Analysis/MoiseevAnalysis.h"
+#include "llvm/Analysis/MoiseevLoopAnalysis.h"
 #include "llvm/IR/Dominators.h"
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/PassManager.h"
@@ -265,12 +284,16 @@
 #include "llvm/Transforms/Utils/EntryExitInstrumenter.h"
 #include "llvm/Transforms/Utils/FixIrreducible.h"
 #include "llvm/Transforms/Utils/HelloWorld.h"
+#include "llvm/Transforms/VoronovaLab2/VoronovaLab2.h"
+#include "llvm/Transforms/VoronovaLab3/VoronovaLab3.h"
 #include "llvm/Transforms/IlyinPass/IlyinPass.h"
 #include "llvm/Transforms/IlyinPass2/IlyinPass2.h"
 #include "llvm/Transforms/IlyinAnalysisPass/IlyinAnalysisPass.h"
 #include "llvm/Transforms/AKomyaginCount/AKomyaginCount.h"
 #include "llvm/Transforms/AKomyaginASPass/AKomyaginASPass.h"
+#include "llvm/Transforms/AKomyaginPass3/AKomyaginPass3.h"
 #include "llvm/Transforms/AvmusatovCount/AvmusatovCount.h"
+#include "llvm/Transforms/AvmusatovPass/AvmusatovPass.h"
 #include "llvm/Transforms/AvmusatovAS/AvmusatovAS.h"
 #include "llvm/Transforms/PyanzinPass1/PyanzinPass1.h"
 #include "llvm/Transforms/Pyanzin_ASPass/Pyanzin_ASPass.h"
@@ -308,7 +331,6 @@
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
 #include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
 #include "llvm/Transforms/aanoskovStatPass/aanoskovStatPass.h"
-#include "llvm/Transforms/Selivanovskaya_lab2/Selivanovskaya_lab2.h"
 #include "llvm/Transforms/Korkunov_ASpass/Korkunov_ASpass.h"
 #include "llvm/Transforms/KorkunovTransAnalysisPass/KorkunovTransAnalysisPass.h"
 #include "llvm/Transforms/Sazanov_Lab1_Pass/Sazanov_Lab1_Pass.h"
@@ -317,6 +339,9 @@
 #include "llvm/Transforms/aanoskovCounter/aanoskovCounter.h"
 #include "llvm/Transforms/MoiseevPass/MoiseevPass.h"
 #include "llvm/Transforms/VolokhPass/VolokhPass.h"
+#include "llvm/Transforms/ErmolaevPass/ErmolaevPass.h"
+#include "llvm/Transforms/ErmolaevLab2Pass/ErmolaevLab2Pass.h"
+#include "llvm/Transforms/ErmolaevPass3/ErmolaevPass3.h"
 #include "llvm/Transforms/BaturinaPass/BaturinaPass.h"
 #include "llvm/Transforms/BaturinaPass2/BaturinaPass2.h"
 #include "llvm/Transforms/BaturinaPass3/BaturinaPass3.h"
@@ -329,8 +354,10 @@
 
 
 #include "llvm/Transforms/MoiseevPass2/MoiseevPass2.h"
+#include "llvm/Transforms/MoiseevPass3/MoiseevPass3.h"
 #include "llvm/Transforms/VolokhSecondPass/VolokhSecondPass.h"
 #include "llvm/Transforms/VolokhAnalysisPass/VolokhAnalysisPass.h"
+
 
 #include "llvm/Transforms/MelnikovLab1Pass/MelnikovLab1Pass.h" // lab1 pass
 #include "llvm/Transforms/MelnikovLab2Pass/MelnikovLab2Pass.h"
@@ -347,8 +374,16 @@
 
 #include "llvm/Transforms/KatyaMalyshevaLab1Pass/KatyaMalyshevaLab1Pass.h"
 #include "llvm/Transforms/KatyaMalyshevaLab2Pass/KatyaMalyshevaLab2Pass.h"
+#include "llvm/Transforms/KMalyshevaLab3Pass/KMalyshevaLab3Pass.h"
 #include "llvm/Transforms/aanoskovASPass/aanoskovASPass.h"
 
+#include "llvm/Transforms/SelivanovskayaLab3/SelivanovskayaLab3.h"
+#include "llvm/Transforms/Strakhov2/Strakhov2.h"
+#include "llvm/Transforms/Bogoroditskaya3/Bogoroditskaya3.h"
+#include "llvm/Analysis/BogoroditskayaFunctionAnalysis.h"
+#include "llvm/Analysis/BogoroditskayaLoopAnalysis.h"
+#include "llvm/Transforms/DVorobyovAnalysisPass/DVorobyovAnalysisPass.h"
+#include "llvm/Transforms/Sazanov_Lab3_Pass/Sazanov_Lab3_Pass.h"
 
 using namespace llvm;
 

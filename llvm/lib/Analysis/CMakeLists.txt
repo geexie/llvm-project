@@ -1,7 +1,7 @@
 if (DEFINED LLVM_HAVE_TF_AOT OR DEFINED LLVM_HAVE_TF_API)
   if (DEFINED LLVM_HAVE_TF_AOT)
-    set(LLVM_INLINER_MODEL_PATH "models/inliner" 
-      CACHE STRING 
+    set(LLVM_INLINER_MODEL_PATH "models/inliner"
+      CACHE STRING
       "ML-driven inliner policy location (path to saved model)")
     include(TensorFlowCompile)
     tfcompile(${LLVM_INLINER_MODEL_PATH} serve action InlinerSizeModel llvm::InlinerSizeModel)
@@ -142,6 +142,11 @@ add_llvm_component_library(LLVMAnalysis
   VFABIDemangling.cpp
   SelivanovskayaAnalysis.cpp
   SelivanovskayaLoopAnalysis.cpp
+  AKomyaginAnalysis.cpp
+  AKomyaginLoopAnalysis.cpp
+  AvmusatovAnalysis.cpp
+  AvmusatovLoopAnalysis.cpp
+  VoronovaAnalisis.cpp
   VolokhAnalysis.cpp
   VolokhLoopAnalysis.cpp
   BaturinaAnalysis.cpp
@@ -160,7 +165,21 @@ add_llvm_component_library(LLVMAnalysis
   pvila.cpp
   IDoroshenkoAnalysis.cpp
   IDoroshenkoLoopAnalysis.cpp
-
+  KMalyshevaAnalysis.cpp
+  KMalyshevaLoopAnalysis.cpp
+  BogoroditskayaFunctionAnalysis.cpp
+  BogoroditskayaLoopAnalysis.cpp
+  MoiseevAnalysis.cpp
+  MoiseevLoopAnalysis.cpp
+  
+  SelivanovskayaAnalysis.cpp
+  SelivanovskayaLoopAnalysis.cpp
+  DVorobyovAnalysis.cpp
+  DVorobyovLoopAnalysis.cpp
+  SazanovAnalysis.cpp
+  SazanovLoopAnalysis.cpp
+  ErmolaevAnalysis.cpp
+  ErmolaevLoopAnalysis.cpp
   ${GeneratedMLSources}
 
   ADDITIONAL_HEADER_DIRS
