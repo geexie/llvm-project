@@ -19,6 +19,7 @@ add_subdirectory(AvmusatovLambda)
 add_subdirectory(VolokhLambda)
 add_subdirectory(KovakimyLambda)
 add_subdirectory(KMalyshevaLambda)
+add_subdirectory(RazzhivinLambda)
 
 add_subdirectory(MelnikovLab4Lambda)
 
