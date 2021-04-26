@@ -13,6 +13,7 @@ add_subdirectory(idoroshenko_lam)
 add_subdirectory(Korkunov_lambda)
 add_subdirectory(VokhmyaninaLambda)
 add_subdirectory(DVorobyovLambda)
+add_subdirectory(AvmusatovLambda)
 add_subdirectory(VolokhLambda)
 add_subdirectory(KovakimyLambda)
 
