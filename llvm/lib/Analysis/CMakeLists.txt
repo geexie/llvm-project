@@ -58,6 +58,8 @@ add_llvm_component_library(LLVMAnalysis
   GlobalsModRef.cpp
   GuardUtils.cpp
   HeatUtils.cpp
+  PAZamelinAnalysis.cpp
+  PAZamelinLoopAnalysis.cpp
   IRSimilarityIdentifier.cpp
   IVDescriptors.cpp
   IVUsers.cpp
