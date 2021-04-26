@@ -1,5 +1,4 @@
 #pragma once
-#define DEBUG_TYPE "VoronovaAnalisis"
 
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/IR/InstIterator.h"
@@ -29,10 +28,10 @@ namespace llvm {
 
 
 
-	class VoronovaAnalisisInfo 
+	class VoronovaAnalisisInfo
 	{
 		public:
-		
+
 			int64_t CountPows = 0;
 			int64_t CountAdds = 0;
 			int64_t CountMulls = 0;

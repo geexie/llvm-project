@@ -1,9 +1,17 @@
 #include "llvm/Transforms/PankratovaPass/PankratovaPass.h"
 
+#define DEBUG_TYPE "Pass by A. Pankratova"
+
+STATISTIC(totalDef, "Number of Function definitions");
+STATISTIC(totalLoops, "Number of Loops");
+STATISTIC(totalBlocks, "Number of Basic blocks");
+STATISTIC(totalAdd, "Number of Add instructions");
+STATISTIC(totalMul, "Number of Mul instructions");
+
 using namespace llvm;
 
 
-void countLoops(const Loop* L) {
+static void countLoops(const Loop* L) {
     totalLoops++;
     auto loops = L->getSubLoops();
     for (auto L = loops.begin(); L != loops.end(); L++) {
