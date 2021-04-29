@@ -10,6 +10,7 @@ add_subdirectory(OksanaKozlovaLambda)
 add_subdirectory(OrcV2Examples)
 add_subdirectory(SpeculativeJIT)
 add_subdirectory(Bye)
+add_subdirectory(StrakhovLambda)
 
 add_subdirectory(VoronovaLambda)
 
