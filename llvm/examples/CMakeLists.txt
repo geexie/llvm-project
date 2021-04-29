@@ -31,6 +31,7 @@ add_subdirectory(RazzhivinLambda)
 add_subdirectory(MelnikovLab4Lambda)
 add_subdirectory(PAZamelinLambda)
 
+add_subdirectory(SazanovLambda)
 
 if(LLVM_ENABLE_EH AND (NOT WIN32) AND (NOT "${LLVM_NATIVE_ARCH}" STREQUAL "ARM"))
     add_subdirectory(ExceptionDemo)
