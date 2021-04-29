@@ -14,6 +14,7 @@ add_subdirectory(StrakhovLambda)
 
 add_subdirectory(VoronovaLambda)
 
+add_subdirectory(AanoskovLambda)
 add_subdirectory(BaturinaLambda)
 add_subdirectory(idoroshenko_lam)
 add_subdirectory(Korkunov_lambda)
