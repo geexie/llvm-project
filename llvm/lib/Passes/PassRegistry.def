@@ -183,6 +183,7 @@ FUNCTION_ANALYSIS("KovakimyAnalysis", KovakimyAnalysis())
 FUNCTION_ANALYSIS("aanoskovCounterAnalysis", aanoskovCounterAnalysis())
 FUNCTION_ANALYSIS("idoroshenko-analysis", IDoroshenkoAnalysis())
 FUNCTION_ANALYSIS("divergence", DivergenceAnalysis())
+FUNCTION_ANALYSIS("pazamelin_analysis", PAZamelinAnalysis())
 
 FUNCTION_ANALYSIS("avmusatov-analysis", AvmusatovAnalysis())
 FUNCTION_ANALYSIS("voronovaanalisis", VoronovaAnalisis())
@@ -447,6 +448,7 @@ FUNCTION_PASS("ErmolaevPass3", ErmolaevPass3())
 FUNCTION_PASS("SelivanovskayaLab3", SelivanovskayaLab3())
 FUNCTION_PASS("Strakhov2", Strakhov2())
 FUNCTION_PASS("Sazanov_Lab3_Pass", Sazanov_Lab3_Pass())
+FUNCTION_PASS("pazamelin_analysis_pass", PAZamelinAnalysisPass())
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
@@ -518,8 +520,7 @@ LOOP_ANALYSIS("DVorobyovLoopAnalysis", DVorobyovLoopAnalysis())
 LOOP_ANALYSIS("SelivanovskayaLoopAnalysis", SelivanovskayaLoopAnalysis())
 LOOP_ANALYSIS("BogoroditskayaLoopAnalysis", BogoroditskayaLoopAnalysis())
 LOOP_ANALYSIS("ErmolaevLoopAnalysis", ErmolaevLoopAnalysis())
-
-
+LOOP_ANALYSIS("pazamelin_loop_analysis", PAZamelinLoopAnalysis())
 #undef LOOP_ANALYSIS
 
 #ifndef LOOP_PASS
