@@ -19,7 +19,7 @@ add_subdirectory(AvmusatovLambda)
 add_subdirectory(VolokhLambda)
 add_subdirectory(KovakimyLambda)
 add_subdirectory(KMalyshevaLambda)
-
+add_subdirectory(BazarkinLambda)
 add_subdirectory(MelnikovLab4Lambda)
 
 if(LLVM_ENABLE_EH AND (NOT WIN32) AND (NOT "${LLVM_NATIVE_ARCH}" STREQUAL "ARM"))
