@@ -79,6 +79,8 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/Analysis/TargetTransformInfo.h"
 #include "llvm/Analysis/TypeBasedAliasAnalysis.h"
+#include "llvm/Analysis/PAZamelinAnalysis.h"
+#include "llvm/Analysis/PAZamelinLoopAnalysis.h"
 #include "llvm/Analysis/AvmusatovAnalysis.h"
 #include "llvm/Analysis/AvmusatovLoopAnalysis.h"
 #include "llvm/Analysis/VolokhAnalysis.h"
@@ -368,6 +370,7 @@
 
 #include "llvm/Transforms/KatyaMalyshevaLab1Pass/KatyaMalyshevaLab1Pass.h"
 #include "llvm/Transforms/KatyaMalyshevaLab2Pass/KatyaMalyshevaLab2Pass.h"
+#include "llvm/Transforms/pazamelin_analysis_pass/analysis_pass.h"
 #include "llvm/Transforms/KMalyshevaLab3Pass/KMalyshevaLab3Pass.h"
 #include "llvm/Transforms/aanoskovASPass/aanoskovASPass.h"
 

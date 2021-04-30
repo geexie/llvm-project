@@ -89,6 +89,7 @@ add_llvm_component_library(LLVMPasses
   KMalyshevaLab3Pass
   CounterPass
   VoronovaLab2
+  pazamelin_analysis_pass
   pvi
   pvi2
   pvi3
