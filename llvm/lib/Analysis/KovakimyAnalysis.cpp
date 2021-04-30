@@ -1,5 +1,3 @@
-#pragma once
-
 #include "llvm/Analysis/KovakimyAnalysis.h"
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/InstIterator.h"
@@ -11,11 +9,11 @@ AnalysisKey KovakimyAnalysis::Key;
 
 void KovakimyAnalysisInfo::print(raw_ostream &os)
 {
-	
+
   os << "Adds: "  << counterAdd << "/n";
   os << "Muls: "  << counterMul << "/n";
   os << "Powfs: " << counterPow << "/n";
-	
+
   return;
 }
 
@@ -35,7 +33,7 @@ KovakimyAnalysis::Result KovakimyAnalysis::run(Function& F, FunctionAnalysisMana
   }
 
   for (Instruction &I : instructions(F))
-    if (CallInst *C = dyn_cast<CallInst>(&I)) 
+    if (CallInst *C = dyn_cast<CallInst>(&I))
 	  if (C->getCalledFunction()->getName() == "powf")
 	    result.counterPow++;
 
