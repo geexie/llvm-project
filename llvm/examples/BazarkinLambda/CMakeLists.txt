@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(BazarkinLambda
+  Bazarkinlambda.cpp
+  Bazarkinlexer.cpp
+  Bazarkinlexer.hpp
+  Bazarkinparser.cpp
+  Bazarkinparser.hpp
+  Bazarkinast.cpp
+  Bazarkinast.hpp
+  )
