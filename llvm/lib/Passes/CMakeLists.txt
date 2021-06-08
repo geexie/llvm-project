@@ -26,5 +26,5 @@ add_llvm_component_library(LLVMPasses
   IDoroshenkoPass
   Instrumentation
   VokhmyaninaCounter
-  PavelPMI
+  PavelPMI2
   )
