@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(StrakhovLambda
+  ast.hpp
+  ast.cpp
+  lexer.hpp
+  lexer.cpp
+  parser.hpp
+  parser.cpp
+  Strakhovlambda.cpp
+  )

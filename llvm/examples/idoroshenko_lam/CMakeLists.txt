@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(idoroshenko_lam
+  lambda_idoroshenko.cpp
+  lexer_idoroshenko.cpp
+  lexer_idoroshenko.hpp
+  parser_idoroshenko.cpp
+  parser_idoroshenko.hpp
+  ast_idoroshenko.cpp
+  ast_idoroshenko.hpp
+  )

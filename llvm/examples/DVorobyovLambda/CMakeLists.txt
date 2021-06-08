@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(DVorobyovLambda
+  DVorobyovAst.hpp
+  DVorobyovAst.cpp
+  DVorobyovLexer.hpp
+  DVorobyovLexer.cpp
+  DVorobyovParser.hpp
+  DVorobyovParser.cpp
+  DVorobyovLambda.cpp
+  )

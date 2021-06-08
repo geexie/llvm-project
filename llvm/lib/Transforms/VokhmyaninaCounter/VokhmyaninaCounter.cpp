@@ -1,6 +1,6 @@
 #include "llvm/Transforms/VokhmyaninaCounter/VokhmyaninaCounter.h"
-
-using namespace std;
+#define DEBUG_TYPE "VokhmyaninaCounter"
+#include "llvm/ADT/Statistic.h"
 using namespace llvm;
 
 STATISTIC(TotalFuncsDef, "Number of function definitions");
@@ -9,7 +9,7 @@ STATISTIC(TotalBasicBlocks, "Number of basic blocks");
 STATISTIC(TotalAdd, "Number of add");
 STATISTIC(TotalMul, "Number of mul");
 
-void countInnerLoops(Loop * loops){
+static void countInnerLoops(Loop * loops){
   TotalLoops++;
   for (Loop::iterator l = loops->begin(), e = loops->end(); l != e; ++l) { countInnerLoops(*l);}
   return;
@@ -29,4 +29,6 @@ PreservedAnalyses VokhmyaninaCounter::run(Function &F, FunctionAnalysisManager &
     }
   }
   return PreservedAnalyses::all();
+
+
 }

@@ -3,13 +3,13 @@ add_llvm_component_library(LLVMPasses
   PassPlugin.cpp
   StandardInstrumentations.cpp
 
+
   ADDITIONAL_HEADER_DIRS
   ${LLVM_MAIN_INCLUDE_DIR}/llvm
   ${LLVM_MAIN_INCLUDE_DIR}/llvm/Passes
 
   DEPENDS
   intrinsics_gen
-
   LLINK_COMPONENTS
   aanoskovCounter
   aanoskovASPass
@@ -101,3 +101,4 @@ add_llvm_component_library(LLVMPasses
   Sazanov_Lab3_Pass
   PavelPMI2
   )
+

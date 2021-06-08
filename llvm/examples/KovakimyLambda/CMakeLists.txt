@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+  
+add_llvm_example(KovakimyLambda
+  KovakimyLambda.cpp
+  lexer.hpp
+  parser.hpp
+  ast.hpp
+  lexer.cpp
+  parser.cpp
+  ast.cpp
+  )

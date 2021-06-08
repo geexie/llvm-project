@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(SazanovLambda
+  SazanovParser.h
+  SazanovParser.cpp
+  SazanovLexer.h
+  SazanovLexer.cpp
+  SazanovLambda.cpp
+  SazanovAST.h
+  SazanovAST.cpp
+  )

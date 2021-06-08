@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(BaturinaLambda
+  BaturinaAst.hpp
+  BaturinaAst.cpp
+  BaturinaLexer.hpp
+  BaturinaLexer.cpp
+  BaturinaParser.hpp
+  BaturinaParser.cpp
+  BaturinaLambda.cpp
+  )

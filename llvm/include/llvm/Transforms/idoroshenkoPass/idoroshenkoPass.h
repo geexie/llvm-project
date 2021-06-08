@@ -13,9 +13,9 @@ namespace llvm {
 class IDoroshenkoPass : public PassInfoMixin<IDoroshenkoPass> {
 public:
     PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
-    static bool isRequired() { return true; } 
+    static bool isRequired() { return true; }
 };
 
 } // namespace llvm
 
-#endif // LLVM_TRANSFORMS_UTILS_IDOROSHENKOPASS_H
+#endif // LLVM_TRANSFORMS_UTILS_IDOROSHENKOPASS2_H

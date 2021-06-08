@@ -1,0 +1,19 @@
+set(LLVM_LINK_COMPONENTS
+  Core
+  ExecutionEngine
+  Interpreter
+  MC
+  MCJIT
+  Support
+  nativecodegen
+  )
+
+add_llvm_example(AanoskovLambda
+  AanoskovLambda.cpp
+  Aanoskovlexer.cpp
+  Aanoskovlexer.hpp
+  Aanoskovparser.cpp
+  Aanoskovparser.hpp
+  Aanoskovast.cpp
+  Aanoskovast.hpp
+  )
