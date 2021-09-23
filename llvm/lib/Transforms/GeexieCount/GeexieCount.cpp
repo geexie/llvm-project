@@ -8,9 +8,6 @@
 
 #include "llvm/Transforms/GeexieCount/GeexieCount.h"
 
-#define DEBUG_TYPE "geexie-count"
-#include "llvm/ADT/Statistic.h"
-
 using namespace llvm;
 
 PreservedAnalyses GeexieCountPass::run(Function &F,
