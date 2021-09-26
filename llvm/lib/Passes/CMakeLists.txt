@@ -25,5 +25,5 @@ add_llvm_component_library(LLVMPasses
   TransformUtils
   Vectorize
   Instrumentation
-  DenisKabanov
+  DenisKabanov # for build target together with all llvm
   )

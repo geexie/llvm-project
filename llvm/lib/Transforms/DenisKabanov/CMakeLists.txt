@@ -3,12 +3,12 @@ add_llvm_component_library(LLVMDenisKabanov
 DenisKabanov.cpp
 
 DEPENDS
-intrinsics_gen
+intrinsics_gen # to run table_gen on our target
 
 COMPONENT_NAME
 DenisKabanov
 
 LINK_COMPONENTS
-Core
-Support
+Core # for structures
+Support # for errs
 )

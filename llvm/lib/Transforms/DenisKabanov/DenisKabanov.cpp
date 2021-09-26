@@ -9,6 +9,6 @@ using namespace llvm;
 // если что-то изменилось - инвалидируем информацию о коде (последующим проходам придётся перезапускать анализ, так как будет трансформационный проход)
 PreservedAnalyses DenisKabanovPass::run(Function &F,
                                       FunctionAnalysisManager &AM) {
-  errs() << "functions " << F.getName() << "\n"; // возвращает название функции
+  errs() << "functions " << F.getName() << "\n"; // выводит название функции
   return PreservedAnalyses::all();
 }
