@@ -27,6 +27,9 @@
 # Nested build directory
 /build*
 
+# Nested llvm-quick-start-tool
+/llvm-quick-start-tool*
+
 #==============================================================================#
 # Explicit files to ignore (only matches one).
 #==============================================================================#
