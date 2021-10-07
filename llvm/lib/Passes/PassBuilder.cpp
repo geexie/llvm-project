@@ -216,6 +216,7 @@
 #include "llvm/Transforms/Utils/CanonicalizeFreezeInLoops.h"
 #include "llvm/Transforms/Utils/EntryExitInstrumenter.h"
 #include "llvm/Transforms/Utils/FixIrreducible.h"
+#include "llvm/Transforms/Utils/Lab1.h"
 #include "llvm/Transforms/Utils/HelloWorld.h"
 #include "llvm/Transforms/Utils/InjectTLIMappings.h"
 #include "llvm/Transforms/Utils/InstructionNamer.h"
@@ -1716,8 +1717,8 @@ PassBuilder::buildLTODefaultPipeline(OptimizationLevel Level,
   }
 
   // Now deduce any function attributes based in the current code.
-  MPM.addPass(createModuleToPostOrderCGSCCPassAdaptor(
-              PostOrderFunctionAttrsPass()));
+  MPM.addPass(
+      createModuleToPostOrderCGSCCPassAdaptor(PostOrderFunctionAttrsPass()));
 
   // Do RPO function attribute inference across the module to forward-propagate
   // attributes where applicable.
@@ -2267,7 +2268,8 @@ Expected<SimplifyCFGOptions> parseSimplifyCFGOptions(StringRef Params) {
         return make_error<StringError>(
             formatv("invalid argument to SimplifyCFG pass bonus-threshold "
                     "parameter: '{0}' ",
-                    ParamName).str(),
+                    ParamName)
+                .str(),
             inconvertibleErrorCode());
       Result.bonusInstThreshold(BonusInstThreshold.getSExtValue());
     } else {
@@ -3114,8 +3116,9 @@ Error PassBuilder::parsePassPipeline(ModulePassManager &MPM,
       Pipeline = {{"function", std::move(*Pipeline)}};
     } else if (isLoopPassName(FirstName, LoopPipelineParsingCallbacks,
                               UseMemorySSA)) {
-      Pipeline = {{"function", {{UseMemorySSA ? "loop-mssa" : "loop",
-                                 std::move(*Pipeline)}}}};
+      Pipeline = {
+          {"function",
+           {{UseMemorySSA ? "loop-mssa" : "loop", std::move(*Pipeline)}}}};
     } else {
       for (auto &C : TopLevelPipelineParsingCallbacks)
         if (C(MPM, *Pipeline))
