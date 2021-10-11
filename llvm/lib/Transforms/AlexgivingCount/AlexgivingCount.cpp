@@ -5,23 +5,25 @@
 #include "llvm/IR/InstIterator.h"
 
  using namespace llvm;
- PreservedAnalyses AlexgivingPass::run(Function &F,
+
+ALWAYS_ENABLED_STATISTIC(F_count, "Number of functions");
+ALWAYS_ENABLED_STATISTIC(OPS_count, "Number of BB ");
+ALWAYS_ENABLED_STATISTIC(BB_count, "Number of OPS ");
+
+
+PreservedAnalyses AlexgivingPass::run(Function &F,
                                        FunctionAnalysisManager &AM) {
-
-    errs() << "functions " << F.getName() << "\n";
-
-    int BB_count = 0;
-    int IN_count = 0;
-    for (auto BB = F.begin(); BB != F.end(); ++BB) {
+    F_count ++;
+    for (auto& BB : F) {
         BB_count++;
-
         for (auto& IN : instructions(F)){
-            IN_count++;
+            OPS_count++;
         }
     }
 
-    errs() << "    Number of base blocks " << BB_count << "\n";
-    errs() << "        Number of instructions " << IN_count << "\n";
+    errs() << "Number of Func " << F_count << "\n";
+    errs() << "    Number of BB " << BB_count << "\n";
+    errs() << "        Number of OPS " << OPS_count << "\n";
 
    return PreservedAnalyses::all();
- }
+}
