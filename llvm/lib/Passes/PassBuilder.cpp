@@ -139,6 +139,7 @@
 #include "llvm/Transforms/Instrumentation/ThreadSanitizer.h"
 #include "llvm/Transforms/GeexieAS/GeexieAS.h"
 #include "llvm/Transforms/GeexieCount/GeexieCount.h"
+#include "llvm/Transforms/KlykovCount/KlykovCount.h"
 #include "llvm/Transforms/GeexiePhi/GeexiePhi.h"
 #include "llvm/Transforms/GeexieSR/GeexieSR.h"
 #include "llvm/Transforms/GeexieVec/GeexieVec.h"

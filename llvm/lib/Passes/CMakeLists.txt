@@ -18,6 +18,7 @@ add_llvm_component_library(LLVMPasses
   IPO
   InstCombine
   GeexieCount
+  KlykovCount
   GeexieAS
   GeexiePhi
   GeexieSR
