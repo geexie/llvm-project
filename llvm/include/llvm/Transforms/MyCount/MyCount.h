@@ -5,10 +5,10 @@
 
 namespace llvm {
 
-class MyCountPass : public PassInfoMixin<MyCountPass> {
-public:
-  PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
-};
+	class MyCountPass : public PassInfoMixin<MyCountPass> {
+	public:
+		PreservedAnalyses run(Function& F, FunctionAnalysisManager& AM);
+	};
 } // namespace llvm
 
 #endif // LLVM_TRANSFORMS_MY_COUNT_Hs
