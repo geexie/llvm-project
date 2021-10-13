@@ -1,6 +1,6 @@
-#include "llvm/Transforms/LongaBonga/LongaBonga.h"
+#include "llvm/Transforms/LongaBongaCount/LongaBongaCount.h"
 
- #define DEBUG_TYPE "LongaBonga"
+ #define DEBUG_TYPE "LongaBongaCount"
  #include "llvm/ADT/Statistic.h"
  #include "llvm/IR/InstIterator.h"
 
