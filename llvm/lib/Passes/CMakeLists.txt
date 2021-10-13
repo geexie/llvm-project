@@ -23,6 +23,7 @@ add_llvm_component_library(LLVMPasses
   Support
   Target
   TransformUtils
+  NikitaCount
   Vectorize
   Instrumentation
   )
