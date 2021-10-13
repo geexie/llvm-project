@@ -18,6 +18,7 @@ add_llvm_component_library(LLVMPasses
   Coroutines
   IPO
   InstCombine
+  Ivanovd4Count
   ObjCARC
   Scalar
   Support
