@@ -2,18 +2,26 @@
 
  #define DEBUG_TYPE "HabKaffeeCount"
  #include "llvm/ADT/Statistic.h"
+ #include "llvm/Analysis/LoopInfo.h"
 
 using namespace llvm;
 
 ALWAYS_ENABLED_STATISTIC(funcCount, "# of functions");
 ALWAYS_ENABLED_STATISTIC(arithmeticsOpersCount, "# of arithmetic operations");
 ALWAYS_ENABLED_STATISTIC(bbCount, "# of BB");
+ALWAYS_ENABLED_STATISTIC(loopCount, "# of loops");
 
 PreservedAnalyses HabKaffeePass::run(Function &F, FunctionAnalysisManager &AM) {
 
   funcCount += 1;
+  auto& LA = AM.getResult<LoopAnalysis>(F);
+  for (auto& L : LA) {
+    loopCount += 1;
+  }
+
 
   for (auto BB = F.begin(); BB != F.end(); ++BB) {
+    auto& LA = AM.getResult<LoopAnalysis>(F);
     bbCount += 1;
     for (auto I = BB->begin(); I != BB->end(); ++I) {
       switch (I->getOpcode()) {
@@ -33,5 +41,6 @@ PreservedAnalyses HabKaffeePass::run(Function &F, FunctionAnalysisManager &AM) {
   errs() << "# of functions " << funcCount << "\n";
   errs() << "# of arithmetic operations " << arithmeticsOpersCount << "\n";
   errs() << "# of BB " << bbCount << "\n";
+  errs() << "# of loops " << loopCount << "\n";
   return PreservedAnalyses::all();
 }
