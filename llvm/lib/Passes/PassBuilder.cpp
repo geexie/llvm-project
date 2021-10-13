@@ -54,6 +54,7 @@
 #include "llvm/Analysis/ModuleDebugInfoPrinter.h"
 #include "llvm/Analysis/ModuleSummaryAnalysis.h"
 #include "llvm/Analysis/MustExecute.h"
+#include "llvm/Transforms/MyCount/MyCount.h"
 #include "llvm/Analysis/ObjCARCAliasAnalysis.h"
 #include "llvm/Analysis/OptimizationRemarkEmitter.h"
 #include "llvm/Analysis/PhiValues.h"
