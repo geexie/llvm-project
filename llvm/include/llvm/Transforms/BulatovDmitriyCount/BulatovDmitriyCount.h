@@ -1,0 +1,13 @@
+#ifndef LLVM_TRANSFORMS_BULATOVDMITRIYCOUNT_BULATOVDMITRIYCOUNT_H_
+#define LLVM_TRANSFORMS_BULATOVDMITRIYCOUNT_BULATOVDMITRIYCOUNT_H_
+
+#include "llvm/IR/PassManager.h"
+
+namespace llvm {
+  class BulatovDmitriyCountPass : public PassInfoMixin<BulatovDmitriyPass> {
+   public:
+      PreservedAnalyses run(Function &F, FunctionAnalysisManager &AM);
+  };
+} // namespace llvm
+
+#endif // LLVM_TRANSFORMS_BULATOVDMITRIYCOUNT_BULATOVDMITRIYCOUNT_H_
