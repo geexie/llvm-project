@@ -1,0 +1,13 @@
+add_llvm_component_library(LLVMDenisKabanovLab1
+DenisKabanovLab1.cpp
+
+DEPENDS
+intrinsics_gen
+
+COMPONENT_NAME
+DenisKabanovLab1
+
+LINK_COMPONENTS
+Core
+Support
+)
