@@ -38,10 +38,10 @@ PreservedAnalyses NikitaCountPass::run(Function &F,
       errs() << "loop: " << L->getName() << "\n";
       ++loop_counter;
   }
-  errs() << "Func: " << func_counter << "\n";
-  errs() << "Block: " << block_counter << "\n";
-  errs() << "Arithmetic operations: " << instr_counter << "\n";
-  errs() << "Loop: " << loop_counter << "\n";
+  errs() << "Funcs count: " << func_counter << "\n";
+  errs() << "Blocks count: " << block_counter << "\n";
+  errs() << "Arithmetic operations count: " << instr_counter << "\n";
+  errs() << "Loops count: " << loop_counter << "\n";
   errs() << "================================\n\n";
   return PreservedAnalyses::all();
 }
