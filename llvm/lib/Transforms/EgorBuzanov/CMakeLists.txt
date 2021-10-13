@@ -1,0 +1,13 @@
+add_llvm_component_library(LLVMEgorBuzanovCounter
+EgorBuzanovCounter.cpp
+
+DEPENDS
+intrinsics_gen
+
+COMPONENT_NAME
+EgorBuzanovCounter
+
+LINK_COMPONENTS
+Core
+Support
+)
