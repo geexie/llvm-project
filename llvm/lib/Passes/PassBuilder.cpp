@@ -3324,3 +3324,4 @@ void PassBuilder::registerParseTopLevelPipelineCallback(
         &C) {
   TopLevelPipelineParsingCallbacks.push_back(C);
 }
+

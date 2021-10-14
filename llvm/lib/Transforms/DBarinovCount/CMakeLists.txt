@@ -16,3 +16,4 @@ add_llvm_component_library(LLVMDBarinovCount
   Core
   Support
   )
+  

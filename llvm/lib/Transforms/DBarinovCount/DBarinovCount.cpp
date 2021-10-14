@@ -39,3 +39,4 @@ PreservedAnalyses DBarinovPass::run(Function &F,
 
   return PreservedAnalyses::all();
 }
+

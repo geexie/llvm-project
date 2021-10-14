@@ -490,3 +490,4 @@ LOOP_PASS_WITH_PARAMS("simple-loop-unswitch",
                       parseLoopUnswitchOptions,
                       "nontrivial;no-nontrivial;trivial;no-trivial")
 #undef LOOP_PASS_WITH_PARAMS
+
