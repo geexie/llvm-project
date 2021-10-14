@@ -1,8 +1,8 @@
 #include "llvm/Transforms/HabKaffeeCount/HabKaffeeCount.h"
 
- #define DEBUG_TYPE "HabKaffeeCount"
- #include "llvm/ADT/Statistic.h"
- #include "llvm/Analysis/LoopInfo.h"
+#define DEBUG_TYPE "HabKaffeeCount"
+#include "llvm/ADT/Statistic.h"
+#include "llvm/Analysis/LoopInfo.h"
 
 using namespace llvm;
 
@@ -15,12 +15,12 @@ PreservedAnalyses HabKaffeePass::run(Function &F, FunctionAnalysisManager &AM) {
 
   funcCount += 1;
 
+  auto &LA = AM.getResult<LoopAnalysis>(F);
+  for (auto &L : LA) {
+    loopCount += 1;
+  }
 
   for (auto BB = F.begin(); BB != F.end(); ++BB) {
-    auto& LA = AM.getResult<LoopAnalysis>(F);
-    for (auto& L : LA) {
-      loopCount += 1;
-    }
     bbCount += 1;
     for (auto I = BB->begin(); I != BB->end(); ++I) {
       switch (I->getOpcode()) {
