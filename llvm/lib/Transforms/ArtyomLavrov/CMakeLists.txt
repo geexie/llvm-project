@@ -1,0 +1,13 @@
+add_llvm_component_library(LLVMArtyomLavrovlab1
+ArtyomLavrovlab1.cpp
+
+DEPENDS
+intrinsics_gen
+
+COMPONENT_NAME
+ArtyomLavrovlab1
+
+LINK_COMPONENTS
+Core
+Support
+)
