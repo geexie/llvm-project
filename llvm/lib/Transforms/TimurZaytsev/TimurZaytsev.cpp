@@ -18,7 +18,7 @@ PreservedAnalyses TimurZaytsevPass::run(Function &F,
   Fun_Count++;
   auto& LA = AM.getResult<LoopAnalysis>(F);
   for (auto& L : LA) {
-    LoopCount++;
+    Loop_Count++;
   }
   for (const BasicBlock &BB : F) {
     B_Count++;
