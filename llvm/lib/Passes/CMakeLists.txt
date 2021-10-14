@@ -18,6 +18,7 @@ add_llvm_component_library(LLVMPasses
   Coroutines
   IPO
   InstCombine
+  AlexeusC4ever
   ObjCARC
   Scalar
   Support
