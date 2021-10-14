@@ -14,12 +14,12 @@ ALWAYS_ENABLED_STATISTIC(Loop_num, "Number of loops");
 PreservedAnalyses Function_counter_pass::run(Function &F,
                                        FunctionAnalysisManager &AM) {
     Fun_num ++;
+    auto& LA = AM.getResult<LoopAnalysis>(F);
+    for (auto& loop: LA){
+        Loop_num++;
+    }
     for (auto& BB : F) {
         BB_num++;
-        auto& LA = AM.getResult<LoopAnalysis>(F);
-        for (auto& loop: LA){
-            Loop_num++;
-        }
         for (auto& IN : instructions(F)){
             arithm_OPS_Num++;
         }
