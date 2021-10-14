@@ -1,0 +1,13 @@
+add_llvm_component_library(LLVMVadimTumakovlab1
+VadimTumakovlab1.cpp
+
+DEPENDS
+intrinsics_gen
+
+COMPONENT_NAME
+VadimTumakovlab1
+
+LINK_COMPONENTS
+Core
+Support
+)
