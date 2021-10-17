@@ -15,7 +15,6 @@ ALWAYS_ENABLED_STATISTIC(L_Count, "Loops");
 PreservedAnalyses KartsevamdCountPass::run(Function &F,
                                        FunctionAnalysisManager &AM) {
    F_Count += 1;
-  
   for (const BasicBlock &BB : F) {
     B_Count += 1;
     for (const Instruction &I : BB) {
@@ -38,11 +37,9 @@ PreservedAnalyses KartsevamdCountPass::run(Function &F,
   errs() << " Functions " << F_Count << "\n";
   errs() << " Blocks " << B_Count << "\n";
   errs() << " Loops " << L_Count << "\n";
-
   auto& LA = AM.getResult<LoopAnalysis>(F);
   for (auto& L : LA) {
     L_Count += 1;
   }
-  
   return PreservedAnalyses::all();
 } 
