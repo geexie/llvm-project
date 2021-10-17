@@ -23,7 +23,7 @@ PreservedAnalyses SlavokeruCountPass::run(Function &F,
       Bcount++;
       for (auto I = BB->begin(); I != BB->end(); ++I) {
           switch (I->getOpcode()) {
-            case Instruction::Add:
+            case Instruction::Add:        //slavokeru branch test
             case Instruction::FAdd:
             case Instruction::Sub:
             case Instruction::FSub:
